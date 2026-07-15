@@ -31,14 +31,31 @@ npm run type-check  # check TypeScript types
 npm test            # run the tests once
 ```
 
-## Phase status
+## What's included
 
-- **Phase 1 (done):** Welcome screen, mission map, progress saving, two
-  missions ("Plan the Project" and "Organise the Work"), instant feedback with
-  explanations, mobile styling.
-- **Phase 2 (planned):** more missions (Phase checks, testing/troubleshooting,
-  IT terms matching), Study & Challenge modes, glossary, final results and
-  revision screen, reset confirmation.
+- **Welcome** screen and **mode select** (Study or Challenge)
+- **Six missions**, all built from the Week 1 notes:
+  1. Plan the Project (teamwork)
+  2. Organise the Work (ordering: data-breach response, outage fix)
+  3. Phase 1 Check (policies, privacy law, ACS ethics)
+  4. Phase 2 Check (spot the IP / privacy mistake)
+  5. Test the Project (troubleshoot: pick the right fix)
+  6. IT Terms Challenge (match terms to meanings)
+- **Study Mode** (relaxed, no score) and **Challenge Mode** (XP + stars, saved)
+- Instant feedback with a plain-English explanation on every answer
+- **Glossary** of IT terms
+- **Final results** screen with **revision recommendations**
+- Reset progress with a confirmation dialog
+- Progress saved in `localStorage` (survives refresh)
+- Accessible and mobile-first (large tap targets, keyboard support, focus
+  rings, reduced-motion support)
+
+## Ideas for a future Phase 3
+
+- Sound effects and richer animations
+- More question types and a timed challenge
+- Track best streaks and badges
+- Content for the third unit (ICTSAS305) once notes are available
 
 ## Project layout
 

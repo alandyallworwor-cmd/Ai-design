@@ -2,15 +2,18 @@ import { useState } from 'react';
 import { AppHeader } from '../components/AppHeader';
 import { Button } from '../components/Button';
 import { FeedbackBanner } from '../components/FeedbackBanner';
+import { MatchingBoard } from '../components/MatchingBoard';
 import { OptionButton } from '../components/OptionButton';
 import { OrderingList } from '../components/OrderingList';
 import { ProgressBar } from '../components/ProgressBar';
-import type { Mission, MissionResult, Question } from '../types';
+import type { GameMode, Mission, MissionResult, Question } from '../types';
 
 interface MissionScreenProps {
   mission: Mission;
   /** The player's current total XP, shown in the top bar. */
   xp: number;
+  /** Study mode is relaxed practice; challenge mode is scored. */
+  mode: GameMode;
   onFinish: (result: MissionResult) => void;
   onExit: () => void;
 }
@@ -30,6 +33,7 @@ function sameOrder(a: string[], b: string[]): boolean {
 export function MissionScreen({
   mission,
   xp,
+  mode,
   onFinish,
   onExit,
 }: MissionScreenProps) {
@@ -61,6 +65,12 @@ export function MissionScreen({
     markAnswer(sameOrder(orderedIds, question.correctOrder));
   }
 
+  function handleMatchComplete(perfect: boolean) {
+    if (question.kind !== 'match') return;
+    // A matching round counts as correct when finished with no wrong taps.
+    markAnswer(perfect);
+  }
+
   function handleNext() {
     if (isLast) {
       const result: MissionResult = {
@@ -90,15 +100,20 @@ export function MissionScreen({
           <div className="complete__icon" aria-hidden="true">
             🎉
           </div>
-          <h2 className="complete__title">Mission complete!</h2>
+          <h2 className="complete__title">
+            {mode === 'study' ? 'Practice complete!' : 'Mission complete!'}
+          </h2>
           <p className="complete__score">
             You got {correctCount} of {total} correct.
           </p>
-          <p className="complete__stars" aria-label={`${stars} of 3 stars`}>
-            {[1, 2, 3].map((n) => (
-              <span key={n}>{n <= stars ? '★' : '☆'}</span>
-            ))}
-          </p>
+          {/* Stars are a scored reward, so only show them in challenge mode. */}
+          {mode === 'challenge' && (
+            <p className="complete__stars" aria-label={`${stars} of 3 stars`}>
+              {[1, 2, 3].map((n) => (
+                <span key={n}>{n <= stars ? '★' : '☆'}</span>
+              ))}
+            </p>
+          )}
           <Button variant="primary" onClick={onExit}>
             Back to missions
           </Button>
@@ -117,6 +132,9 @@ export function MissionScreen({
           Question {index + 1} of {mission.questions.length}
         </p>
         <h2 className="mission__title">{mission.title}</h2>
+        {mode === 'study' && (
+          <p className="mission__mode-tag">📖 Study Mode · no score pressure</p>
+        )}
         <p className="mission__prompt">{question.prompt}</p>
 
         {question.kind === 'select' && (
@@ -146,6 +164,14 @@ export function MissionScreen({
             correctOrder={question.correctOrder}
             answered={answered}
             onCheck={handleCheckOrder}
+          />
+        )}
+
+        {question.kind === 'match' && (
+          <MatchingBoard
+            pairs={question.pairs}
+            answered={answered}
+            onComplete={handleMatchComplete}
           />
         )}
 

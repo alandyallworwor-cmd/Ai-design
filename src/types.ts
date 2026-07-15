@@ -41,8 +41,27 @@ export interface OrderQuestion {
   explanation: string;
 }
 
+/** One term-and-meaning pair the player has to match up. */
+export interface MatchPair {
+  id: string;
+  term: string;
+  meaning: string;
+}
+
+/**
+ * "Match the term to its meaning" activity.
+ * The player taps a term, then taps the meaning that goes with it.
+ */
+export interface MatchQuestion {
+  kind: 'match';
+  id: string;
+  prompt: string;
+  pairs: MatchPair[];
+  explanation: string;
+}
+
 /** Any question the game knows how to show. */
-export type Question = SelectQuestion | OrderQuestion;
+export type Question = SelectQuestion | OrderQuestion | MatchQuestion;
 
 /** A mission is a short set of questions with a friendly title and icon. */
 export interface Mission {
@@ -50,8 +69,17 @@ export interface Mission {
   title: string;
   subtitle: string;
   icon: string;
+  /** Plain-English topic name, used for revision tips on the results screen. */
+  topic: string;
   questions: Question[];
 }
+
+/**
+ * How the player is playing:
+ * - "challenge": answers are scored and progress is saved.
+ * - "study": relaxed practice; nothing is scored or saved.
+ */
+export type GameMode = 'challenge' | 'study';
 
 /** What we remember about a mission the player has finished. */
 export interface MissionResult {
