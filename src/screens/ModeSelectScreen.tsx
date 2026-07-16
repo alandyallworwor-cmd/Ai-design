@@ -4,10 +4,19 @@ import type { GameMode } from '../types';
 interface ModeSelectScreenProps {
   onChoose: (mode: GameMode) => void;
   onGlossary: () => void;
+  onWeekly: () => void;
+  isAdmin: boolean;
+  onAdmin: () => void;
 }
 
 /** Lets the player pick Challenge or Study mode before the mission map. */
-export function ModeSelectScreen({ onChoose, onGlossary }: ModeSelectScreenProps) {
+export function ModeSelectScreen({
+  onChoose,
+  onGlossary,
+  onWeekly,
+  isAdmin,
+  onAdmin,
+}: ModeSelectScreenProps) {
   return (
     <main className="screen mode-select">
       <h1 className="mode-select__title">Choose how to play</h1>
@@ -35,6 +44,16 @@ export function ModeSelectScreen({ onChoose, onGlossary }: ModeSelectScreenProps
       <Button variant="ghost" className="mode-select__glossary" onClick={onGlossary}>
         📕 Open the glossary
       </Button>
+
+      <Button variant="ghost" className="mode-select__weekly" onClick={onWeekly}>
+        📅 Weekly study
+      </Button>
+
+      {isAdmin && (
+        <Button variant="ghost" className="mode-select__admin" onClick={onAdmin}>
+          🔐 Weekly Notes Manager
+        </Button>
+      )}
     </main>
   );
 }

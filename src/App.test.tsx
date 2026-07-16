@@ -131,6 +131,28 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('button', { name: /next question/i })).toBeInTheDocument();
   });
 
+  it('opens weekly study and shows a friendly empty state (no cloud configured)', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await user.click(screen.getByRole('button', { name: /start playing/i }));
+    await user.click(screen.getByRole('button', { name: /weekly study/i }));
+    expect(
+      await screen.findByRole('heading', { name: /weekly study/i }),
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByText(/no weekly lessons have been published yet/i),
+    ).toBeInTheDocument();
+  });
+
+  it('does not show the admin manager to a signed-out user', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await user.click(screen.getByRole('button', { name: /start playing/i }));
+    expect(
+      screen.queryByRole('button', { name: /weekly notes manager/i }),
+    ).not.toBeInTheDocument();
+  });
+
   it('opens the glossary from the mission map', async () => {
     const user = userEvent.setup();
     await startGame(user);

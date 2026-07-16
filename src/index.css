@@ -955,3 +955,231 @@ main {
     transition: none !important;
   }
 }
+
+/* ---- Weekly study (student) ------------------------------------------ */
+.weekly__note {
+  color: var(--ink-soft);
+  margin: 8px 0;
+}
+
+.weekly__note--error {
+  color: var(--red);
+}
+
+.weekly__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.weekly-card {
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.weekly-card--latest {
+  border-color: var(--indigo);
+  border-width: 2px;
+}
+
+.weekly-card__badge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #fff;
+  background: var(--indigo);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.weekly-card__title {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.weekly-card__unit {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.weekly-card__summary {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* ---- Admin: Weekly Notes Manager ------------------------------------- */
+.admin {
+  padding: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.admin__heading {
+  margin: 4px 0;
+  font-size: 1.5rem;
+}
+
+.admin__subheading {
+  margin: 18px 0 6px;
+  font-size: 1.2rem;
+}
+
+.admin__intro {
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+.admin__new {
+  margin-bottom: 14px;
+}
+
+.admin__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-lesson {
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.admin-lesson__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.admin-lesson__title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.admin-lesson__status {
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.admin-lesson__status--published {
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.admin-lesson__status--draft {
+  color: var(--ink-soft);
+  background: var(--line);
+}
+
+.admin-lesson__unit {
+  margin: 4px 0 10px;
+  font-size: 0.85rem;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.admin-lesson__actions,
+.admin__add-row,
+.admin__save-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin__save-row {
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.admin__add-row {
+  margin-top: 8px;
+}
+
+/* ---- Forms ----------------------------------------------------------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 10px 0;
+}
+
+.field__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field__input {
+  min-height: var(--tap);
+  padding: 10px 12px;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-family: inherit;
+}
+
+.field__textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+}
+
+.activity-editor {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin: 12px 0;
+  background: var(--bg);
+}
+
+.activity-editor__legend {
+  font-weight: 700;
+  padding: 0 6px;
+}
+
+.activity-editor__remove {
+  color: var(--red);
+  margin-top: 4px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.option-row .field__input {
+  flex: 1;
+}
+
+.mode-select__weekly,
+.mode-select__admin {
+  margin-top: 4px;
+}
