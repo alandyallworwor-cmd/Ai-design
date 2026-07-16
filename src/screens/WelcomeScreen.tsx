@@ -1,11 +1,14 @@
 import { Button } from '../components/Button';
+import { AuthPanel } from '../components/AuthPanel';
+import type { useAuth } from '../hooks/useAuth';
 
 interface WelcomeScreenProps {
   onStart: () => void;
+  auth: ReturnType<typeof useAuth>;
 }
 
 /** The first screen: a catchy title and a short, friendly explanation. */
-export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
+export function WelcomeScreen({ onStart, auth }: WelcomeScreenProps) {
   return (
     <main className="screen welcome">
       <div className="welcome__badge" aria-hidden="true">
@@ -21,6 +24,13 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       <Button variant="primary" className="welcome__start" onClick={onStart}>
         Start playing
       </Button>
+      <AuthPanel
+        enabled={auth.enabled}
+        loading={auth.loading}
+        user={auth.user}
+        onSignIn={auth.signInWithEmail}
+        onSignOut={auth.signOut}
+      />
       <p className="welcome__note">Based on your Week 1 Work Skills notes.</p>
     </main>
   );

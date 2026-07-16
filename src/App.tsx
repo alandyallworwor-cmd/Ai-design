@@ -7,6 +7,7 @@ import { GlossaryScreen } from './screens/GlossaryScreen';
 import { ResultsScreen } from './screens/ResultsScreen';
 import { getMission } from './data/missions';
 import { useProgress } from './hooks/useProgress';
+import { useAuth } from './hooks/useAuth';
 import type { GameMode, MissionResult } from './types';
 
 // The places the player can be. Keeping this as a small union means we never
@@ -23,6 +24,7 @@ export default function App() {
   const [screen, setScreen] = useState<Screen>({ name: 'welcome' });
   const [mode, setMode] = useState<GameMode>('challenge');
   const { progress, completeMission, resetProgress } = useProgress();
+  const auth = useAuth();
 
   function chooseMode(chosen: GameMode) {
     setMode(chosen);
@@ -38,7 +40,9 @@ export default function App() {
 
   switch (screen.name) {
     case 'welcome':
-      return <WelcomeScreen onStart={() => setScreen({ name: 'mode' })} />;
+      return (
+        <WelcomeScreen onStart={() => setScreen({ name: 'mode' })} auth={auth} />
+      );
 
     case 'mode':
       return (
