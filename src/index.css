@@ -198,6 +198,91 @@ main {
   margin-top: 4px;
 }
 
+/* ---- Account / auth panel -------------------------------------------- */
+.auth-panel {
+  width: 100%;
+  max-width: 34ch;
+  margin: 8px auto 0;
+  padding: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-panel__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.auth-panel__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.auth-panel__input {
+  flex: 1 1 12ch;
+  min-height: var(--tap);
+  padding: 0 14px;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.auth-panel__send {
+  flex: 0 0 auto;
+}
+
+.auth-panel__who {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.auth-panel__signout {
+  align-self: flex-start;
+  padding: 8px 12px;
+}
+
+.auth-panel__msg {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.auth-panel__msg--sent {
+  color: var(--green);
+}
+
+.auth-panel__msg--error {
+  color: var(--red);
+}
+
+.sync-indicator {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.sync-indicator--synced {
+  color: var(--green);
+}
+
+.sync-indicator--error {
+  color: var(--red);
+}
+
+.sync-indicator--offline {
+  color: var(--ink-soft);
+}
+
 /* ---- Mission map ----------------------------------------------------- */
 .map__heading {
   margin: 4px 0 2px;
