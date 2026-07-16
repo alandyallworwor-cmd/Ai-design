@@ -44,6 +44,26 @@ URL is used.
   **public** values (e.g. the Supabase project URL and the anon/publishable key).
   Service-role keys and other secrets stay server-side only.
 
+## Supabase auth configuration (needed for the live site)
+
+Magic-link sign-in only redirects back to URLs on Supabase's allow-list. After
+the first Vercel deploy, in **Supabase → Authentication → URL Configuration**:
+
+- **Site URL:** your production URL (e.g. `https://<project>.vercel.app`).
+- **Redirect URLs:** add the production URL and, if you preview branches,
+  `https://*-<your-scope>.vercel.app` (or each preview URL you use).
+
+## Administrator access (Weekly Notes Manager)
+
+- Admins are defined by a database allow-list (`admin_emails`), managed only via
+  migrations / the service role — there is **no public admin registration**.
+- When an allow-listed email signs in, their profile is flagged `is_admin` and
+  the **Weekly Notes Manager** link appears. Everyone else only sees the game.
+- The real security boundary is Supabase **RLS**: only admins can create, edit,
+  publish, unpublish or delete lessons; drafts are never visible to students.
+- To add another admin, insert their email into `admin_emails` via a migration
+  (not from the client).
+
 ## Cost guardrails
 
 - Vercel Hobby and Supabase Free plans are sufficient for a small personal
