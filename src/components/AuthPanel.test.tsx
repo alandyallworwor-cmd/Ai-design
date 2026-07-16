@@ -13,6 +13,7 @@ describe('AuthPanel', () => {
         enabled={false}
         loading={false}
         user={null}
+        syncStatus="idle"
         onSignIn={vi.fn()}
         onSignOut={vi.fn()}
       />,
@@ -27,11 +28,13 @@ describe('AuthPanel', () => {
         enabled
         loading={false}
         user={fakeUser}
+        syncStatus="synced"
         onSignIn={vi.fn()}
         onSignOut={onSignOut}
       />,
     );
     expect(screen.getByText('student@example.com')).toBeInTheDocument();
+    expect(screen.getByText(/progress saved to your account/i)).toBeInTheDocument();
     await userEvent.click(screen.getByRole('button', { name: /sign out/i }));
     expect(onSignOut).toHaveBeenCalledOnce();
   });
@@ -43,6 +46,7 @@ describe('AuthPanel', () => {
         enabled
         loading={false}
         user={null}
+        syncStatus="idle"
         onSignIn={onSignIn}
         onSignOut={vi.fn()}
       />,
@@ -62,6 +66,7 @@ describe('AuthPanel', () => {
         enabled
         loading={false}
         user={null}
+        syncStatus="idle"
         onSignIn={onSignIn}
         onSignOut={vi.fn()}
       />,

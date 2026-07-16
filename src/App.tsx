@@ -8,6 +8,7 @@ import { ResultsScreen } from './screens/ResultsScreen';
 import { getMission } from './data/missions';
 import { useProgress } from './hooks/useProgress';
 import { useAuth } from './hooks/useAuth';
+import { useCloudSync } from './hooks/useCloudSync';
 import type { GameMode, MissionResult } from './types';
 
 // The places the player can be. Keeping this as a small union means we never
@@ -23,8 +24,13 @@ type Screen =
 export default function App() {
   const [screen, setScreen] = useState<Screen>({ name: 'welcome' });
   const [mode, setMode] = useState<GameMode>('challenge');
-  const { progress, completeMission, resetProgress } = useProgress();
+  const { progress, completeMission, resetProgress, replaceProgress } = useProgress();
   const auth = useAuth();
+  const { status: syncStatus } = useCloudSync({
+    user: auth.user,
+    progress,
+    replaceProgress,
+  });
 
   function chooseMode(chosen: GameMode) {
     setMode(chosen);
@@ -41,7 +47,11 @@ export default function App() {
   switch (screen.name) {
     case 'welcome':
       return (
-        <WelcomeScreen onStart={() => setScreen({ name: 'mode' })} auth={auth} />
+        <WelcomeScreen
+          onStart={() => setScreen({ name: 'mode' })}
+          auth={auth}
+          syncStatus={syncStatus}
+        />
       );
 
     case 'mode':

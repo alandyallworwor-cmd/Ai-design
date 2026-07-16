@@ -1,11 +1,14 @@
 import { useState, type FormEvent } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { Button } from './Button';
+import { SyncIndicator } from './SyncIndicator';
+import type { SyncStatus } from '../hooks/useCloudSync';
 
 interface AuthPanelProps {
   enabled: boolean;
   loading: boolean;
   user: User | null;
+  syncStatus: SyncStatus;
   onSignIn: (email: string) => Promise<{ error: string | null }>;
   onSignOut: () => void;
 }
@@ -15,7 +18,14 @@ interface AuthPanelProps {
  * magic-link form; signed-in players see who they are and can sign out.
  * Renders nothing when cloud accounts aren't configured.
  */
-export function AuthPanel({ enabled, loading, user, onSignIn, onSignOut }: AuthPanelProps) {
+export function AuthPanel({
+  enabled,
+  loading,
+  user,
+  syncStatus,
+  onSignIn,
+  onSignOut,
+}: AuthPanelProps) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [message, setMessage] = useState('');
@@ -28,6 +38,7 @@ export function AuthPanel({ enabled, loading, user, onSignIn, onSignOut }: AuthP
         <p className="auth-panel__who">
           Signed in as <strong>{user.email}</strong> · progress saves to your account.
         </p>
+        <SyncIndicator status={syncStatus} />
         <Button variant="ghost" className="auth-panel__signout" onClick={onSignOut}>
           Sign out
         </Button>

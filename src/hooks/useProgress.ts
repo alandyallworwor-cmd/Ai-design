@@ -73,5 +73,13 @@ export function useProgress() {
     setProgress(EMPTY_PROGRESS);
   }, []);
 
-  return { progress, completeMission, resetProgress };
+  /**
+   * Replace the whole progress state (used by cloud sync after merging local
+   * and cloud data). The localStorage effect saves it like any other change.
+   */
+  const replaceProgress = useCallback((next: Progress) => {
+    setProgress(next);
+  }, []);
+
+  return { progress, completeMission, resetProgress, replaceProgress };
 }

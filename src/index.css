@@ -265,6 +265,24 @@ main {
   color: var(--red);
 }
 
+.sync-indicator {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.sync-indicator--synced {
+  color: var(--green);
+}
+
+.sync-indicator--error {
+  color: var(--red);
+}
+
+.sync-indicator--offline {
+  color: var(--ink-soft);
+}
+
 /* ---- Mission map ----------------------------------------------------- */
 .map__heading {
   margin: 4px 0 2px;

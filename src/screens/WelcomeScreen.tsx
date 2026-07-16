@@ -1,14 +1,16 @@
 import { Button } from '../components/Button';
 import { AuthPanel } from '../components/AuthPanel';
 import type { useAuth } from '../hooks/useAuth';
+import type { SyncStatus } from '../hooks/useCloudSync';
 
 interface WelcomeScreenProps {
   onStart: () => void;
   auth: ReturnType<typeof useAuth>;
+  syncStatus: SyncStatus;
 }
 
 /** The first screen: a catchy title and a short, friendly explanation. */
-export function WelcomeScreen({ onStart, auth }: WelcomeScreenProps) {
+export function WelcomeScreen({ onStart, auth, syncStatus }: WelcomeScreenProps) {
   return (
     <main className="screen welcome">
       <div className="welcome__badge" aria-hidden="true">
@@ -28,6 +30,7 @@ export function WelcomeScreen({ onStart, auth }: WelcomeScreenProps) {
         enabled={auth.enabled}
         loading={auth.loading}
         user={auth.user}
+        syncStatus={syncStatus}
         onSignIn={auth.signInWithEmail}
         onSignOut={auth.signOut}
       />
