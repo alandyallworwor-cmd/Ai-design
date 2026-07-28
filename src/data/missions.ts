@@ -773,6 +773,54 @@ export const missions: Mission[] = [
       },
     ],
   },
+  {
+    id: 'terms2',
+    title: 'Week 2 Terms Challenge',
+    subtitle: 'Match the Week 2 IT terms to their meanings.',
+    icon: '🧠',
+    week: 2,
+    topic: 'Week 2 IT terms and their meanings',
+    questions: [
+      {
+        kind: 'match',
+        id: 'terms2-policies',
+        prompt: 'Match each policy and goal term to its meaning.',
+        pairs: [
+          { id: 'p1', term: 'Policy', meaning: 'A formal statement of rules and expectations' },
+          { id: 'p2', term: 'Procedure', meaning: 'Step-by-step instructions to carry out a policy' },
+          { id: 'p3', term: 'Acceptable Use Policy', meaning: 'Rules for using company networks and devices' },
+          { id: 'p4', term: 'SMART goal', meaning: 'Specific, Measurable, Achievable, Relevant, Time-bound' },
+        ],
+        explanation:
+          'A policy sets the rules (what and why), a procedure explains how to follow it, an AUP covers using company systems, and SMART goals are clear and trackable.',
+      },
+      {
+        kind: 'match',
+        id: 'terms2-teams',
+        prompt: 'Match each team structure to its meaning.',
+        pairs: [
+          { id: 'h1', term: 'Hierarchical team', meaning: 'Clear chain of command, managers decide' },
+          { id: 'h2', term: 'Cross-functional team', meaning: 'Members from different departments or skills' },
+          { id: 'h3', term: 'Self-managed team', meaning: 'Runs its own work with little supervision' },
+        ],
+        explanation:
+          'Hierarchical teams have layers of authority, cross-functional teams mix skills across departments, and self-managed teams share responsibility with high trust.',
+      },
+      {
+        kind: 'match',
+        id: 'terms2-support',
+        prompt: 'Match each ICT support term to its meaning.',
+        pairs: [
+          { id: 's1', term: 'Ticketing system', meaning: 'Software to log and track support requests' },
+          { id: 's2', term: 'Escalation', meaning: 'Passing an issue to a higher support tier' },
+          { id: 's3', term: 'Feedback loop', meaning: 'Collect, analyse and use feedback to improve' },
+          { id: 's4', term: 'Tier 0 (Self-Help)', meaning: 'FAQs, knowledge base and chatbots' },
+        ],
+        explanation:
+          'Ticketing systems track requests, escalation moves hard issues up a tier, feedback loops keep improving services, and Tier 0 lets clients help themselves.',
+      },
+    ],
+  },
 ];
 
 /** Find a mission by its id (used by the mission screen). */

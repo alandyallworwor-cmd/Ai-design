@@ -79,7 +79,7 @@ describe('IT Quest app flow', () => {
 
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/40 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/1 of 10 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 of 11 completed/i)).toBeInTheDocument();
   });
 
   it('does NOT save score in study mode', async () => {
@@ -91,7 +91,7 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('heading', { name: /practice complete/i })).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/0 of 10 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/0 of 11 completed/i)).toBeInTheDocument();
   });
 
   it('lets the player order the steps correctly', async () => {
@@ -154,7 +154,7 @@ describe('IT Quest app flow', () => {
     // Confirming clears everything.
     await user.click(within(dialog).getByRole('button', { name: /yes, reset/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.queryByText(/1 of 10 completed/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/1 of 11 completed/i)).not.toBeInTheDocument();
   });
 
   it('shows Week 1 and Week 2 sections with a Week 2 mission', async () => {
