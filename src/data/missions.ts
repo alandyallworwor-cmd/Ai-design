@@ -11,6 +11,7 @@ export const missions: Mission[] = [
     title: 'Plan the Project',
     subtitle: 'Pick the right goals, people and habits for a good IT team.',
     icon: '🧭',
+    week: 1,
     topic: 'Teamwork: goals, roles and communication',
     questions: [
       {
@@ -81,6 +82,7 @@ export const missions: Mission[] = [
     title: 'Organise the Work',
     subtitle: 'Tap the steps in the correct order to organise the work.',
     icon: '🗂️',
+    week: 1,
     topic: 'Processes: data-breach response and team problem-solving',
     questions: [
       {
@@ -120,6 +122,7 @@ export const missions: Mission[] = [
     title: 'Phase 1 Check',
     subtitle: 'Check the work is legally and ethically ready to begin.',
     icon: '✅',
+    week: 1,
     topic: 'Being ready: policies, privacy law and ACS ethics',
     questions: [
       {
@@ -203,6 +206,7 @@ export const missions: Mission[] = [
     title: 'Phase 2 Check',
     subtitle: 'Review finished work and spot the mistake.',
     icon: '🔍',
+    week: 1,
     topic: 'Spotting IP and privacy mistakes',
     questions: [
       {
@@ -287,6 +291,7 @@ export const missions: Mission[] = [
     title: 'Test the Project',
     subtitle: 'Find the problem in each situation and choose the right fix.',
     icon: '🧪',
+    week: 1,
     topic: 'Troubleshooting: choosing the right fix',
     questions: [
       {
@@ -383,6 +388,7 @@ export const missions: Mission[] = [
     title: 'IT Terms Challenge',
     subtitle: 'Match each IT term to its correct meaning.',
     icon: '🧩',
+    week: 1,
     topic: 'IT terms and their meanings',
     questions: [
       {
@@ -425,6 +431,345 @@ export const missions: Mission[] = [
         ],
         explanation:
           'Good teamwork combines collaboration, interdependence and shared responsibility to reach shared goals.',
+      },
+    ],
+  },
+
+  // ===================== WEEK 2 =====================
+  // All Week 2 content comes from the Week 2 Work Skills slides
+  // (Policies & Procedures, Team Structures, Goals, and ICT Support / ICTSAS305).
+  {
+    id: 'policies',
+    title: 'Policies & Procedures',
+    subtitle: 'Learn the difference between a policy and a procedure.',
+    icon: '📕',
+    week: 2,
+    topic: 'Policies and procedures',
+    questions: [
+      {
+        kind: 'select',
+        id: 'policies-what-policy',
+        prompt: 'What is a policy?',
+        choices: [
+          { id: 'a', text: 'A formal statement of an organisation’s rules, principles and expectations' },
+          { id: 'b', text: 'A single email to one worker' },
+          { id: 'c', text: 'A type of computer virus' },
+          { id: 'd', text: 'A social media post' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A policy is a formal statement that sets the direction and defines what is acceptable and unacceptable behaviour.',
+      },
+      {
+        kind: 'select',
+        id: 'policies-what-procedure',
+        prompt: 'What is a procedure?',
+        choices: [
+          { id: 'a', text: 'A step-by-step set of instructions that explains how to carry out a policy' },
+          { id: 'b', text: 'A general idea with no steps' },
+          { id: 'c', text: 'A brand logo' },
+          { id: 'd', text: 'A yearly party' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A procedure explains how a policy is carried out in practice, step by step. This keeps work consistent and reduces errors.',
+      },
+      {
+        kind: 'select',
+        id: 'policies-what-vs-how',
+        prompt: 'A policy explains the “what and why”. What does a procedure explain?',
+        choices: [
+          { id: 'a', text: 'How, when and by whom' },
+          { id: 'b', text: 'Only the price' },
+          { id: 'c', text: 'Nothing useful' },
+          { id: 'd', text: 'The weather' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Policies explain what and why; procedures explain how, when and by whom. Together they give compliance, consistency and accountability.',
+      },
+      {
+        kind: 'select',
+        id: 'policies-aup',
+        prompt: 'Which is an example of an ICT policy?',
+        choices: [
+          { id: 'a', text: 'An Acceptable Use Policy (AUP) for company networks, devices and data' },
+          { id: 'b', text: 'A lunch menu' },
+          { id: 'c', text: 'A game download' },
+          { id: 'd', text: 'A blank page' },
+        ],
+        correctId: 'a',
+        explanation:
+          'An Acceptable Use Policy (AUP) outlines how employees may use company networks, devices and data.',
+      },
+      {
+        kind: 'select',
+        id: 'policies-contribute',
+        prompt: 'How can an individual worker help improve policies and procedures?',
+        choices: [
+          { id: 'a', text: 'By reporting risks, breaches or non-compliance and giving feedback' },
+          { id: 'b', text: 'By ignoring all the rules' },
+          { id: 'c', text: 'By hiding problems' },
+          { id: 'd', text: 'By deleting the policy' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Individuals contribute by giving feedback on policy effectiveness, reporting risks or breaches, joining training and suggesting improvements.',
+      },
+      {
+        kind: 'select',
+        id: 'policies-emerging',
+        prompt: 'Which is an emerging legal and ethical issue in ICT?',
+        choices: [
+          { id: 'a', text: 'AI ethics and algorithmic bias' },
+          { id: 'b', text: 'Choosing a desk colour' },
+          { id: 'c', text: 'Picking a screensaver' },
+          { id: 'd', text: 'The office plant' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Emerging issues include AI ethics, algorithmic bias and the ethical implications of new technologies. These need proactive attention.',
+      },
+    ],
+  },
+  {
+    id: 'teams',
+    title: 'Team Structures',
+    subtitle: 'Match and identify the common ICT team structures.',
+    icon: '🏢',
+    week: 2,
+    topic: 'Team structures in ICT',
+    questions: [
+      {
+        kind: 'match',
+        id: 'teams-match',
+        prompt: 'Match each team structure to its meaning.',
+        pairs: [
+          { id: 'm1', term: 'Hierarchical Team', meaning: 'Pyramid shape with a clear chain of command' },
+          { id: 'm2', term: 'Cross-Functional Team', meaning: 'Members from different departments on a shared goal' },
+          { id: 'm3', term: 'Self-Managed Team', meaning: 'Shares responsibility with minimal supervision' },
+        ],
+        explanation:
+          'Hierarchical teams have vertical layers of authority, cross-functional teams mix skills from different areas, and self-managed teams run their own work with high trust.',
+      },
+      {
+        kind: 'select',
+        id: 'teams-hierarchical',
+        prompt: 'In a hierarchical team, who usually makes the decisions?',
+        choices: [
+          { id: 'a', text: 'Managers or team leaders' },
+          { id: 'b', text: 'Nobody' },
+          { id: 'c', text: 'The newest staff member only' },
+          { id: 'd', text: 'A random computer' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A hierarchical team has a clear chain of command, so decisions are made by managers or team leaders.',
+      },
+      {
+        kind: 'select',
+        id: 'teams-cross',
+        prompt:
+          'A system upgrade needs network admins, developers and cybersecurity staff working together. Which structure fits best?',
+        choices: [
+          { id: 'a', text: 'A cross-functional team' },
+          { id: 'b', text: 'A one-person team' },
+          { id: 'c', text: 'No team at all' },
+          { id: 'd', text: 'A team with only managers' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Cross-functional teams bring together members from different departments or skills to achieve a shared, often complex, goal.',
+      },
+      {
+        kind: 'select',
+        id: 'teams-self',
+        prompt:
+          'An agile software team plans and manages its own work with little supervision. What is this called?',
+        choices: [
+          { id: 'a', text: 'A self-managed team' },
+          { id: 'b', text: 'A hierarchical team' },
+          { id: 'c', text: 'A helpdesk ticket' },
+          { id: 'd', text: 'A privacy breach' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Self-managed teams take collective responsibility for planning and managing their own work, and rely on high trust and accountability.',
+      },
+    ],
+  },
+  {
+    id: 'goals',
+    title: 'Goals & Getting Work Done',
+    subtitle: 'Set SMART goals and handle everyday ICT work challenges.',
+    icon: '🎯',
+    week: 2,
+    topic: 'Setting goals and managing work',
+    questions: [
+      {
+        kind: 'select',
+        id: 'goals-smart-s',
+        prompt: 'In a SMART goal, what does the “S” stand for?',
+        choices: [
+          { id: 'a', text: 'Specific' },
+          { id: 'b', text: 'Slow' },
+          { id: 'c', text: 'Secret' },
+          { id: 'd', text: 'Simple' },
+        ],
+        correctId: 'a',
+        explanation:
+          'SMART stands for Specific, Measurable, Achievable, Relevant and Time-bound. “Specific” clearly defines what needs to be done.',
+      },
+      {
+        kind: 'select',
+        id: 'goals-smart-t',
+        prompt: 'What does “Time-bound” mean in a SMART goal?',
+        choices: [
+          { id: 'a', text: 'It has a deadline or timeframe' },
+          { id: 'b', text: 'It never ends' },
+          { id: 'c', text: 'It has no plan' },
+          { id: 'd', text: 'It is only for managers' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Time-bound means the goal has a clear deadline or timeframe, so progress can be tracked.',
+      },
+      {
+        kind: 'select',
+        id: 'goals-action-plan',
+        prompt: 'What should an action plan include?',
+        choices: [
+          { id: 'a', text: 'Tasks, assigned responsibilities, resources and deadlines' },
+          { id: 'b', text: 'Only one person’s name' },
+          { id: 'c', text: 'A list of snacks' },
+          { id: 'd', text: 'Nothing at all' },
+        ],
+        correctId: 'a',
+        explanation:
+          'An action plan turns team goals into clear steps: tasks to complete, who is responsible, resources needed, and deadlines and milestones.',
+      },
+      {
+        kind: 'select',
+        id: 'goals-time',
+        prompt:
+          'A technician doing maintenance is repeatedly interrupted by urgent helpdesk calls. This is a challenge of...',
+        choices: [
+          { id: 'a', text: 'Time management' },
+          { id: 'b', text: 'Copyright' },
+          { id: 'c', text: 'A trademark' },
+          { id: 'd', text: 'A screensaver' },
+        ],
+        correctId: 'a',
+        explanation:
+          'ICT staff often juggle support requests, projects and admin tasks, so multiple deadlines and urgent issues compete for attention.',
+      },
+      {
+        kind: 'select',
+        id: 'goals-miscomm',
+        prompt:
+          'Two technicians unknowingly work on the same client issue because task ownership was not shared. What caused this?',
+        choices: [
+          { id: 'a', text: 'Miscommunication' },
+          { id: 'b', text: 'Good teamwork' },
+          { id: 'c', text: 'A patent' },
+          { id: 'd', text: 'A backup' },
+        ],
+        correctId: 'a',
+        explanation:
+          'When team members do not share their tasks and priorities, it can lead to duplicated or missed work. Open communication prevents this.',
+      },
+      {
+        kind: 'select',
+        id: 'goals-strengths',
+        prompt: 'What does “leveraging strengths” mean when sharing out work?',
+        choices: [
+          { id: 'a', text: 'Allocating tasks based on each person’s skills and experience' },
+          { id: 'b', text: 'Giving everyone the exact same task' },
+          { id: 'c', text: 'Letting the computer choose randomly' },
+          { id: 'd', text: 'Only the manager does all the work' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Leveraging strengths means allocating tasks based on individual skills and experience, e.g. assigning complex network troubleshooting to senior technicians.',
+      },
+    ],
+  },
+  {
+    id: 'support',
+    title: 'Help the Client',
+    subtitle: 'Support clients using service desk tiers and ticket steps.',
+    icon: '🎧',
+    week: 2,
+    topic: 'ICT support services and client interactions',
+    questions: [
+      {
+        kind: 'match',
+        id: 'support-tiers',
+        prompt: 'Match each service desk tier to what it does.',
+        pairs: [
+          { id: 's0', term: 'Tier 0 (Self-Help)', meaning: 'FAQs, knowledge base and chatbots' },
+          { id: 's1', term: 'Tier 1 (Level 1)', meaning: 'First contact: logging tickets and password resets' },
+          { id: 's2', term: 'Tier 2 (Level 2)', meaning: 'More complex issues like network troubleshooting' },
+          { id: 's4', term: 'Tier 4 (External)', meaning: 'Outside or vendor support' },
+        ],
+        explanation:
+          'Service desks are structured into tiers by complexity: Tier 0 self-help, Tier 1 first contact, Tier 2 more complex issues, up to Tier 4 external support.',
+      },
+      {
+        kind: 'select',
+        id: 'support-tier1-example',
+        prompt: 'A student cannot log into their email account. Which tier usually handles this?',
+        choices: [
+          { id: 'a', text: 'Tier 1 – reset the password' },
+          { id: 'b', text: 'Tier 4 – external vendor' },
+          { id: 'c', text: 'No tier can help' },
+          { id: 'd', text: 'The client fixes the server themselves' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Tier 1 is the first point of contact for simple fixes like password resets and basic troubleshooting.',
+      },
+      {
+        kind: 'order',
+        id: 'support-resolve',
+        prompt: 'Tap the steps to resolve a client’s problem in the correct order.',
+        items: [
+          { id: 'r1', text: 'Implement the resolution' },
+          { id: 'r2', text: 'Confirm the fix works' },
+          { id: 'r3', text: 'Update the ticket documentation' },
+          { id: 'r4', text: 'Close the ticket' },
+        ],
+        correctOrder: ['r1', 'r2', 'r3', 'r4'],
+        explanation:
+          'To resolve an issue you implement the fix, confirm it works (test with the client), update the ticket documentation, then close the ticket.',
+      },
+      {
+        kind: 'select',
+        id: 'support-escalate',
+        prompt: 'A software licence issue needs the vendor’s help. What should you do when escalating?',
+        choices: [
+          { id: 'a', text: 'Record the steps taken, update the priority, and assign it to Tier 2 or 3' },
+          { id: 'b', text: 'Delete the ticket' },
+          { id: 'c', text: 'Ignore the client' },
+          { id: 'd', text: 'Turn off your computer' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Escalation makes sure complex or urgent issues reach the right level. You record the troubleshooting steps taken, update the priority and assign it to a higher tier.',
+      },
+      {
+        kind: 'select',
+        id: 'support-feedback-loop',
+        prompt: 'What is the purpose of a feedback loop?',
+        choices: [
+          { id: 'a', text: 'To collect client feedback, analyse it and use it to improve services' },
+          { id: 'b', text: 'To send the same reply forever' },
+          { id: 'c', text: 'To avoid ever changing anything' },
+          { id: 'd', text: 'To hide complaints' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A feedback loop means collecting client feedback, analysing it and using it to improve services. The process is followed continually, creating the “loop”.',
       },
     ],
   },

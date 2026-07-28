@@ -215,6 +215,18 @@ main {
   gap: 14px;
 }
 
+.map__week {
+  margin-bottom: 26px;
+}
+
+.map__week-title {
+  font-size: 1.1rem;
+  color: var(--indigo);
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--line);
+}
+
 .map__reset {
   display: block;
   margin: 26px auto 0;

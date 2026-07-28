@@ -34,13 +34,19 @@ npm test            # run the tests once
 ## What's included
 
 - **Welcome** screen and **mode select** (Study or Challenge)
-- **Six missions**, all built from the Week 1 notes:
-  1. Plan the Project (teamwork)
-  2. Organise the Work (ordering: data-breach response, outage fix)
-  3. Phase 1 Check (policies, privacy law, ACS ethics)
-  4. Phase 2 Check (spot the IP / privacy mistake)
-  5. Test the Project (troubleshoot: pick the right fix)
-  6. IT Terms Challenge (match terms to meanings)
+- **Ten missions**, grouped into **Week 1** and **Week 2**, all built from the notes:
+  - **Week 1**
+    1. Plan the Project (teamwork)
+    2. Organise the Work (ordering: data-breach response, outage fix)
+    3. Phase 1 Check (policies, privacy law, ACS ethics)
+    4. Phase 2 Check (spot the IP / privacy mistake)
+    5. Test the Project (troubleshoot: pick the right fix)
+    6. IT Terms Challenge (match terms to meanings)
+  - **Week 2**
+    7. Policies & Procedures (policy vs procedure, AUP, AI ethics)
+    8. Team Structures (hierarchical, cross-functional, self-managed)
+    9. Goals & Getting Work Done (SMART goals, action plans, work challenges)
+    10. Help the Client (service desk tiers, resolve/escalate steps, feedback loops)
 - **Study Mode** (relaxed, no score) and **Challenge Mode** (XP + stars, saved)
 - Instant feedback with a plain-English explanation on every answer
 - **Glossary** of IT terms

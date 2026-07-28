@@ -54,16 +54,24 @@ export function MissionMapScreen({
           </Button>
         </div>
 
-        <div className="map__list">
-          {missions.map((mission) => (
-            <MissionCard
-              key={mission.id}
-              mission={mission}
-              result={progress.completed[mission.id]}
-              onStart={() => onStartMission(mission.id)}
-            />
-          ))}
-        </div>
+        {/* Missions are grouped by study week so the map stays easy to scan. */}
+        {([1, 2] as const).map((week) => (
+          <section key={week} className="map__week">
+            <h3 className="map__week-title">Week {week}</h3>
+            <div className="map__list">
+              {missions
+                .filter((mission) => mission.week === week)
+                .map((mission) => (
+                  <MissionCard
+                    key={mission.id}
+                    mission={mission}
+                    result={progress.completed[mission.id]}
+                    onStart={() => onStartMission(mission.id)}
+                  />
+                ))}
+            </div>
+          </section>
+        ))}
 
         {allDone && (
           <Button

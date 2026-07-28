@@ -5,7 +5,13 @@ export interface GlossaryTerm {
   term: string;
   meaning: string;
   /** Which topic group the term belongs to (used as a heading). */
-  group: 'Intellectual Property' | 'Privacy & Ethics' | 'Teamwork';
+  group:
+    | 'Intellectual Property'
+    | 'Privacy & Ethics'
+    | 'Teamwork'
+    | 'Policies & Procedures'
+    | 'Teams & Goals'
+    | 'ICT Support';
 }
 
 export const glossary: GlossaryTerm[] = [
@@ -112,5 +118,85 @@ export const glossary: GlossaryTerm[] = [
     term: 'SLA (Service Level Agreement)',
     meaning: 'An agreed standard of service a support team aims to meet, often as a shared team goal.',
     group: 'Teamwork',
+  },
+
+  // --- Week 2: Policies & Procedures ---
+  {
+    term: 'Policy',
+    meaning:
+      'A formal statement of an organisation’s rules, principles and expectations. It explains the “what and why”.',
+    group: 'Policies & Procedures',
+  },
+  {
+    term: 'Procedure',
+    meaning:
+      'A step-by-step set of instructions that explains how to carry out a policy. It explains the “how, when and by whom”.',
+    group: 'Policies & Procedures',
+  },
+  {
+    term: 'Acceptable Use Policy (AUP)',
+    meaning: 'A policy outlining how employees may use company networks, devices and data.',
+    group: 'Policies & Procedures',
+  },
+  {
+    term: 'Algorithmic bias',
+    meaning:
+      'An emerging ethical issue where a computer system produces unfair results. Part of AI ethics in ICT.',
+    group: 'Policies & Procedures',
+  },
+
+  // --- Week 2: Teams & Goals ---
+  {
+    term: 'Hierarchical team',
+    meaning: 'A pyramid-shaped structure with a clear chain of command; decisions are made by managers or team leaders.',
+    group: 'Teams & Goals',
+  },
+  {
+    term: 'Cross-functional team',
+    meaning: 'A team of members from different departments or skills working together on a shared, often complex, goal.',
+    group: 'Teams & Goals',
+  },
+  {
+    term: 'Self-managed team',
+    meaning: 'A team that shares responsibility and manages its own work with minimal supervision and high trust.',
+    group: 'Teams & Goals',
+  },
+  {
+    term: 'SMART goal',
+    meaning: 'A goal that is Specific, Measurable, Achievable, Relevant and Time-bound.',
+    group: 'Teams & Goals',
+  },
+  {
+    term: 'Action plan',
+    meaning: 'A plan that turns goals into clear steps: tasks, assigned responsibilities, resources and deadlines.',
+    group: 'Teams & Goals',
+  },
+
+  // --- Week 2: ICT Support (ICTSAS305) ---
+  {
+    term: 'Service desk',
+    meaning: 'A support service structured into tiers (levels) based on the complexity of the issue.',
+    group: 'ICT Support',
+  },
+  {
+    term: 'Support tiers (0–4)',
+    meaning:
+      'Levels of support: Tier 0 self-help, Tier 1 first contact, Tier 2 more complex, Tier 3 specialist, Tier 4 external.',
+    group: 'ICT Support',
+  },
+  {
+    term: 'Ticketing system',
+    meaning: 'Software used to log, track and manage client support requests (tickets).',
+    group: 'ICT Support',
+  },
+  {
+    term: 'Escalation',
+    meaning: 'Passing a complex or urgent issue to a higher tier, after recording the steps taken and updating the priority.',
+    group: 'ICT Support',
+  },
+  {
+    term: 'Feedback loop',
+    meaning: 'Collecting client feedback, analysing it and using it to improve services, over and over.',
+    group: 'ICT Support',
   },
 ];

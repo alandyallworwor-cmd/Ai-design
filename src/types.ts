@@ -69,6 +69,8 @@ export interface Mission {
   title: string;
   subtitle: string;
   icon: string;
+  /** Which study week this mission belongs to (used to group the map). */
+  week: 1 | 2;
   /** Plain-English topic name, used for revision tips on the results screen. */
   topic: string;
   questions: Question[];
