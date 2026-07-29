@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { AppHeader } from '../components/AppHeader';
 import { Button } from '../components/Button';
 
@@ -7,7 +8,7 @@ interface PrivacyScreenProps {
 }
 
 // A paragraph style that reads well without needing extra CSS.
-const para: React.CSSProperties = {
+const para: CSSProperties = {
   lineHeight: 1.6,
   margin: '0 0 0.7rem',
   color: '#334155',
