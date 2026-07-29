@@ -34,7 +34,7 @@ export function WelcomeScreen({ onStart, auth, syncStatus }: WelcomeScreenProps)
         onSignIn={auth.signInWithEmail}
         onSignOut={auth.signOut}
       />
-      <p className="welcome__note">Based on your Week 1 Work Skills notes.</p>
+      <p className="welcome__note">Based on your Week 1 &amp; 2 Work Skills notes.</p>
     </main>
   );
 }
