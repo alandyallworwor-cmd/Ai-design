@@ -6,6 +6,7 @@ import type { SyncStatus } from '../hooks/useCloudSync';
 
 interface WelcomeScreenProps {
   onStart: () => void;
+  onPrivacy: () => void;
   auth: ReturnType<typeof useAuth>;
   syncStatus: SyncStatus;
 }
@@ -14,7 +15,7 @@ interface WelcomeScreenProps {
 const TAPS_TO_REVEAL = 5;
 
 /** The first screen: a catchy title and a short, friendly explanation. */
-export function WelcomeScreen({ onStart, auth, syncStatus }: WelcomeScreenProps) {
+export function WelcomeScreen({ onStart, onPrivacy, auth, syncStatus }: WelcomeScreenProps) {
   // The sign-in box is hidden from students. It is revealed only for the admin:
   // by tapping the laptop badge a few times, or by opening the page with a
   // "#login" hash in the address bar (handy to bookmark).
@@ -61,6 +62,9 @@ export function WelcomeScreen({ onStart, auth, syncStatus }: WelcomeScreenProps)
         />
       )}
       <p className="welcome__note">Based on your Week 1 &amp; 2 Work Skills notes.</p>
+      <Button variant="ghost" onClick={onPrivacy}>
+        Privacy policy
+      </Button>
     </main>
   );
 }

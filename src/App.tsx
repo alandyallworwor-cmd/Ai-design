@@ -5,6 +5,7 @@ import { MissionMapScreen } from './screens/MissionMapScreen';
 import { MissionScreen } from './screens/MissionScreen';
 import { GlossaryScreen } from './screens/GlossaryScreen';
 import { ResultsScreen } from './screens/ResultsScreen';
+import { PrivacyScreen } from './screens/PrivacyScreen';
 import { WeeklyWeeksScreen } from './screens/WeeklyWeeksScreen';
 import { WeeklyPlayScreen } from './screens/WeeklyPlayScreen';
 import { WeeklyNotesManagerScreen } from './screens/admin/WeeklyNotesManagerScreen';
@@ -26,6 +27,7 @@ type Screen =
   | { name: 'mission'; missionId: string }
   | { name: 'glossary' }
   | { name: 'results' }
+  | { name: 'privacy' }
   | { name: 'weeklyList' }
   | { name: 'weeklyPlay'; lesson: WeeklyLesson }
   | { name: 'admin' }
@@ -66,6 +68,7 @@ export default function App() {
       return (
         <WelcomeScreen
           onStart={() => setScreen({ name: 'mode' })}
+          onPrivacy={() => setScreen({ name: 'privacy' })}
           auth={auth}
           syncStatus={syncStatus}
         />
@@ -95,6 +98,14 @@ export default function App() {
         <ResultsScreen
           progress={progress}
           onBack={() => setScreen({ name: 'map' })}
+        />
+      );
+
+    case 'privacy':
+      return (
+        <PrivacyScreen
+          xp={progress.xp}
+          onBack={() => setScreen({ name: 'welcome' })}
         />
       );
 
