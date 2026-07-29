@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '../components/Button';
 import { AuthPanel } from '../components/AuthPanel';
 import type { useAuth } from '../hooks/useAuth';
@@ -19,18 +19,15 @@ export function WelcomeScreen({ onStart, auth, syncStatus }: WelcomeScreenProps)
   // by tapping the laptop badge a few times, or by opening the page with a
   // "#login" hash in the address bar (handy to bookmark).
   const [revealed, setRevealed] = useState(false);
-  const [taps, setTaps] = useState(0);
+  const tapCount = useRef(0);
 
   useEffect(() => {
     if (window.location.hash.toLowerCase() === '#login') setRevealed(true);
   }, []);
 
   function tapBadge() {
-    setTaps((count) => {
-      const next = count + 1;
-      if (next >= TAPS_TO_REVEAL) setRevealed(true);
-      return next;
-    });
+    tapCount.current += 1;
+    if (tapCount.current >= TAPS_TO_REVEAL) setRevealed(true);
   }
 
   // Always show the panel once signed in, so the admin can see their account
