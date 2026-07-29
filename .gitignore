@@ -17,6 +17,9 @@ yarn-error.log*
 .env
 .env.*
 !.env.example
+# .env.production holds ONLY public keys (URL + anon key) needed by the
+# production build, so it is committed on purpose. Never add secrets here.
+!.env.production
 
 # Editor / OS
 .vscode/*
