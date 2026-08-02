@@ -10,7 +10,7 @@ function progressWithStars(stars: number): Progress {
   for (const m of missions) {
     completed[m.id] = { stars, correct: 1, total: 1 };
   }
-  return { xp: 120, completed };
+  return { xp: 120, completed, bestStreak: 6, badges: [] };
 }
 
 describe('ResultsScreen', () => {

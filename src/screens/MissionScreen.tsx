@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AppHeader } from '../components/AppHeader';
 import { Button } from '../components/Button';
 import { FeedbackBanner } from '../components/FeedbackBanner';
@@ -6,6 +6,7 @@ import { MatchingBoard } from '../components/MatchingBoard';
 import { OptionButton } from '../components/OptionButton';
 import { OrderingList } from '../components/OrderingList';
 import { ProgressBar } from '../components/ProgressBar';
+import { getBadge } from '../data/badges';
 import type { GameMode, Mission, MissionResult, Question } from '../types';
 
 interface MissionScreenProps {
@@ -14,6 +15,8 @@ interface MissionScreenProps {
   xp: number;
   /** Study mode is relaxed; challenge and timed modes are scored. */
   mode: GameMode;
+  /** Badges the player had earned before this mission (for a "new!" reveal). */
+  earnedBadges: string[];
   onFinish: (result: MissionResult) => void;
   onExit: () => void;
 }
@@ -39,6 +42,7 @@ export function MissionScreen({
   mission,
   xp,
   mode,
+  earnedBadges,
   onFinish,
   onExit,
 }: MissionScreenProps) {
@@ -51,6 +55,12 @@ export function MissionScreen({
   // Timed Mode only: seconds left on the current question and bonus XP so far.
   const [timeLeft, setTimeLeft] = useState(TIMED_SECONDS);
   const [bonusXp, setBonusXp] = useState(0);
+  // Current run of consecutive correct answers, and the best it reached.
+  const [streak, setStreak] = useState(0);
+  const bestStreakRef = useRef(0);
+  // The badges the player already had when this mission started, captured once
+  // so the completion screen can highlight any that are brand new.
+  const badgesBefore = useRef(earnedBadges);
 
   const question: Question = mission.questions[index];
   const isLast = index === mission.questions.length - 1;
@@ -61,6 +71,10 @@ export function MissionScreen({
   function markAnswer(correct: boolean) {
     setAnswered(true);
     setWasCorrect(correct);
+    // Update the running streak (reset to zero on a wrong answer).
+    const nextStreak = correct ? streak + 1 : 0;
+    setStreak(nextStreak);
+    bestStreakRef.current = Math.max(bestStreakRef.current, nextStreak);
     if (correct) {
       setCorrectCount((c) => c + 1);
       // Faster correct answers earn more bonus XP in Timed Mode.
@@ -92,6 +106,29 @@ export function MissionScreen({
     markAnswer(choiceId === question.correctId);
   }
 
+  // Keyboard shortcuts: press 1-9 to pick an answer, Enter to move on. This
+  // makes play faster (especially in Timed Mode) and helps keyboard users.
+  useEffect(() => {
+    function onKey(event: KeyboardEvent) {
+      if (finished) return;
+      if (!answered && question.kind === 'select') {
+        const n = Number.parseInt(event.key, 10);
+        if (n >= 1 && n <= question.choices.length) {
+          event.preventDefault();
+          handleSelect(question.choices[n - 1].id);
+        }
+      } else if (answered && event.key === 'Enter') {
+        event.preventDefault();
+        handleNext();
+      }
+    }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+    // Re-bind when the question or answered state changes so the handler always
+    // sees current values; the handlers themselves are stable enough here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answered, finished, index]);
+
   function handleCheckOrder(orderedIds: string[]) {
     if (question.kind !== 'order') return;
     markAnswer(sameOrder(orderedIds, question.correctOrder));
@@ -110,6 +147,7 @@ export function MissionScreen({
         total: mission.questions.length,
         stars: starsFor(correctCount, mission.questions.length),
         bonusXp: isTimed ? bonusXp : undefined,
+        runStreak: bestStreakRef.current,
       };
       onFinish(result);
       setFinished(true);
@@ -127,6 +165,10 @@ export function MissionScreen({
   if (finished) {
     const total = mission.questions.length;
     const stars = starsFor(correctCount, total);
+    // Any badges that were not in the "before" snapshot are newly earned.
+    const newBadges = isScored
+      ? earnedBadges.filter((id) => !badgesBefore.current.includes(id))
+      : [];
     return (
       <div className="screen">
         <AppHeader xp={xp} onBack={onExit} />
@@ -151,6 +193,30 @@ export function MissionScreen({
           {isTimed && bonusXp > 0 && (
             <p className="complete__bonus">⚡ Speed bonus: +{bonusXp} XP</p>
           )}
+          {isScored && bestStreakRef.current >= 2 && (
+            <p className="complete__streak">
+              🔥 Best streak this run: {bestStreakRef.current} in a row
+            </p>
+          )}
+          {newBadges.length > 0 && (
+            <section className="complete__badges" aria-label="New badges earned">
+              <h3 className="complete__badges-title">New badge{newBadges.length > 1 ? 's' : ''} unlocked!</h3>
+              <ul className="badge-row">
+                {newBadges.map((id) => {
+                  const badge = getBadge(id);
+                  if (!badge) return null;
+                  return (
+                    <li key={id} className="badge" title={badge.description}>
+                      <span className="badge__icon" aria-hidden="true">
+                        {badge.icon}
+                      </span>
+                      <span className="badge__name">{badge.name}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </section>
+          )}
           <Button variant="primary" onClick={onExit}>
             Back to missions
           </Button>
@@ -171,6 +237,11 @@ export function MissionScreen({
         <h2 className="mission__title">{mission.title}</h2>
         {mode === 'study' && (
           <p className="mission__mode-tag">📖 Study Mode · no score pressure</p>
+        )}
+        {isScored && streak >= 2 && !answered && (
+          <p className="mission__streak" role="status">
+            🔥 {streak} in a row!
+          </p>
         )}
         {isTimed && (
           <div
@@ -196,7 +267,7 @@ export function MissionScreen({
 
         {question.kind === 'select' && (
           <div className="mission__options">
-            {question.choices.map((choice) => {
+            {question.choices.map((choice, i) => {
               let state: 'idle' | 'correct' | 'wrong' = 'idle';
               if (answered) {
                 if (choice.id === question.correctId) state = 'correct';
@@ -207,6 +278,7 @@ export function MissionScreen({
                   key={choice.id}
                   text={choice.text}
                   state={state}
+                  hint={i + 1}
                   disabled={answered}
                   onClick={() => handleSelect(choice.id)}
                 />

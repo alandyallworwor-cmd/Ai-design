@@ -100,10 +100,19 @@ export interface MissionResult {
    * replay only ever earns the improvement, never the same XP twice.
    */
   xpAwarded?: number;
+  /**
+   * Longest run of consecutive correct answers during this attempt. Used only
+   * to update the player's best streak; not stored on the saved result.
+   */
+  runStreak?: number;
 }
 
 /** Everything we save to localStorage. */
 export interface Progress {
   xp: number;
   completed: Record<string, MissionResult>;
+  /** Longest run of consecutive correct answers the player has ever reached. */
+  bestStreak: number;
+  /** Ids of achievement badges the player has earned. */
+  badges: string[];
 }

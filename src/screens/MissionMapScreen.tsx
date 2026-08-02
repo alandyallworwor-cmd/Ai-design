@@ -3,6 +3,7 @@ import { AppHeader } from '../components/AppHeader';
 import { Button } from '../components/Button';
 import { MissionCard } from '../components/MissionCard';
 import { Modal } from '../components/Modal';
+import { BADGES, getBadge } from '../data/badges';
 import { missions } from '../data/missions';
 import type { GameMode, Progress } from '../types';
 
@@ -44,6 +45,8 @@ export function MissionMapScreen({
   const [confirmReset, setConfirmReset] = useState(false);
   const doneCount = Object.keys(progress.completed).length;
   const allDone = doneCount === missions.length;
+  // The first mission the player has not finished yet, for the Continue button.
+  const nextMission = missions.find((m) => !progress.completed[m.id]);
 
   function handleConfirmReset() {
     onReset();
@@ -59,6 +62,51 @@ export function MissionMapScreen({
           {MODE_LABEL[mode]} · {doneCount} of {missions.length} completed
         </p>
 
+        {/* At-a-glance stats so progress feels rewarding. */}
+        <div className="map__stats">
+          <div className="map__stat">
+            <span className="map__stat-value">⭐ {progress.xp}</span>
+            <span className="map__stat-label">XP</span>
+          </div>
+          <div className="map__stat">
+            <span className="map__stat-value">🔥 {progress.bestStreak}</span>
+            <span className="map__stat-label">Best streak</span>
+          </div>
+          <div className="map__stat">
+            <span className="map__stat-value">
+              🏅 {progress.badges.length}/{BADGES.length}
+            </span>
+            <span className="map__stat-label">Badges</span>
+          </div>
+        </div>
+
+        {progress.badges.length > 0 && (
+          <ul className="badge-row map__badges" aria-label="Badges earned">
+            {progress.badges.map((id) => {
+              const badge = getBadge(id);
+              if (!badge) return null;
+              return (
+                <li key={id} className="badge badge--chip" title={`${badge.name}: ${badge.description}`}>
+                  <span className="badge__icon" aria-hidden="true">
+                    {badge.icon}
+                  </span>
+                  <span className="badge__name">{badge.name}</span>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+
+        {nextMission && doneCount > 0 && (
+          <Button
+            variant="primary"
+            className="map__continue"
+            onClick={() => onStartMission(nextMission.id)}
+          >
+            ▶️ Continue: {nextMission.title}
+          </Button>
+        )}
+
         <div className="map__toolbar">
           <Button variant="secondary" onClick={onOpenGlossary}>
             📕 Glossary
@@ -66,6 +114,11 @@ export function MissionMapScreen({
           <Button variant="secondary" onClick={onChangeMode}>
             🔀 Change mode
           </Button>
+          {doneCount > 0 && !allDone && (
+            <Button variant="secondary" onClick={onOpenResults}>
+              🏅 Results
+            </Button>
+          )}
         </div>
 
         {/* Missions are grouped by section so the map stays easy to scan. */}

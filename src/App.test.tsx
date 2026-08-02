@@ -134,6 +134,30 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('button', { name: /next question/i })).toBeInTheDocument();
   });
 
+  it('unlocks badges and shows them on the map after a mission', async () => {
+    const user = userEvent.setup();
+    await startGame(user, 'Challenge');
+    await completePlanMission(user);
+
+    // A perfect first mission unlocks the "First Steps" and "Perfectionist" badges.
+    expect(screen.getByText(/new badge/i)).toBeInTheDocument();
+    expect(screen.getByText(/first steps/i)).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /back to missions/i }));
+    // The map now shows a badges strip and the badge count stat.
+    expect(screen.getByRole('list', { name: /badges earned/i })).toBeInTheDocument();
+    expect(screen.getByText(/2\/9/)).toBeInTheDocument();
+  });
+
+  it('lets the player answer with number-key shortcuts', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /plan the project/i }));
+    // Pressing "1" selects the first choice (the correct one here).
+    await user.keyboard('1');
+    expect(within(screen.getByRole('status')).getByText(/correct/i)).toBeInTheDocument();
+  });
+
   it('opens the glossary from the mission map', async () => {
     const user = userEvent.setup();
     await startGame(user);

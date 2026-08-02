@@ -1,23 +1,35 @@
 import { useCallback, useEffect, useState } from 'react';
 import type { MissionResult, Progress } from '../types';
+import { earnedBadgeIds } from '../data/badges';
 
 // Where we store progress in the browser. The "-v1" makes it easy to change
 // the shape later without breaking older saves.
 const STORAGE_KEY = 'it-quest-progress-v1';
 
-const EMPTY_PROGRESS: Progress = { xp: 0, completed: {} };
+const EMPTY_PROGRESS: Progress = {
+  xp: 0,
+  completed: {},
+  bestStreak: 0,
+  badges: [],
+};
 
 /** Read saved progress from localStorage, falling back to a fresh empty state. */
 function loadProgress(): Progress {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return EMPTY_PROGRESS;
-    const parsed = JSON.parse(raw) as Progress;
+    const parsed = JSON.parse(raw) as Partial<Progress>;
     // Basic safety check so a corrupted value never crashes the game.
     if (typeof parsed.xp !== 'number' || typeof parsed.completed !== 'object') {
       return EMPTY_PROGRESS;
     }
-    return parsed;
+    // Fill in fields that older saves may not have had.
+    return {
+      xp: parsed.xp,
+      completed: parsed.completed ?? {},
+      bestStreak: parsed.bestStreak ?? 0,
+      badges: parsed.badges ?? [],
+    };
   } catch {
     // If anything goes wrong reading storage, just start fresh.
     return EMPTY_PROGRESS;
@@ -59,8 +71,14 @@ export function useProgress() {
         const runXp = result.correct * 10 + (result.bonusXp ?? 0);
         const awardedXp = Math.max(previousXp, runXp);
         const gained = awardedXp - previousXp;
-        return {
+        const bestStreak = Math.max(prev.bestStreak, result.runStreak ?? 0);
+
+        // Build the updated progress first, then recompute badges from it so
+        // achievements always reflect the true, saved state.
+        const next: Progress = {
+          ...prev,
           xp: prev.xp + gained,
+          bestStreak,
           completed: {
             ...prev.completed,
             [missionId]: {
@@ -68,9 +86,12 @@ export function useProgress() {
               correct: Math.max(previous?.correct ?? 0, result.correct),
               total: result.total,
               xpAwarded: awardedXp,
+              // Keep the best speed bonus so the "Speed Demon" badge sticks.
+              bonusXp: Math.max(previous?.bonusXp ?? 0, result.bonusXp ?? 0),
             },
           },
         };
+        return { ...next, badges: earnedBadgeIds(next) };
       });
     },
     [],

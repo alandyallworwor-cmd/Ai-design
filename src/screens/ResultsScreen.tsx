@@ -1,5 +1,6 @@
 import { AppHeader } from '../components/AppHeader';
 import { Button } from '../components/Button';
+import { BADGES } from '../data/badges';
 import { missions } from '../data/missions';
 import type { Progress } from '../types';
 
@@ -44,12 +45,40 @@ export function ResultsScreen({ progress, onBack }: ResultsScreenProps) {
             </span>
             <span className="results__score-label">Stars earned</span>
           </div>
+          <div className="results__score">
+            <span className="results__score-value">🔥 {progress.bestStreak}</span>
+            <span className="results__score-label">Best streak</span>
+          </div>
         </div>
+
+        <section className="results__badges">
+          <h3 className="results__badges-title">
+            Badges · {progress.badges.length}/{BADGES.length}
+          </h3>
+          <ul className="badge-grid">
+            {BADGES.map((badge) => {
+              const earned = progress.badges.includes(badge.id);
+              return (
+                <li
+                  key={badge.id}
+                  className={`badge badge--tile ${earned ? '' : 'badge--locked'}`.trim()}
+                  title={badge.description}
+                >
+                  <span className="badge__icon" aria-hidden="true">
+                    {earned ? badge.icon : '🔒'}
+                  </span>
+                  <span className="badge__name">{badge.name}</span>
+                  <span className="badge__desc">{badge.description}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
 
         {toRevise.length === 0 ? (
           <p className="results__perfect">
             🎉 Amazing! You earned 3 stars on every mission. You have mastered
-            all the Week 1 topics.
+            every topic in the course.
           </p>
         ) : (
           <section className="results__revise">

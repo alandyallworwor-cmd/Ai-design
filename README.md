@@ -64,19 +64,28 @@ npm test            # run the tests once
   - **Challenge Mode** — earn XP + stars, progress saved
   - **Timed Mode** — a countdown on every question; fast correct answers earn
     bonus XP, and progress is saved
+- **9 achievement badges** (First Steps, Perfectionist, On Fire, Speed Demon,
+  the three weekly badges, Century and Graduate), earned automatically as you
+  play and shown on the map, the results screen and a "new badge!" reveal
+- **Streak tracking** — a live "🔥 N in a row" counter, with your best streak
+  saved and shown in your stats
+- **Keyboard shortcuts** — press `1`–`4` to pick an answer and `Enter` to move
+  on (handy in Timed Mode)
+- A **stats strip** (XP, best streak, badges) and a **Continue** button that
+  jumps to your next unfinished mission
 - Instant feedback with a plain-English explanation on every answer
 - **Glossary** of IT terms
-- **Final results** screen with **revision recommendations**
+- **Final results** screen with **badges** and **revision recommendations**
 - Reset progress with a confirmation dialog
 - Progress saved in `localStorage` (survives refresh)
 - Accessible and mobile-first (large tap targets, keyboard support, focus
   rings, reduced-motion support)
 
-## Ideas for a future Phase 3
+## Ideas for a future phase
 
 - Sound effects and richer animations
-- More question types and a timed challenge
-- Track best streaks and badges
+- More question types (e.g. fill-in-the-blank, drag-and-drop)
+- Daily challenge and a shareable results card
 - Content for later weeks as more notes are released
 
 ## Project layout

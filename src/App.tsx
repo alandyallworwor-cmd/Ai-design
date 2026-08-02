@@ -78,6 +78,7 @@ export default function App() {
           mission={mission}
           xp={progress.xp}
           mode={mode}
+          earnedBadges={progress.badges}
           onFinish={(result) => finishMission(mission.id, result)}
           onExit={() => setScreen({ name: 'map' })}
         />
