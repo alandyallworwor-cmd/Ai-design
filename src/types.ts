@@ -69,8 +69,11 @@ export interface Mission {
   title: string;
   subtitle: string;
   icon: string;
-  /** Which study week this mission belongs to (used to group the map). */
-  week: 1 | 2 | 3;
+  /**
+   * Which section this mission belongs to (used to group the map).
+   * Weeks 1-3 are the study weeks; 4 is the end-of-course Exam Revision.
+   */
+  week: 1 | 2 | 3 | 4;
   /** Plain-English topic name, used for revision tips on the results screen. */
   topic: string;
   questions: Question[];
@@ -80,14 +83,23 @@ export interface Mission {
  * How the player is playing:
  * - "challenge": answers are scored and progress is saved.
  * - "study": relaxed practice; nothing is scored or saved.
+ * - "timed": scored like challenge, but each question has a countdown and
+ *   fast correct answers earn bonus XP.
  */
-export type GameMode = 'challenge' | 'study';
+export type GameMode = 'challenge' | 'study' | 'timed';
 
 /** What we remember about a mission the player has finished. */
 export interface MissionResult {
   stars: number;
   correct: number;
   total: number;
+  /** Speed-bonus XP earned this run (timed mode only). Absent otherwise. */
+  bonusXp?: number;
+  /**
+   * Total XP already granted for this mission (base + bonus). Stored so a
+   * replay only ever earns the improvement, never the same XP twice.
+   */
+  xpAwarded?: number;
 }
 
 /** Everything we save to localStorage. */

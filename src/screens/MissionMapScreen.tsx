@@ -16,6 +16,21 @@ interface MissionMapScreenProps {
   onChangeMode: () => void;
 }
 
+// Section headings for the map. Weeks 1-3 are study weeks; 4 is revision.
+const SECTIONS = [
+  { week: 1, label: 'Week 1' },
+  { week: 2, label: 'Week 2' },
+  { week: 3, label: 'Week 3' },
+  { week: 4, label: 'Exam Revision' },
+] as const;
+
+// A short, friendly label for the current play mode.
+const MODE_LABEL: Record<GameMode, string> = {
+  challenge: '🏆 Challenge Mode',
+  timed: '⏱️ Timed Mode',
+  study: '📖 Study Mode',
+};
+
 /** The mission-selection screen: shows every mission and overall progress. */
 export function MissionMapScreen({
   progress,
@@ -41,8 +56,7 @@ export function MissionMapScreen({
       <main className="map">
         <h2 className="map__heading">Your missions</h2>
         <p className="map__summary">
-          {mode === 'study' ? '📖 Study Mode' : '🏆 Challenge Mode'} ·{' '}
-          {doneCount} of {missions.length} completed
+          {MODE_LABEL[mode]} · {doneCount} of {missions.length} completed
         </p>
 
         <div className="map__toolbar">
@@ -54,10 +68,10 @@ export function MissionMapScreen({
           </Button>
         </div>
 
-        {/* Missions are grouped by study week so the map stays easy to scan. */}
-        {([1, 2, 3] as const).map((week) => (
+        {/* Missions are grouped by section so the map stays easy to scan. */}
+        {SECTIONS.map(({ week, label }) => (
           <section key={week} className="map__week">
-            <h3 className="map__week-title">Week {week}</h3>
+            <h3 className="map__week-title">{label}</h3>
             <div className="map__list">
               {missions
                 .filter((mission) => mission.week === week)

@@ -1334,6 +1334,138 @@ export const missions: Mission[] = [
       },
     ],
   },
+
+  // ===================================================================
+  // Exam Revision (Week 4 section).
+  // A mixed revision quiz that pulls the most testable ideas from all
+  // three weeks together, as preparation for the unit quizzes and
+  // assessment tasks (ICTICT313, BSBXTW301 & ICTSAS305). Every question
+  // is built from the Week 1-3 study notes.
+  // ===================================================================
+  {
+    id: 'revision',
+    title: 'Exam Revision',
+    subtitle: 'Mixed quiz across all three weeks — get ready for the ATs.',
+    icon: '🎓',
+    week: 4,
+    topic: 'Whole-course revision across Weeks 1–3',
+    questions: [
+      {
+        kind: 'select',
+        id: 'rev-privacy-act',
+        prompt: 'Which law governs how organisations handle personal information in Australia?',
+        choices: [
+          { id: 'a', text: 'The Copyright Act 1968' },
+          { id: 'b', text: 'The Privacy Act 1988 (Cth)' },
+          { id: 'c', text: 'The Patents Act 1990' },
+          { id: 'd', text: 'The Trade Marks Act 1995' },
+        ],
+        correctId: 'b',
+        explanation:
+          'The Privacy Act 1988 (Cth) and its Australian Privacy Principles govern how personal information is collected, used, stored and disclosed.',
+      },
+      {
+        kind: 'select',
+        id: 'rev-copyright',
+        prompt: 'When does copyright protection begin for original software code you write?',
+        choices: [
+          { id: 'a', text: 'Automatically, as soon as the work is created' },
+          { id: 'b', text: 'Only after you pay a registration fee' },
+          { id: 'c', text: 'Only after 12 months' },
+          { id: 'd', text: 'Only if you add a patent' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Copyright is automatic — it protects original works such as code, websites and documentation from the moment they are created, with no registration needed.',
+      },
+      {
+        kind: 'select',
+        id: 'rev-smart',
+        prompt: 'What does the "M" in a SMART goal stand for?',
+        choices: [
+          { id: 'a', text: 'Measurable' },
+          { id: 'b', text: 'Motivating' },
+          { id: 'c', text: 'Manual' },
+          { id: 'd', text: 'Mandatory' },
+        ],
+        correctId: 'a',
+        explanation:
+          'SMART goals are Specific, Measurable, Achievable, Relevant and Time-bound — the "M" is Measurable, so you can track progress.',
+      },
+      {
+        kind: 'select',
+        id: 'rev-eisenhower',
+        prompt: 'The Eisenhower Matrix sorts tasks by which two qualities?',
+        choices: [
+          { id: 'a', text: 'Urgent and important' },
+          { id: 'b', text: 'Cheap and quick' },
+          { id: 'c', text: 'New and old' },
+          { id: 'd', text: 'Easy and hard' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The Eisenhower Matrix asks "Is it urgent?" and "Is it important?" to decide what to do first, schedule, delegate or drop.',
+      },
+      {
+        kind: 'select',
+        id: 'rev-standup',
+        prompt: 'A daily Scrum stand-up mainly helps a team do what?',
+        choices: [
+          {
+            id: 'a',
+            text: 'Share progress, plan the day and surface blockers early',
+          },
+          { id: 'b', text: 'Write the entire project plan up front' },
+          { id: 'c', text: 'Replace all written documentation' },
+          { id: 'd', text: 'Decide everyone’s salary' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A stand-up is a short daily meeting where each member covers what they did, will do, and what is blocking them — improving communication and catching problems early.',
+      },
+      {
+        kind: 'select',
+        id: 'rev-minimisation',
+        prompt: 'An organisation collects only the data it truly needs. Which principle is this?',
+        choices: [
+          { id: 'a', text: 'Data minimisation' },
+          { id: 'b', text: 'Multitasking' },
+          { id: 'c', text: 'Escalation' },
+          { id: 'd', text: 'Time-blocking' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Data minimisation means collecting only essential information and protecting it well, because unnecessary data creates unnecessary risk.',
+      },
+      {
+        kind: 'order',
+        id: 'rev-breach',
+        prompt: 'Tap the Notifiable Data Breach steps in the correct order.',
+        items: [
+          { id: 'b1', text: 'Notice a data breach has happened' },
+          { id: 'b2', text: 'Report it promptly to your team' },
+          { id: 'b3', text: 'Assess whether serious harm is likely' },
+          { id: 'b4', text: 'Notify affected people and the OAIC' },
+        ],
+        correctOrder: ['b1', 'b2', 'b3', 'b4'],
+        explanation:
+          'Under the NDB scheme: notice the breach, report it promptly, assess whether serious harm is likely, then notify the affected people and the OAIC.',
+      },
+      {
+        kind: 'match',
+        id: 'rev-mixed-terms',
+        prompt: 'Match each term from across the course to its meaning.',
+        pairs: [
+          { id: 'r1', term: 'Escalation', meaning: 'Passing an issue to a higher support tier' },
+          { id: 'r2', term: 'Sprint', meaning: 'A fixed 2–4 week burst of focused work' },
+          { id: 'r3', term: 'Acceptable Use Policy', meaning: 'Rules for using company networks and devices' },
+          { id: 'r4', term: 'Accountability', meaning: 'Assigning responsibility and tracking actions' },
+        ],
+        explanation:
+          'Escalation moves hard issues up a tier, a sprint is a fixed work period, an AUP sets rules for company systems, and accountability assigns and tracks responsibility.',
+      },
+    ],
+  },
 ];
 
 /** Find a mission by its id (used by the mission screen). */

@@ -22,6 +22,17 @@ export function ModeSelectScreen({ onChoose, onGlossary }: ModeSelectScreenProps
         </span>
       </button>
 
+      <button className="mode-card" onClick={() => onChoose('timed')}>
+        <span className="mode-card__icon" aria-hidden="true">
+          ⏱️
+        </span>
+        <span className="mode-card__name">Timed Mode</span>
+        <span className="mode-card__desc">
+          Beat the clock. Each question has a countdown, and fast correct
+          answers earn bonus XP. Progress is saved.
+        </span>
+      </button>
+
       <button className="mode-card" onClick={() => onChoose('study')}>
         <span className="mode-card__icon" aria-hidden="true">
           📖

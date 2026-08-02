@@ -36,7 +36,7 @@ npm test            # run the tests once
 ## What's included
 
 - **Welcome** screen and **mode select** (Study or Challenge)
-- **Seventeen missions**, grouped into **Week 1**, **Week 2** and **Week 3**, all built from the notes:
+- **Eighteen missions**, grouped into **Week 1**, **Week 2**, **Week 3** and a final **Exam Revision** section, all built from the notes:
   - **Week 1**
     1. Plan the Project (teamwork)
     2. Organise the Work (ordering: data-breach response, outage fix)
@@ -57,7 +57,13 @@ npm test            # run the tests once
     15. Communicate Well (active listening, clarity, conflict, giving/receiving feedback)
     16. Ethics & Privacy Principles (the 7 principles and policy frameworks)
     17. Week 3 Terms Challenge (match terms to meanings)
-- **Study Mode** (relaxed, no score) and **Challenge Mode** (XP + stars, saved)
+  - **Exam Revision**
+    18. Exam Revision (mixed quiz across all three weeks, for AT/quiz prep)
+- **Three ways to play:**
+  - **Study Mode** — relaxed, nothing scored or saved
+  - **Challenge Mode** — earn XP + stars, progress saved
+  - **Timed Mode** — a countdown on every question; fast correct answers earn
+    bonus XP, and progress is saved
 - Instant feedback with a plain-English explanation on every answer
 - **Glossary** of IT terms
 - **Final results** screen with **revision recommendations**

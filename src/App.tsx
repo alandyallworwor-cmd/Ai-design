@@ -30,8 +30,9 @@ export default function App() {
   }
 
   function finishMission(missionId: string, result: MissionResult) {
-    // Only Challenge Mode saves progress; Study Mode is relaxed practice.
-    if (mode === 'challenge') {
+    // Scored modes (Challenge and Timed) save progress; Study Mode is
+    // relaxed practice and saves nothing.
+    if (mode !== 'study') {
       completeMission(missionId, result);
     }
   }

@@ -42,24 +42,32 @@ export function useProgress() {
 
   /**
    * Record the result of a finished mission. We keep the player's BEST result
-   * for that mission and add XP only for their new correct answers this run.
+   * for that mission and add XP only for the improvement over what was already
+   * earned, so replaying a mission can never farm the same XP twice.
+   *
+   * XP for a run is 10 per correct answer plus any timed-mode speed bonus.
    */
   const completeMission = useCallback(
     (missionId: string, result: MissionResult) => {
       setProgress((prev) => {
         const previous = prev.completed[missionId];
         const bestStars = Math.max(previous?.stars ?? 0, result.stars);
-        // XP is 10 points per correct answer; only award the improvement.
-        const previousCorrect = previous?.correct ?? 0;
-        const gained = Math.max(0, result.correct - previousCorrect) * 10;
+        // XP already granted for this mission (older saves may predate
+        // xpAwarded, so fall back to the base value from their correct count).
+        const previousXp =
+          previous?.xpAwarded ?? (previous ? previous.correct * 10 : 0);
+        const runXp = result.correct * 10 + (result.bonusXp ?? 0);
+        const awardedXp = Math.max(previousXp, runXp);
+        const gained = awardedXp - previousXp;
         return {
           xp: prev.xp + gained,
           completed: {
             ...prev.completed,
             [missionId]: {
               stars: bestStars,
-              correct: Math.max(previousCorrect, result.correct),
+              correct: Math.max(previous?.correct ?? 0, result.correct),
               total: result.total,
+              xpAwarded: awardedXp,
             },
           },
         };

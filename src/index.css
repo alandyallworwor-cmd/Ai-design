@@ -603,6 +603,45 @@ main {
   color: var(--cyan);
 }
 
+/* Timed Mode countdown: a shrinking bar with the seconds left on top. */
+.mission__timer {
+  position: relative;
+  height: 30px;
+  margin: 0 0 14px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.mission__timer-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, var(--indigo), var(--cyan));
+  transition: width 1s linear;
+}
+
+.mission__timer--low .mission__timer-bar {
+  background: var(--red);
+}
+
+.mission__timer-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.complete__bonus {
+  margin: 0 0 18px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
 /* ---- Matching activity ---------------------------------------------- */
 .match {
   display: grid;

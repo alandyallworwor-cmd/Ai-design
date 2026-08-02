@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AppHeader } from '../components/AppHeader';
 import { Button } from '../components/Button';
 import { FeedbackBanner } from '../components/FeedbackBanner';
@@ -12,11 +12,16 @@ interface MissionScreenProps {
   mission: Mission;
   /** The player's current total XP, shown in the top bar. */
   xp: number;
-  /** Study mode is relaxed practice; challenge mode is scored. */
+  /** Study mode is relaxed; challenge and timed modes are scored. */
   mode: GameMode;
   onFinish: (result: MissionResult) => void;
   onExit: () => void;
 }
+
+/** How many seconds the player gets per question in Timed Mode. */
+const TIMED_SECONDS = 20;
+/** The most speed-bonus XP a single fast, correct answer can earn. */
+const MAX_BONUS = 5;
 
 /** Turn a correct/total score into 1-3 stars. */
 function starsFor(correct: number, total: number): number {
@@ -43,16 +48,43 @@ export function MissionScreen({
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
   const [finished, setFinished] = useState(false);
+  // Timed Mode only: seconds left on the current question and bonus XP so far.
+  const [timeLeft, setTimeLeft] = useState(TIMED_SECONDS);
+  const [bonusXp, setBonusXp] = useState(0);
 
   const question: Question = mission.questions[index];
   const isLast = index === mission.questions.length - 1;
+  const isTimed = mode === 'timed';
+  const isScored = mode !== 'study';
 
   /** Record whether the current answer was right (only counts the first try). */
   function markAnswer(correct: boolean) {
     setAnswered(true);
     setWasCorrect(correct);
-    if (correct) setCorrectCount((c) => c + 1);
+    if (correct) {
+      setCorrectCount((c) => c + 1);
+      // Faster correct answers earn more bonus XP in Timed Mode.
+      if (isTimed) {
+        const bonus = Math.max(1, Math.round((MAX_BONUS * timeLeft) / TIMED_SECONDS));
+        setBonusXp((b) => b + bonus);
+      }
+    }
   }
+
+  // Timed Mode countdown: tick once a second, and mark the question wrong if
+  // time runs out before the player answers.
+  useEffect(() => {
+    if (!isTimed || answered || finished) return;
+    if (timeLeft <= 0) {
+      markAnswer(false);
+      return;
+    }
+    const timer = window.setTimeout(() => setTimeLeft((s) => s - 1), 1000);
+    return () => window.clearTimeout(timer);
+    // markAnswer is intentionally omitted: it is recreated each render and we
+    // only want this effect to re-run when the timer or answered state changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isTimed, answered, finished, timeLeft]);
 
   function handleSelect(choiceId: string) {
     if (answered || question.kind !== 'select') return;
@@ -77,6 +109,7 @@ export function MissionScreen({
         correct: correctCount,
         total: mission.questions.length,
         stars: starsFor(correctCount, mission.questions.length),
+        bonusXp: isTimed ? bonusXp : undefined,
       };
       onFinish(result);
       setFinished(true);
@@ -87,6 +120,7 @@ export function MissionScreen({
     setAnswered(false);
     setWasCorrect(false);
     setSelectedId(null);
+    setTimeLeft(TIMED_SECONDS);
   }
 
   // ---- Completion summary ----------------------------------------------
@@ -106,13 +140,16 @@ export function MissionScreen({
           <p className="complete__score">
             You got {correctCount} of {total} correct.
           </p>
-          {/* Stars are a scored reward, so only show them in challenge mode. */}
-          {mode === 'challenge' && (
+          {/* Stars are a scored reward, so only show them in scored modes. */}
+          {isScored && (
             <p className="complete__stars" aria-label={`${stars} of 3 stars`}>
               {[1, 2, 3].map((n) => (
                 <span key={n}>{n <= stars ? '★' : '☆'}</span>
               ))}
             </p>
+          )}
+          {isTimed && bonusXp > 0 && (
+            <p className="complete__bonus">⚡ Speed bonus: +{bonusXp} XP</p>
           )}
           <Button variant="primary" onClick={onExit}>
             Back to missions
@@ -134,6 +171,26 @@ export function MissionScreen({
         <h2 className="mission__title">{mission.title}</h2>
         {mode === 'study' && (
           <p className="mission__mode-tag">📖 Study Mode · no score pressure</p>
+        )}
+        {isTimed && (
+          <div
+            className={`mission__timer ${
+              !answered && timeLeft <= 5 ? 'mission__timer--low' : ''
+            }`.trim()}
+          >
+            <div
+              className="mission__timer-bar"
+              style={{ width: `${(Math.max(0, timeLeft) / TIMED_SECONDS) * 100}%` }}
+              aria-hidden="true"
+            />
+            <span
+              className="mission__timer-label"
+              role="timer"
+              aria-label={`${Math.max(0, timeLeft)} seconds left`}
+            >
+              ⏱️ {Math.max(0, timeLeft)}s
+            </span>
+          </div>
         )}
         <p className="mission__prompt">{question.prompt}</p>
 
