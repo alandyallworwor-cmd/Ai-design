@@ -79,7 +79,7 @@ describe('IT Quest app flow', () => {
 
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/40 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/1 of 11 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 of 17 completed/i)).toBeInTheDocument();
   });
 
   it('does NOT save score in study mode', async () => {
@@ -91,7 +91,7 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('heading', { name: /practice complete/i })).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/0 of 11 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/0 of 17 completed/i)).toBeInTheDocument();
   });
 
   it('lets the player order the steps correctly', async () => {
@@ -154,17 +154,33 @@ describe('IT Quest app flow', () => {
     // Confirming clears everything.
     await user.click(within(dialog).getByRole('button', { name: /yes, reset/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.queryByText(/1 of 11 completed/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/1 of 17 completed/i)).not.toBeInTheDocument();
   });
 
-  it('shows Week 1 and Week 2 sections with a Week 2 mission', async () => {
+  it('shows Week 1, Week 2 and Week 3 sections with a Week 2 mission', async () => {
     const user = userEvent.setup();
     await startGame(user);
     expect(screen.getByRole('heading', { name: /week 1/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /week 2/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /week 3/i })).toBeInTheDocument();
     // A Week 2 mission is reachable and opens correctly.
     await user.click(screen.getByRole('button', { name: /policies & procedures/i }));
     expect(screen.getByText(/what is a policy/i)).toBeInTheDocument();
+  });
+
+  it('teaches a Week 3 answer (Eisenhower Matrix) with feedback', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /manage your time/i }));
+    // Advance to the Eisenhower Matrix question and answer it.
+    await user.click(screen.getByRole('button', { name: /organising and planning how much time/i }));
+    await user.click(screen.getByRole('button', { name: /next question/i }));
+    await user.click(screen.getByRole('button', { name: /break it into smaller tasks/i }));
+    await user.click(screen.getByRole('button', { name: /next question/i }));
+    await user.click(screen.getByRole('button', { name: /switching between tasks reduces productivity/i }));
+    await user.click(screen.getByRole('button', { name: /next question/i }));
+    await user.click(screen.getByRole('button', { name: /is it urgent\? is it important\?/i }));
+    expect(within(screen.getByRole('status')).getByText(/correct/i)).toBeInTheDocument();
   });
 
   it('teaches a Week 2 answer (SMART goals) with feedback', async () => {

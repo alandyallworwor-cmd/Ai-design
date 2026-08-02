@@ -11,7 +11,10 @@ export interface GlossaryTerm {
     | 'Teamwork'
     | 'Policies & Procedures'
     | 'Teams & Goals'
-    | 'ICT Support';
+    | 'ICT Support'
+    | 'Time & Agile'
+    | 'Meetings & Communication'
+    | 'Ethics Principles';
 }
 
 export const glossary: GlossaryTerm[] = [
@@ -198,5 +201,126 @@ export const glossary: GlossaryTerm[] = [
     term: 'Feedback loop',
     meaning: 'Collecting client feedback, analysing it and using it to improve services, over and over.',
     group: 'ICT Support',
+  },
+
+  // --- Week 3: Time & Agile (BSBXTW301 / ICTSAS305) ---
+  {
+    term: 'Time management',
+    meaning: 'Organising and planning how much time to spend on activities, prioritising by urgency and importance.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Prioritisation',
+    meaning: 'Deciding which tasks should be completed first, based on impact, deadlines, dependencies and risk.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Eisenhower Matrix',
+    meaning: 'A tool that prioritises work by asking two questions: is it urgent, and is it important?',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Time-blocking',
+    meaning: 'Dividing the workday into blocks and assigning each block to a task to encourage focused work.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Agile',
+    meaning: 'An approach that delivers work in small stages with continuous collaboration, feedback and improvement.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Scrum',
+    meaning: 'A popular Agile framework using a Product Owner, Scrum Master and Development Team in repeating iterations.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Sprint',
+    meaning: 'A fixed period of focused work, usually 2–4 weeks, that ends with a working product and feedback.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Stand-up',
+    meaning: 'A short (about 15-minute) daily meeting covering what you did, will do, and any obstacles.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Product Backlog',
+    meaning: 'A prioritised list of all the work: features, fixes and improvements to be done.',
+    group: 'Time & Agile',
+  },
+
+  // --- Week 3: Meetings & Communication (BSBXTW301 / ICTSAS305) ---
+  {
+    term: 'Formal meeting',
+    meaning: 'A structured discussion with a clear purpose, agenda and expected outcomes.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Agenda',
+    meaning: 'A structured outline of the topics to be discussed, prepared before a meeting.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Meeting minutes',
+    meaning: 'A written record of discussion points, decisions and action items, distributed promptly after a meeting.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Active listening',
+    meaning: 'Giving full attention to the speaker, asking clarifying questions and summarising what you heard.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Constructive feedback',
+    meaning: 'Specific, respectful, behaviour-focused information that describes actions and suggests improvement.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Conflict resolution',
+    meaning: 'Resolving disagreements respectfully by focusing on the issue, using facts and supporting the team goal.',
+    group: 'Meetings & Communication',
+  },
+
+  // --- Week 3: Ethics Principles (ICTICT313) ---
+  {
+    term: 'Transparency',
+    meaning: 'Clearly communicating how IP and personal data are collected, used, stored and protected.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Accountability',
+    meaning: 'Assigning responsibility for actions and compliance, reinforced by roles, audit trails and access tracking.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Proportionality',
+    meaning: 'Collecting data and monitoring only as much as the organisation genuinely needs — no overreach.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Consent and Choice',
+    meaning: 'Informing individuals about data use, obtaining approval, and letting them change or withdraw it.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Data minimisation',
+    meaning: 'Collecting only essential data and protecting it, because unnecessary data creates unnecessary risk.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Fairness & Non-Discrimination',
+    meaning: 'Ensuring policies, monitoring and decision systems treat individuals equitably and avoid bias.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Continuous Improvement',
+    meaning: 'Regularly reviewing, auditing and updating policies so they stay relevant as technology and risks change.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Policy framework',
+    meaning: 'Structured guidance (purpose, scope, principles, rules, roles, enforcement, flexibility) for managing IP, ethics and privacy.',
+    group: 'Ethics Principles',
   },
 ];
