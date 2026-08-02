@@ -8,6 +8,11 @@ communication and doing IT work the right way**.
 All learning content comes from the supplied Week 1, Week 2 and Week 3 study
 notes.
 
+> **Development & deployment are 100% browser-based.** Nothing is installed
+> locally — see [`WORKFLOW.md`](./WORKFLOW.md). Coding and testing happen in
+> Claude Code Web, GitHub is the source of truth, and Vercel hosts the app
+> (preview deployments for branches, production from `main`).
+
 ## Tech
 
 - React 18 + TypeScript

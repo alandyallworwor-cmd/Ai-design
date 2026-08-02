@@ -43,7 +43,9 @@ export function MissionMapScreen({
   onChangeMode,
 }: MissionMapScreenProps) {
   const [confirmReset, setConfirmReset] = useState(false);
-  const doneCount = Object.keys(progress.completed).length;
+  // Count only the built-in missions so weekly-lesson completions (stored under
+  // separate keys) never distort the "X of N" mission tally.
+  const doneCount = missions.filter((m) => progress.completed[m.id]).length;
   const allDone = doneCount === missions.length;
   // The first mission the player has not finished yet, for the Continue button.
   const nextMission = missions.find((m) => !progress.completed[m.id]);
