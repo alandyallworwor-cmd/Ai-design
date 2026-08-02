@@ -21,7 +21,7 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       <Button variant="primary" className="welcome__start" onClick={onStart}>
         Start playing
       </Button>
-      <p className="welcome__note">Based on your Week 1 &amp; Week 2 Work Skills notes.</p>
+      <p className="welcome__note">Based on your Week 1–3 Work Skills notes.</p>
     </main>
   );
 }
