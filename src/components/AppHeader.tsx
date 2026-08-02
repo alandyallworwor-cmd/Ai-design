@@ -1,4 +1,5 @@
 import { SoundToggle } from './SoundToggle';
+import { ThemeToggle } from './ThemeToggle';
 
 interface AppHeaderProps {
   xp: number;
@@ -19,6 +20,7 @@ export function AppHeader({ xp, onBack }: AppHeaderProps) {
       )}
       <span className="app-header__title">IT Quest</span>
       <span className="app-header__actions">
+        <ThemeToggle />
         <SoundToggle />
         <span className="app-header__xp" aria-label={`${xp} experience points`}>
           ⭐ {xp} XP

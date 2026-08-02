@@ -77,6 +77,8 @@ npm test            # run the tests once
   **fill-in-the-blank** (type the missing word)
 - **Sound effects** for correct/wrong answers, mission completion and badge
   unlocks, with a **mute toggle** in the header (remembered between visits)
+- **Light and dark themes** — follows your device by default, with a header
+  toggle that's remembered between visits
 - Instant feedback with a plain-English explanation on every answer
 - **Glossary** of IT terms
 - **Final results** screen with **badges**, **revision recommendations** and a
@@ -84,7 +86,7 @@ npm test            # run the tests once
 - Reset progress with a confirmation dialog
 - Progress saved in `localStorage` (survives refresh)
 - Accessible and mobile-first (large tap targets, keyboard support, focus
-  rings, reduced-motion support)
+  rings that move to each new screen's heading, reduced-motion support)
 
 ## Ideas for a future phase
 

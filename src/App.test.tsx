@@ -191,6 +191,20 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('button', { name: /turn sound on/i })).toBeInTheDocument();
   });
 
+  it('has a working light/dark theme toggle', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    const toggle = screen.getByRole('button', { name: /switch to (light|dark) theme/i });
+    await user.click(toggle);
+    // Toggling flips the theme applied to the document root.
+    const theme = document.documentElement.dataset.theme;
+    expect(theme === 'light' || theme === 'dark').toBe(true);
+    // The button's label flips to offer the opposite theme.
+    const before = toggle.getAttribute('aria-label');
+    await user.click(screen.getByRole('button', { name: /switch to (light|dark) theme/i }));
+    expect(screen.getByRole('button', { name: /switch to (light|dark) theme/i }).getAttribute('aria-label')).not.toBe(before);
+  });
+
   it('opens the glossary from the mission map', async () => {
     const user = userEvent.setup();
     await startGame(user);
