@@ -61,7 +61,7 @@ export function WelcomeScreen({ onStart, onPrivacy, auth, syncStatus }: WelcomeS
           onSignOut={auth.signOut}
         />
       )}
-      <p className="welcome__note">Based on your Week 1 &amp; 2 Work Skills notes.</p>
+      <p className="welcome__note">Based on your Week 1–3 Work Skills notes.</p>
       <Button variant="ghost" onClick={onPrivacy}>
         Privacy policy
       </Button>

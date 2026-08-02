@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { Progress } from '../types';
+import { earnedBadgeIds } from '../data/badges';
 import {
   deriveXp,
   mergeProgress,
@@ -8,10 +9,13 @@ import {
   type ProgressRow,
 } from './progressSync';
 
-const empty: Progress = { xp: 0, completed: {} };
+const empty: Progress = { xp: 0, completed: {}, bestStreak: 0, badges: [] };
 
+// Mirror the production shape (streak defaults to 0, badges are derived) so
+// equality assertions line up with what mergeProgress / rowsToProgress return.
 function make(completed: Progress['completed']): Progress {
-  return { xp: deriveXp(completed), completed };
+  const base: Progress = { xp: deriveXp(completed), completed, bestStreak: 0, badges: [] };
+  return { ...base, badges: earnedBadgeIds(base) };
 }
 
 describe('deriveXp', () => {

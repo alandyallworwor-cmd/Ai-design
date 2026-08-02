@@ -1,4 +1,5 @@
 import type { MissionResult, Progress } from '../types';
+import { earnedBadgeIds } from '../data/badges';
 
 /**
  * One row of the Supabase `progress` table. XP is not stored — it is always
@@ -43,7 +44,15 @@ export function mergeProgress(a: Progress, b: Progress): Progress {
     if (ra && rb) completed[id] = bestResult(ra, rb);
     else completed[id] = ra ?? rb;
   }
-  return { xp: deriveXp(completed), completed };
+  // Keep the longer streak; badges are derived from the merged progress.
+  const bestStreak = Math.max(a.bestStreak, b.bestStreak);
+  const merged: Progress = {
+    xp: deriveXp(completed),
+    completed,
+    bestStreak,
+    badges: [],
+  };
+  return { ...merged, badges: earnedBadgeIds(merged) };
 }
 
 /** A progress row as read back from Supabase (user_id is implied by the query). */
@@ -59,7 +68,10 @@ export function rowsToProgress(rows: ProgressRowRead[]): Progress {
       total: row.total,
     };
   }
-  return { xp: deriveXp(completed), completed };
+  // The cloud table stores per-mission results only; the streak is local and
+  // badges are derived from the completed missions.
+  const base: Progress = { xp: deriveXp(completed), completed, bestStreak: 0, badges: [] };
+  return { ...base, badges: earnedBadgeIds(base) };
 }
 
 /** Turn the app's Progress into upsertable Supabase rows for a given user. */

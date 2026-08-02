@@ -1,10 +1,13 @@
+import { SoundToggle } from './SoundToggle';
+import { ThemeToggle } from './ThemeToggle';
+
 interface AppHeaderProps {
   xp: number;
   /** Optional back action; when set, a back button appears on the left. */
   onBack?: () => void;
 }
 
-/** The top bar of the game. Shows the title and the player's XP. */
+/** The top bar of the game. Shows the title, a mute toggle and the player's XP. */
 export function AppHeader({ xp, onBack }: AppHeaderProps) {
   return (
     <header className="app-header">
@@ -16,8 +19,12 @@ export function AppHeader({ xp, onBack }: AppHeaderProps) {
         <span className="app-header__spacer" aria-hidden="true" />
       )}
       <span className="app-header__title">IT Quest</span>
-      <span className="app-header__xp" aria-label={`${xp} experience points`}>
-        ⭐ {xp} XP
+      <span className="app-header__actions">
+        <ThemeToggle />
+        <SoundToggle />
+        <span className="app-header__xp" aria-label={`${xp} experience points`}>
+          ⭐ {xp} XP
+        </span>
       </span>
     </header>
   );

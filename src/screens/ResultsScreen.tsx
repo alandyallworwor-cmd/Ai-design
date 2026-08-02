@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { AppHeader } from '../components/AppHeader';
 import { Button } from '../components/Button';
+import { BADGES } from '../data/badges';
 import { missions } from '../data/missions';
+import { buildShareText, shareResults } from '../lib/shareResults';
 import type { Progress } from '../types';
 
 interface ResultsScreenProps {
@@ -18,6 +21,25 @@ export function ResultsScreen({ progress, onBack }: ResultsScreenProps) {
     0,
   );
   const maxStars = missions.length * 3;
+
+  // Share state: a status message, plus the summary text to show if neither
+  // the share sheet nor the clipboard is available.
+  const [shareMsg, setShareMsg] = useState<string | null>(null);
+  const [fallbackText, setFallbackText] = useState<string | null>(null);
+
+  async function handleShare() {
+    const outcome = await shareResults(progress);
+    if (outcome === 'shared') {
+      setShareMsg('Shared! 🎉');
+      setFallbackText(null);
+    } else if (outcome === 'copied') {
+      setShareMsg('Copied to clipboard! 📋');
+      setFallbackText(null);
+    } else {
+      setShareMsg('Copy your results below:');
+      setFallbackText(buildShareText(progress));
+    }
+  }
 
   // A topic needs revising if the mission is unfinished or scored under 3 stars.
   const toRevise = missions.filter(
@@ -44,12 +66,40 @@ export function ResultsScreen({ progress, onBack }: ResultsScreenProps) {
             </span>
             <span className="results__score-label">Stars earned</span>
           </div>
+          <div className="results__score">
+            <span className="results__score-value">🔥 {progress.bestStreak}</span>
+            <span className="results__score-label">Best streak</span>
+          </div>
         </div>
+
+        <section className="results__badges">
+          <h3 className="results__badges-title">
+            Badges · {progress.badges.length}/{BADGES.length}
+          </h3>
+          <ul className="badge-grid">
+            {BADGES.map((badge) => {
+              const earned = progress.badges.includes(badge.id);
+              return (
+                <li
+                  key={badge.id}
+                  className={`badge badge--tile ${earned ? '' : 'badge--locked'}`.trim()}
+                  title={badge.description}
+                >
+                  <span className="badge__icon" aria-hidden="true">
+                    {earned ? badge.icon : '🔒'}
+                  </span>
+                  <span className="badge__name">{badge.name}</span>
+                  <span className="badge__desc">{badge.description}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
 
         {toRevise.length === 0 ? (
           <p className="results__perfect">
             🎉 Amazing! You earned 3 stars on every mission. You have mastered
-            all the Week 1 topics.
+            every topic in the course.
           </p>
         ) : (
           <section className="results__revise">
@@ -68,9 +118,23 @@ export function ResultsScreen({ progress, onBack }: ResultsScreenProps) {
           </section>
         )}
 
-        <Button variant="primary" onClick={onBack}>
-          Back to missions
-        </Button>
+        <div className="results__actions">
+          <Button variant="secondary" onClick={handleShare}>
+            📤 Share my results
+          </Button>
+          <Button variant="primary" onClick={onBack}>
+            Back to missions
+          </Button>
+        </div>
+
+        {shareMsg && (
+          <div className="results__share" role="status">
+            <p className="results__share-msg">{shareMsg}</p>
+            {fallbackText && (
+              <pre className="results__share-text">{fallbackText}</pre>
+            )}
+          </div>
+        )}
       </main>
     </div>
   );

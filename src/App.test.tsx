@@ -2,11 +2,15 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import App from './App';
+import { setMuted } from './lib/sound';
 
 type User = ReturnType<typeof userEvent.setup>;
 
 /** Go from the welcome screen through mode select into the mission map. */
-async function startGame(user: User, mode: 'Challenge' | 'Study' = 'Challenge') {
+async function startGame(
+  user: User,
+  mode: 'Challenge' | 'Study' | 'Timed' = 'Challenge',
+) {
   render(<App />);
   await user.click(screen.getByRole('button', { name: /start playing/i }));
   await user.click(screen.getByRole('button', { name: new RegExp(`${mode} Mode`, 'i') }));
@@ -79,7 +83,7 @@ describe('IT Quest app flow', () => {
 
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/40 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/1 of 6 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 of 18 completed/i)).toBeInTheDocument();
   });
 
   it('does NOT save score in study mode', async () => {
@@ -91,7 +95,7 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('heading', { name: /practice complete/i })).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/0 of 6 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/0 of 18 completed/i)).toBeInTheDocument();
   });
 
   it('lets the player order the steps correctly', async () => {
@@ -129,6 +133,76 @@ describe('IT Quest app flow', () => {
     // Once all pairs are matched, feedback and a Next button appear.
     expect(screen.getByRole('status')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /next question/i })).toBeInTheDocument();
+  });
+
+  it('unlocks badges and shows them on the map after a mission', async () => {
+    const user = userEvent.setup();
+    await startGame(user, 'Challenge');
+    await completePlanMission(user);
+
+    // A perfect first mission unlocks the "First Steps" and "Perfectionist" badges.
+    expect(screen.getByText(/new badge/i)).toBeInTheDocument();
+    expect(screen.getByText(/first steps/i)).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /back to missions/i }));
+    // The map now shows a badges strip and the badge count stat.
+    expect(screen.getByRole('list', { name: /badges earned/i })).toBeInTheDocument();
+    expect(screen.getByText(/2\/9/)).toBeInTheDocument();
+  });
+
+  it('lets the player answer with number-key shortcuts', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /plan the project/i }));
+    // Pressing "1" selects the first choice (the correct one here).
+    await user.keyboard('1');
+    expect(within(screen.getByRole('status')).getByText(/correct/i)).toBeInTheDocument();
+  });
+
+  it('lets the player answer a fill-in-the-blank question', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /agile & scrum/i }));
+
+    // Step through the select questions to reach the fill-in-the-blank one.
+    const selects = [
+      /delivering work in small stages/i,
+      /product owner, scrum master and development team/i,
+      /a fixed period of focused work/i,
+      /what did i do yesterday/i,
+    ];
+    for (const answer of selects) {
+      await user.click(screen.getByRole('button', { name: answer }));
+      await user.click(screen.getByRole('button', { name: /next question/i }));
+    }
+
+    // Now type the missing word.
+    expect(screen.getByText(/fixed 2–4 week period of focused work is called/i)).toBeInTheDocument();
+    await user.type(screen.getByRole('textbox', { name: /your answer/i }), 'sprint');
+    await user.click(screen.getByRole('button', { name: /check answer/i }));
+    expect(within(screen.getByRole('status')).getByText(/correct/i)).toBeInTheDocument();
+  });
+
+  it('has a working sound on/off toggle in the header', async () => {
+    setMuted(false); // start from a known state regardless of test order
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /turn sound off/i }));
+    expect(screen.getByRole('button', { name: /turn sound on/i })).toBeInTheDocument();
+  });
+
+  it('has a working light/dark theme toggle', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    const toggle = screen.getByRole('button', { name: /switch to (light|dark) theme/i });
+    await user.click(toggle);
+    // Toggling flips the theme applied to the document root.
+    const theme = document.documentElement.dataset.theme;
+    expect(theme === 'light' || theme === 'dark').toBe(true);
+    // The button's label flips to offer the opposite theme.
+    const before = toggle.getAttribute('aria-label');
+    await user.click(screen.getByRole('button', { name: /switch to (light|dark) theme/i }));
+    expect(screen.getByRole('button', { name: /switch to (light|dark) theme/i }).getAttribute('aria-label')).not.toBe(before);
   });
 
   it('opens weekly study and shows a friendly empty state (no cloud configured)', async () => {
@@ -176,6 +250,84 @@ describe('IT Quest app flow', () => {
     // Confirming clears everything.
     await user.click(within(dialog).getByRole('button', { name: /yes, reset/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.queryByText(/1 of 6 completed/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/1 of 18 completed/i)).not.toBeInTheDocument();
+  });
+
+  it('shows all week sections plus Exam Revision', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    expect(screen.getByRole('heading', { name: /week 1/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /week 2/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /week 3/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /exam revision/i })).toBeInTheDocument();
+    // A Week 2 mission is reachable and opens correctly.
+    await user.click(screen.getByRole('button', { name: /policies & procedures/i }));
+    expect(screen.getByText(/what is a policy/i)).toBeInTheDocument();
+  });
+
+  it('runs the Exam Revision mission with a mixed question', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /exam revision/i }));
+    expect(screen.getByText(/which law governs how organisations handle personal information/i)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /privacy act 1988/i }));
+    expect(within(screen.getByRole('status')).getByText(/correct/i)).toBeInTheDocument();
+  });
+
+  it('shows a countdown timer and saves progress in timed mode', async () => {
+    const user = userEvent.setup();
+    await startGame(user, 'Timed');
+    expect(screen.getByText(/timed mode/i)).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /plan the project/i }));
+    // A live countdown timer is shown in timed mode.
+    expect(screen.getByRole('timer')).toBeInTheDocument();
+
+    const answers = [
+      /clear goals everyone understands/i,
+      /technicians, developers, support staff and managers/i,
+      /successes and failures are owned by everyone/i,
+      /regular communication, like a daily stand-up/i,
+    ];
+    for (const answer of answers) {
+      await user.click(screen.getByRole('button', { name: answer }));
+      await user.click(screen.getByRole('button', { name: /next question|see results/i }));
+    }
+
+    // Timed mode is scored, so stars appear and progress is saved.
+    expect(screen.getByRole('heading', { name: /mission complete/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/3 of 3 stars/i)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /back to missions/i }));
+    expect(screen.getByText(/1 of 18 completed/i)).toBeInTheDocument();
+    // Some XP was earned: base 40 (4 correct x 10) plus a speed bonus, so the
+    // total must be strictly more than the challenge-mode base of 40.
+    const xpLabel = screen.getByLabelText(/experience points$/i).getAttribute('aria-label') ?? '';
+    const earnedXp = Number.parseInt(xpLabel, 10);
+    expect(earnedXp).toBeGreaterThan(40);
+  });
+
+  it('teaches a Week 3 answer (Eisenhower Matrix) with feedback', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /manage your time/i }));
+    // Advance to the Eisenhower Matrix question and answer it.
+    await user.click(screen.getByRole('button', { name: /organising and planning how much time/i }));
+    await user.click(screen.getByRole('button', { name: /next question/i }));
+    await user.click(screen.getByRole('button', { name: /break it into smaller tasks/i }));
+    await user.click(screen.getByRole('button', { name: /next question/i }));
+    await user.click(screen.getByRole('button', { name: /switching between tasks reduces productivity/i }));
+    await user.click(screen.getByRole('button', { name: /next question/i }));
+    await user.click(screen.getByRole('button', { name: /is it urgent\? is it important\?/i }));
+    expect(within(screen.getByRole('status')).getByText(/correct/i)).toBeInTheDocument();
+  });
+
+  it('teaches a Week 2 answer (SMART goals) with feedback', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /goals & getting work done/i }));
+    await user.click(screen.getByRole('button', { name: /^Specific$/i }));
+    const feedback = screen.getByRole('status');
+    expect(within(feedback).getByText(/correct/i)).toBeInTheDocument();
+    expect(within(feedback).getByText(/specific, measurable, achievable, relevant and time-bound/i)).toBeInTheDocument();
   });
 });

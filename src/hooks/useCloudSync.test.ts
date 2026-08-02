@@ -55,6 +55,8 @@ describe('useCloudSync', () => {
     const local: Progress = {
       xp: 40,
       completed: { m1: { stars: 3, correct: 4, total: 4 } },
+      bestStreak: 0,
+      badges: [],
     };
     const { result } = renderHook(() => useHarness(null, local));
     expect(result.current.status).toBe('idle');
@@ -67,6 +69,8 @@ describe('useCloudSync', () => {
     const local: Progress = {
       xp: 40,
       completed: { m1: { stars: 3, correct: 4, total: 4 } },
+      bestStreak: 0,
+      badges: [],
     };
     const { result } = renderHook(() => useHarness(fakeUser, local));
 
@@ -88,6 +92,8 @@ describe('useCloudSync', () => {
     const local: Progress = {
       xp: 40,
       completed: { m1: { stars: 3, correct: 4, total: 4 } },
+      bestStreak: 0,
+      badges: [],
     };
     const { result } = renderHook(() => useHarness(fakeUser, local));
 
@@ -100,6 +106,8 @@ describe('useCloudSync', () => {
     const local: Progress = {
       xp: 40,
       completed: { m1: { stars: 3, correct: 4, total: 4 } },
+      bestStreak: 0,
+      badges: [],
     };
     const { result, rerender } = renderHook(
       ({ user }: { user: User | null }) => useHarness(user, local),

@@ -5,18 +5,24 @@
    ============================================================ */
 
 :root {
+  /* --indigo is the brand background (white text sits on it); --accent is the
+     same indigo used as foreground text/borders, lightened in dark mode. */
   --indigo: #4f46e5;
   --indigo-dark: #4338ca;
+  --accent: #4f46e5;
   --cyan: #06b6d4;
   --green: #16a34a;
   --green-soft: #dcfce7;
+  --green-ink: #14532d;
   --red: #dc2626;
   --red-soft: #fee2e2;
+  --red-ink: #7f1d1d;
   --ink: #1e293b;
   --ink-soft: #475569;
   --line: #e2e8f0;
   --surface: #ffffff;
   --bg: #f1f5f9;
+  --welcome-bg: linear-gradient(160deg, #eef2ff 0%, #f1f5f9 60%);
   --radius: 18px;
   --shadow: 0 6px 20px rgba(30, 41, 59, 0.08);
   --tap: 48px; /* minimum comfortable tap target */
@@ -24,6 +30,48 @@
   color-scheme: light;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
+}
+
+/* Dark theme. Applied via data-theme (set from the saved choice or the system
+   preference); the media query is a no-JS fallback for a system-dark device. */
+:root[data-theme='dark'] {
+  --accent: #a5b4fc;
+  --cyan: #22d3ee;
+  --green: #4ade80;
+  --green-soft: rgba(74, 222, 128, 0.16);
+  --green-ink: #bbf7d0;
+  --red: #f87171;
+  --red-soft: rgba(248, 113, 113, 0.16);
+  --red-ink: #fecaca;
+  --ink: #e2e8f0;
+  --ink-soft: #94a3b8;
+  --line: #334155;
+  --surface: #1e293b;
+  --bg: #0f172a;
+  --welcome-bg: linear-gradient(160deg, #1e1b4b 0%, #0f172a 60%);
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --accent: #a5b4fc;
+    --cyan: #22d3ee;
+    --green: #4ade80;
+    --green-soft: rgba(74, 222, 128, 0.16);
+    --green-ink: #bbf7d0;
+    --red: #f87171;
+    --red-soft: rgba(248, 113, 113, 0.16);
+    --red-ink: #fecaca;
+    --ink: #e2e8f0;
+    --ink-soft: #94a3b8;
+    --line: #334155;
+    --surface: #1e293b;
+    --bg: #0f172a;
+    --welcome-bg: linear-gradient(160deg, #1e1b4b 0%, #0f172a 60%);
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
 }
 
 * {
@@ -96,9 +144,9 @@ main {
 }
 
 .btn--secondary {
-  background: #fff;
-  color: var(--indigo);
-  border: 2px solid var(--indigo);
+  background: var(--surface);
+  color: var(--accent);
+  border: 2px solid var(--accent);
 }
 
 .btn--ghost {
@@ -157,7 +205,7 @@ main {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(160deg, #eef2ff 0%, #f1f5f9 60%);
+  background: var(--welcome-bg);
 }
 
 .welcome__badge {
@@ -168,7 +216,7 @@ main {
 .welcome__title {
   font-size: 2.6rem;
   margin: 0;
-  color: var(--indigo);
+  color: var(--accent);
   letter-spacing: -0.02em;
 }
 
@@ -300,6 +348,18 @@ main {
   gap: 14px;
 }
 
+.map__week {
+  margin-bottom: 26px;
+}
+
+.map__week-title {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--line);
+}
+
 .map__reset {
   display: block;
   margin: 26px auto 0;
@@ -322,7 +382,7 @@ main {
 
 .mission-card:hover {
   transform: translateY(-2px);
-  border-color: var(--indigo);
+  border-color: var(--accent);
 }
 
 .mission-card__icon {
@@ -354,7 +414,7 @@ main {
 }
 
 .mission-card__go {
-  color: var(--indigo);
+  color: var(--accent);
   font-weight: 700;
   font-size: 0.9rem;
   flex-shrink: 0;
@@ -384,7 +444,7 @@ main {
 .mission__title {
   margin: 0 0 6px;
   font-size: 1.15rem;
-  color: var(--indigo);
+  color: var(--accent);
 }
 
 .mission__prompt {
@@ -416,7 +476,7 @@ main {
 }
 
 .option:hover:not(:disabled) {
-  border-color: var(--indigo);
+  border-color: var(--accent);
 }
 
 .option:disabled {
@@ -434,13 +494,13 @@ main {
 .option--correct {
   border-color: var(--green);
   background: var(--green-soft);
-  color: #14532d;
+  color: var(--green-ink);
 }
 
 .option--wrong {
   border-color: var(--red);
   background: var(--red-soft);
-  color: #7f1d1d;
+  color: var(--red-ink);
 }
 
 /* ---- Ordering activity ---------------------------------------------- */
@@ -469,7 +529,7 @@ main {
 }
 
 .order-item:hover:not(:disabled) {
-  border-color: var(--indigo);
+  border-color: var(--accent);
 }
 
 .order-item__badge {
@@ -491,7 +551,7 @@ main {
 }
 
 .order-item--picked {
-  border-color: var(--indigo);
+  border-color: var(--accent);
 }
 
 .order-item--right {
@@ -548,11 +608,11 @@ main {
 }
 
 .feedback--correct .feedback__title {
-  color: #14532d;
+  color: var(--green-ink);
 }
 
 .feedback--wrong .feedback__title {
-  color: #7f1d1d;
+  color: var(--red-ink);
 }
 
 .feedback__text {
@@ -627,7 +687,7 @@ main {
 
 .mode-card:hover {
   transform: translateY(-2px);
-  border-color: var(--indigo);
+  border-color: var(--accent);
 }
 
 .mode-card__icon {
@@ -637,7 +697,7 @@ main {
 .mode-card__name {
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--indigo);
+  color: var(--accent);
 }
 
 .mode-card__desc {
@@ -676,6 +736,45 @@ main {
   color: var(--cyan);
 }
 
+/* Timed Mode countdown: a shrinking bar with the seconds left on top. */
+.mission__timer {
+  position: relative;
+  height: 30px;
+  margin: 0 0 14px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.mission__timer-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: linear-gradient(90deg, var(--indigo), var(--cyan));
+  transition: width 1s linear;
+}
+
+.mission__timer--low .mission__timer-bar {
+  background: var(--red);
+}
+
+.mission__timer-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.complete__bonus {
+  margin: 0 0 18px;
+  font-weight: 700;
+  color: var(--cyan);
+}
+
 /* ---- Matching activity ---------------------------------------------- */
 .match {
   display: grid;
@@ -708,11 +807,11 @@ main {
 
 .match__term:hover:not(:disabled),
 .match__meaning:hover:not(:disabled) {
-  border-color: var(--indigo);
+  border-color: var(--accent);
 }
 
 .match--selected {
-  border-color: var(--indigo);
+  border-color: var(--accent);
   background: #eef2ff;
 }
 
@@ -784,7 +883,7 @@ main {
 }
 
 .glossary__group-title {
-  color: var(--indigo);
+  color: var(--accent);
   font-size: 1.05rem;
   margin: 0 0 10px;
   padding-bottom: 6px;
@@ -850,7 +949,7 @@ main {
   display: block;
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--indigo);
+  color: var(--accent);
 }
 
 .results__score-label {
@@ -946,6 +1045,281 @@ main {
   75% {
     transform: translateX(4px);
   }
+}
+
+/* ---- Answer number hint --------------------------------------------- */
+.option__hint {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  border-radius: 7px;
+  background: var(--line);
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ---- Live streak indicator ------------------------------------------ */
+.mission__streak {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ea580c;
+}
+
+.complete__streak {
+  margin: 0 0 14px;
+  font-weight: 700;
+  color: #ea580c;
+}
+
+/* ---- Map stats strip ------------------------------------------------- */
+.map__stats {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+
+.map__stat {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 6px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.map__stat-value {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.map__stat-label {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.map__continue {
+  width: 100%;
+  margin: 0 0 14px;
+}
+
+.map__badges {
+  margin: 0 0 16px;
+}
+
+/* ---- Badges (shared) ------------------------------------------------- */
+.badge-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.badge-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge__icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.badge__name {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.badge--chip {
+  padding: 6px 12px 6px 10px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  border: 1px solid var(--green);
+}
+
+.badge--tile {
+  flex-direction: column;
+  text-align: center;
+  gap: 4px;
+  padding: 14px 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.badge__desc {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.badge--locked {
+  opacity: 0.55;
+  filter: grayscale(1);
+}
+
+/* ---- Completion "new badge" reveal ---------------------------------- */
+.complete__badges {
+  width: 100%;
+  margin: 0 0 18px;
+}
+
+.complete__badges-title {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.complete__badges .badge {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  border: 1px solid var(--green);
+  animation: pop 0.5s ease;
+}
+
+/* ---- Results badges -------------------------------------------------- */
+.results__badges {
+  width: 100%;
+  margin: 6px 0 22px;
+  text-align: left;
+}
+
+.results__badges-title {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+/* ---- Header actions + sound toggle ---------------------------------- */
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.sound-toggle,
+.theme-toggle {
+  background: rgba(255, 255, 255, 0.18);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.sound-toggle:hover,
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ---- Fill-in-the-blank question ------------------------------------- */
+.fill {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fill__input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1.05rem;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.fill__input:focus {
+  outline: 3px solid var(--cyan);
+  outline-offset: 1px;
+  border-color: var(--cyan);
+}
+
+.fill__input:disabled {
+  background: var(--bg);
+  color: var(--ink-soft);
+}
+
+.fill__hint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.fill__answer {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* ---- Results: share -------------------------------------------------- */
+.results__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.results__share {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.results__share-msg {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.results__share-text {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: left;
+}
+
+/* ---- Dark-mode tweaks for a couple of tinted panels ------------------ */
+:root[data-theme='dark'] .match--selected {
+  background: rgba(165, 180, 252, 0.16);
+}
+
+:root[data-theme='dark'] .results__revise-item {
+  background: rgba(234, 88, 12, 0.16);
+  border-color: rgba(234, 88, 12, 0.4);
 }
 
 /* Respect users who prefer less motion. */

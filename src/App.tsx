@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { WelcomeScreen } from './screens/WelcomeScreen';
 import { ModeSelectScreen } from './screens/ModeSelectScreen';
 import { MissionMapScreen } from './screens/MissionMapScreen';
@@ -45,14 +45,28 @@ export default function App() {
   });
   const { isAdmin } = useAdmin(auth.user);
 
+  // Accessibility: when the screen changes, move keyboard/screen-reader focus
+  // to the new screen's main heading so navigation is announced and followed.
+  // Using tabindex -1 + focus() does not show a visible ring for mouse users.
+  useEffect(() => {
+    const heading = document.querySelector<HTMLElement>(
+      '.screen h1, .screen h2, main h1, main h2',
+    );
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus();
+    }
+  }, [screen.name]);
+
   function chooseMode(chosen: GameMode) {
     setMode(chosen);
     setScreen({ name: 'map' });
   }
 
   function finishMission(missionId: string, result: MissionResult) {
-    // Only Challenge Mode saves progress; Study Mode is relaxed practice.
-    if (mode === 'challenge') {
+    // Scored modes (Challenge and Timed) save progress; Study Mode is
+    // relaxed practice and saves nothing.
+    if (mode !== 'study') {
       completeMission(missionId, result);
     }
   }
@@ -171,6 +185,7 @@ export default function App() {
           mission={mission}
           xp={progress.xp}
           mode={mode}
+          earnedBadges={progress.badges}
           onFinish={(result) => finishMission(mission.id, result)}
           onExit={() => setScreen({ name: 'map' })}
         />
