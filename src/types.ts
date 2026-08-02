@@ -60,8 +60,28 @@ export interface MatchQuestion {
   explanation: string;
 }
 
+/**
+ * "Type the missing word" question.
+ * The player types an answer; it is correct if it matches any of the accepted
+ * answers (compared case-insensitively and ignoring surrounding spaces).
+ */
+export interface FillQuestion {
+  kind: 'fill';
+  id: string;
+  prompt: string;
+  /** All answers counted as correct, e.g. ['OAIC', 'Office of the ...']. */
+  acceptedAnswers: string[];
+  /** Optional short hint shown under the input. */
+  hint?: string;
+  explanation: string;
+}
+
 /** Any question the game knows how to show. */
-export type Question = SelectQuestion | OrderQuestion | MatchQuestion;
+export type Question =
+  | SelectQuestion
+  | OrderQuestion
+  | MatchQuestion
+  | FillQuestion;
 
 /** A mission is a short set of questions with a friendly title and icon. */
 export interface Mission {

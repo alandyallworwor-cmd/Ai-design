@@ -1080,6 +1080,103 @@ main {
   font-size: 1.05rem;
 }
 
+/* ---- Header actions + sound toggle ---------------------------------- */
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.sound-toggle {
+  background: rgba(255, 255, 255, 0.18);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.sound-toggle:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ---- Fill-in-the-blank question ------------------------------------- */
+.fill {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fill__input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1.05rem;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.fill__input:focus {
+  outline: 3px solid var(--cyan);
+  outline-offset: 1px;
+  border-color: var(--cyan);
+}
+
+.fill__input:disabled {
+  background: var(--bg);
+  color: var(--ink-soft);
+}
+
+.fill__hint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.fill__answer {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* ---- Results: share -------------------------------------------------- */
+.results__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.results__share {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.results__share-msg {
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.results__share-text {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: left;
+}
+
 /* Respect users who prefer less motion. */
 @media (prefers-reduced-motion: reduce) {
   * {

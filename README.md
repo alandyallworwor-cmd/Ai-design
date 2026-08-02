@@ -35,7 +35,7 @@ npm test            # run the tests once
 
 ## What's included
 
-- **Welcome** screen and **mode select** (Study or Challenge)
+- **Welcome** screen and **mode select** (Study, Challenge or Timed)
 - **Eighteen missions**, grouped into **Week 1**, **Week 2**, **Week 3** and a final **Exam Revision** section, all built from the notes:
   - **Week 1**
     1. Plan the Project (teamwork)
@@ -73,9 +73,14 @@ npm test            # run the tests once
   on (handy in Timed Mode)
 - A **stats strip** (XP, best streak, badges) and a **Continue** button that
   jumps to your next unfinished mission
+- **Four question types**: multiple-choice, put-in-order, term matching and
+  **fill-in-the-blank** (type the missing word)
+- **Sound effects** for correct/wrong answers, mission completion and badge
+  unlocks, with a **mute toggle** in the header (remembered between visits)
 - Instant feedback with a plain-English explanation on every answer
 - **Glossary** of IT terms
-- **Final results** screen with **badges** and **revision recommendations**
+- **Final results** screen with **badges**, **revision recommendations** and a
+  **Share** button (native share sheet, with a copy-to-clipboard fallback)
 - Reset progress with a confirmation dialog
 - Progress saved in `localStorage` (survives refresh)
 - Accessible and mobile-first (large tap targets, keyboard support, focus
@@ -83,18 +88,18 @@ npm test            # run the tests once
 
 ## Ideas for a future phase
 
-- Sound effects and richer animations
-- More question types (e.g. fill-in-the-blank, drag-and-drop)
-- Daily challenge and a shareable results card
+- Richer animations and a drag-and-drop question type
+- A daily challenge and a downloadable results image
 - Content for later weeks as more notes are released
 
 ## Project layout
 
 ```
 src/
-  components/   reusable UI pieces (Button, ProgressBar, OptionButton, ...)
-  screens/      full screens (Welcome, MissionMap, Mission)
-  data/         mission questions taken from the study notes
+  components/   reusable UI pieces (Button, OptionButton, FillBlank, SoundToggle, ...)
+  screens/      full screens (Welcome, MissionMap, Mission, Results, ...)
+  data/         missions, glossary and badge definitions from the study notes
   hooks/        useProgress (localStorage saving)
+  lib/          sound effects, fill-answer checking, results sharing
   types.ts      shared types
 ```

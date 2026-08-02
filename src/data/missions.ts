@@ -1008,6 +1008,16 @@ export const missions: Mission[] = [
           'A stand-up is a short (about 15-minute) daily meeting where each member says what they completed yesterday, what they will do today, and what obstacles they face.',
       },
       {
+        kind: 'fill',
+        id: 'agile-sprint-fill',
+        prompt:
+          'In Scrum, the fixed 2–4 week period of focused work is called a ______.',
+        acceptedAnswers: ['sprint'],
+        hint: 'It ends with a working product and a review.',
+        explanation:
+          'A sprint is a fixed period of focused work (usually 2–4 weeks) that delivers a working product increment and gathers feedback.',
+      },
+      {
         kind: 'order',
         id: 'agile-workflow',
         prompt: 'Tap the Scrum workflow steps in the correct order.',
@@ -1436,6 +1446,19 @@ export const missions: Mission[] = [
         correctId: 'a',
         explanation:
           'Data minimisation means collecting only essential information and protecting it well, because unnecessary data creates unnecessary risk.',
+      },
+      {
+        kind: 'fill',
+        id: 'rev-oaic-fill',
+        prompt:
+          'For a breach likely to cause serious harm, you must notify the affected people and the ______ (the privacy regulator — give the acronym).',
+        acceptedAnswers: [
+          'OAIC',
+          'Office of the Australian Information Commissioner',
+        ],
+        hint: 'Four letters, starts with O.',
+        explanation:
+          'Under the Notifiable Data Breach scheme you must notify the affected individuals and the OAIC (Office of the Australian Information Commissioner).',
       },
       {
         kind: 'order',

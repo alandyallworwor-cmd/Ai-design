@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { AppHeader } from '../components/AppHeader';
 import { Button } from '../components/Button';
 import { FeedbackBanner } from '../components/FeedbackBanner';
+import { FillBlank } from '../components/FillBlank';
 import { MatchingBoard } from '../components/MatchingBoard';
 import { OptionButton } from '../components/OptionButton';
 import { OrderingList } from '../components/OrderingList';
 import { ProgressBar } from '../components/ProgressBar';
 import { getBadge } from '../data/badges';
+import { playBadge, playComplete, playCorrect, playWrong } from '../lib/sound';
 import type { GameMode, Mission, MissionResult, Question } from '../types';
 
 interface MissionScreenProps {
@@ -66,11 +68,18 @@ export function MissionScreen({
   const isLast = index === mission.questions.length - 1;
   const isTimed = mode === 'timed';
   const isScored = mode !== 'study';
+  // Badges earned during this mission (present only once finished).
+  const newBadges =
+    finished && isScored
+      ? earnedBadges.filter((id) => !badgesBefore.current.includes(id))
+      : [];
 
   /** Record whether the current answer was right (only counts the first try). */
   function markAnswer(correct: boolean) {
     setAnswered(true);
     setWasCorrect(correct);
+    if (correct) playCorrect();
+    else playWrong();
     // Update the running streak (reset to zero on a wrong answer).
     const nextStreak = correct ? streak + 1 : 0;
     setStreak(nextStreak);
@@ -140,6 +149,26 @@ export function MissionScreen({
     markAnswer(perfect);
   }
 
+  function handleFillCheck(correct: boolean) {
+    if (question.kind !== 'fill') return;
+    markAnswer(correct);
+  }
+
+  // Play a celebratory sound when the mission is finished, and a second
+  // sparkle shortly after if any new badges were unlocked.
+  const badgeSoundPlayed = useRef(false);
+  useEffect(() => {
+    if (!finished) return;
+    playComplete();
+  }, [finished]);
+  useEffect(() => {
+    if (finished && newBadges.length > 0 && !badgeSoundPlayed.current) {
+      badgeSoundPlayed.current = true;
+      const id = window.setTimeout(() => playBadge(), 550);
+      return () => window.clearTimeout(id);
+    }
+  }, [finished, newBadges.length]);
+
   function handleNext() {
     if (isLast) {
       const result: MissionResult = {
@@ -165,10 +194,6 @@ export function MissionScreen({
   if (finished) {
     const total = mission.questions.length;
     const stars = starsFor(correctCount, total);
-    // Any badges that were not in the "before" snapshot are newly earned.
-    const newBadges = isScored
-      ? earnedBadges.filter((id) => !badgesBefore.current.includes(id))
-      : [];
     return (
       <div className="screen">
         <AppHeader xp={xp} onBack={onExit} />
@@ -301,6 +326,14 @@ export function MissionScreen({
             pairs={question.pairs}
             answered={answered}
             onComplete={handleMatchComplete}
+          />
+        )}
+
+        {question.kind === 'fill' && (
+          <FillBlank
+            question={question}
+            answered={answered}
+            onCheck={handleFillCheck}
           />
         )}
 

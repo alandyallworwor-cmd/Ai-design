@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { ResultsScreen } from './ResultsScreen';
 import { missions } from '../data/missions';
@@ -32,5 +32,19 @@ describe('ResultsScreen', () => {
     render(<ResultsScreen progress={progressWithStars(3)} onBack={vi.fn()} />);
     expect(screen.getByText(/mastered/i)).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: /topics to revise/i })).not.toBeInTheDocument();
+  });
+
+  it('shows a share control and responds when used', async () => {
+    render(<ResultsScreen progress={progressWithStars(2)} onBack={vi.fn()} />);
+    fireEvent.click(screen.getByRole('button', { name: /share my results/i }));
+    // Depending on browser support this either copies or reveals the summary.
+    expect(
+      await screen.findByText(/copied to clipboard|copy your results/i),
+    ).toBeInTheDocument();
+  });
+
+  it('shows the badges section with the total count', () => {
+    render(<ResultsScreen progress={progressWithStars(3)} onBack={vi.fn()} />);
+    expect(screen.getByRole('heading', { name: /badges ·/i })).toBeInTheDocument();
   });
 });

@@ -2,6 +2,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 import App from './App';
+import { setMuted } from './lib/sound';
 
 type User = ReturnType<typeof userEvent.setup>;
 
@@ -156,6 +157,38 @@ describe('IT Quest app flow', () => {
     // Pressing "1" selects the first choice (the correct one here).
     await user.keyboard('1');
     expect(within(screen.getByRole('status')).getByText(/correct/i)).toBeInTheDocument();
+  });
+
+  it('lets the player answer a fill-in-the-blank question', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /agile & scrum/i }));
+
+    // Step through the select questions to reach the fill-in-the-blank one.
+    const selects = [
+      /delivering work in small stages/i,
+      /product owner, scrum master and development team/i,
+      /a fixed period of focused work/i,
+      /what did i do yesterday/i,
+    ];
+    for (const answer of selects) {
+      await user.click(screen.getByRole('button', { name: answer }));
+      await user.click(screen.getByRole('button', { name: /next question/i }));
+    }
+
+    // Now type the missing word.
+    expect(screen.getByText(/fixed 2–4 week period of focused work is called/i)).toBeInTheDocument();
+    await user.type(screen.getByRole('textbox', { name: /your answer/i }), 'sprint');
+    await user.click(screen.getByRole('button', { name: /check answer/i }));
+    expect(within(screen.getByRole('status')).getByText(/correct/i)).toBeInTheDocument();
+  });
+
+  it('has a working sound on/off toggle in the header', async () => {
+    setMuted(false); // start from a known state regardless of test order
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /turn sound off/i }));
+    expect(screen.getByRole('button', { name: /turn sound on/i })).toBeInTheDocument();
   });
 
   it('opens the glossary from the mission map', async () => {
