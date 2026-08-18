@@ -17,7 +17,9 @@ export interface GlossaryTerm {
     | 'Ethics Principles'
     | 'Policy Frameworks'
     | 'Communication & Culture'
-    | 'Compliance & Incidents';
+    | 'Compliance & Incidents'
+    | 'Technical Support'
+    | 'Troubleshooting & Diagnostics';
 }
 
 export const glossary: GlossaryTerm[] = [
@@ -412,5 +414,91 @@ export const glossary: GlossaryTerm[] = [
     term: 'Remediation',
     meaning: 'Fixing issues and restoring compliance, for example by installing updated security controls.',
     group: 'Compliance & Incidents',
+  },
+
+  // --- Week 5: Technical Support (ICTSAS305) ---
+  {
+    term: 'Hardware',
+    meaning: 'The physical components of a computer system that can be touched, such as monitors, printers and servers.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Software',
+    meaning: 'Programs that run on a computer, including the operating system and applications.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Operating system (OS)',
+    meaning:
+      'The fundamental software that manages a computer’s hardware, memory, processes and applications (e.g. Windows, macOS, Linux).',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Router',
+    meaning: 'Networking equipment that directs traffic between networks.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Switch',
+    meaning: 'Networking equipment that connects devices within a network.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Modem',
+    meaning: 'A device that connects a network to the internet service provider (ISP).',
+    group: 'Technical Support',
+  },
+  {
+    term: 'CPU (Processor)',
+    meaning: 'The “brain” of the computer that executes instructions and processes data.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'RAM (Memory)',
+    meaning: 'Temporary memory that stores the data currently in use for fast access.',
+    group: 'Technical Support',
+  },
+
+  // --- Week 5: Troubleshooting & Diagnostics (ICTSAS305) ---
+  {
+    term: 'Technical investigation',
+    meaning:
+      'Identifying the cause of a problem by collecting information, testing assumptions and analysing evidence.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Symptoms',
+    meaning: 'The visible signs of a problem, such as freezing, dropouts or an application crashing.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Problem scope',
+    meaning: 'The extent of a problem — how many users and which systems are affected.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: '5 Whys',
+    meaning: 'A root cause analysis method that asks “Why?” repeatedly to reach the underlying cause.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Diagnostic tools',
+    meaning: 'Utilities like Task Manager, Event Viewer and Ping used to identify, test and troubleshoot issues.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Incident report',
+    meaning: 'A structured record of an investigation: symptoms, findings, root cause and solution.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Logs and screenshots',
+    meaning: 'Supporting evidence that records system events and captures error messages and settings.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Plain language',
+    meaning: 'Explaining technical issues simply, focusing on the practical impact for the client rather than jargon.',
+    group: 'Troubleshooting & Diagnostics',
   },
 ];

@@ -1768,6 +1768,446 @@ export const missions: Mission[] = [
       },
     ],
   },
+
+  // ===================== WEEK 5 =====================
+  // All Week 5 content comes from the Week 5 Work Skills slides for
+  // ICTSAS305 (Providing Technical Support to Clients - Part 1): what the IT
+  // team supports, investigating and documenting technical issues, diagnostic
+  // tools, and communicating technical advice to clients. The later ICTICT313
+  // sections in the deck are Week 6/7 reading and are held for those weeks.
+  {
+    id: 'support-basics',
+    title: 'What IT Support Covers',
+    subtitle: 'Know the hardware, software and networking you support.',
+    icon: '🖥️',
+    week: 5,
+    topic: 'What the IT support team supports',
+    questions: [
+      {
+        kind: 'select',
+        id: 'support-basics-role',
+        prompt: 'In a medium-sized organisation, what does the IT support team do?',
+        choices: [
+          { id: 'a', text: 'Keeps technology systems functional, secure and productive for users' },
+          { id: 'b', text: 'Only makes the coffee' },
+          { id: 'c', text: 'Designs the office building' },
+          { id: 'd', text: 'Writes marketing copy' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The IT support team keeps technology systems functional, secure and productive — maintaining equipment, managing software, troubleshooting networks and advising clients.',
+      },
+      {
+        kind: 'select',
+        id: 'support-basics-hardware',
+        prompt: 'Which of these is hardware?',
+        choices: [
+          { id: 'a', text: 'A monitor, keyboard or printer' },
+          { id: 'b', text: 'The Windows operating system' },
+          { id: 'c', text: 'Microsoft Teams' },
+          { id: 'd', text: 'A privacy policy' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Hardware is the physical components you can touch — desktops, laptops, monitors, keyboards, printers, servers and external drives.',
+      },
+      {
+        kind: 'select',
+        id: 'support-basics-os',
+        prompt: 'What is an operating system (OS)?',
+        choices: [
+          { id: 'a', text: 'Software that manages a computer’s hardware, memory, processes and applications' },
+          { id: 'b', text: 'A physical cable' },
+          { id: 'c', text: 'A type of printer' },
+          { id: 'd', text: 'A network switch' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The OS is the fundamental software that manages hardware, memory, processes and applications, acting as the intermediary between users and hardware (e.g. Windows, macOS, Linux, Android).',
+      },
+      {
+        kind: 'match',
+        id: 'support-basics-network',
+        prompt: 'Match each networking device to its function.',
+        pairs: [
+          { id: 'nd1', term: 'Router', meaning: 'Directs traffic between networks' },
+          { id: 'nd2', term: 'Switch', meaning: 'Connects devices within a network' },
+          { id: 'nd3', term: 'Wireless Access Point', meaning: 'Provides Wi-Fi connectivity' },
+          { id: 'nd4', term: 'Modem', meaning: 'Connects the network to the ISP' },
+        ],
+        explanation:
+          'Routers direct traffic between networks, switches connect devices within a network, wireless access points provide Wi-Fi, and modems connect the network to the internet service provider.',
+      },
+      {
+        kind: 'match',
+        id: 'support-basics-components',
+        prompt: 'Match each computer component to its role.',
+        pairs: [
+          { id: 'cc1', term: 'CPU (Processor)', meaning: 'The “brain” that executes instructions' },
+          { id: 'cc2', term: 'RAM (Memory)', meaning: 'Temporary memory for data currently in use' },
+          { id: 'cc3', term: 'Storage (SSD/HDD)', meaning: 'Long-term storage for the OS, apps and files' },
+          { id: 'cc4', term: 'GPU', meaning: 'Handles visual rendering' },
+        ],
+        explanation:
+          'The CPU processes instructions, RAM holds data in use for fast access, storage keeps files long-term, and the GPU handles graphics.',
+      },
+    ],
+  },
+  {
+    id: 'investigate',
+    title: 'Investigate the Issue',
+    subtitle: 'Gather the right information before jumping to a fix.',
+    icon: '🔎',
+    week: 5,
+    topic: 'Investigating technical issues',
+    questions: [
+      {
+        kind: 'select',
+        id: 'investigate-what',
+        prompt: 'What is technical investigation?',
+        choices: [
+          { id: 'a', text: 'Identifying the cause of a problem by collecting information, testing assumptions and analysing evidence' },
+          { id: 'b', text: 'Guessing randomly' },
+          { id: 'c', text: 'Ignoring the problem' },
+          { id: 'd', text: 'Restarting without thinking' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Technical investigation identifies the cause of a problem by collecting information, testing assumptions, analysing evidence and determining an appropriate solution.',
+      },
+      {
+        kind: 'select',
+        id: 'investigate-symptoms',
+        prompt: 'What are “symptoms” in troubleshooting?',
+        choices: [
+          { id: 'a', text: 'The visible signs of a problem, like freezing or an app crashing' },
+          { id: 'b', text: 'The root cause' },
+          { id: 'c', text: 'The final solution' },
+          { id: 'd', text: 'A type of hardware' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Symptoms are the visible signs of a problem — computer freezing, internet dropping out, an app crashing — and often give valuable clues about the underlying issue.',
+      },
+      {
+        kind: 'select',
+        id: 'investigate-errors',
+        prompt: 'When you get an error message, what is best practice?',
+        choices: [
+          { id: 'a', text: 'Record the exact wording, note error codes and take screenshots' },
+          { id: 'b', text: 'Ignore it' },
+          { id: 'c', text: 'Try to remember it later' },
+          { id: 'd', text: 'Close it immediately' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Error messages provide important clues. Record the exact wording, note any error codes and take screenshots — small wording differences can reveal different causes.',
+      },
+      {
+        kind: 'select',
+        id: 'investigate-affected',
+        prompt: 'Why check how many users are affected (one user, a department, or the whole org)?',
+        choices: [
+          { id: 'a', text: 'It helps define the scope and whether the issue is localised or widespread' },
+          { id: 'b', text: 'It has no effect on the diagnosis' },
+          { id: 'c', text: 'To assign blame' },
+          { id: 'd', text: 'To delay the fix' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Identifying affected users helps define the scope — whether the problem is localised (one device or account) or widespread (servers, networks or applications) — guiding escalation and resources.',
+      },
+      {
+        kind: 'order',
+        id: 'investigate-process',
+        prompt: 'Tap the early investigation steps in the correct order.',
+        items: [
+          { id: 'iv1', text: 'Issue reported' },
+          { id: 'iv2', text: 'Gather information' },
+          { id: 'iv3', text: 'Define the scope' },
+          { id: 'iv4', text: 'Analyse the problem' },
+        ],
+        correctOrder: ['iv1', 'iv2', 'iv3', 'iv4'],
+        explanation:
+          'A methodical investigation starts when the issue is reported, then gathers information, defines the scope, and analyses the problem before identifying the root cause.',
+      },
+    ],
+  },
+  {
+    id: 'rootcause',
+    title: 'Find the Root Cause',
+    subtitle: 'Dig past the symptoms to the real underlying cause.',
+    icon: '🌱',
+    week: 5,
+    topic: 'Root cause analysis and the 5 Whys',
+    questions: [
+      {
+        kind: 'select',
+        id: 'rootcause-what',
+        prompt: 'What is root cause analysis (RCA)?',
+        choices: [
+          { id: 'a', text: 'Discovering the real, underlying cause of a problem rather than just treating symptoms' },
+          { id: 'b', text: 'Fixing only the visible symptom' },
+          { id: 'c', text: 'Rebooting the server and hoping' },
+          { id: 'd', text: 'Blaming the user' },
+        ],
+        correctId: 'a',
+        explanation:
+          'RCA discovers the real, underlying cause of problems rather than just treating symptoms. Fixing only symptoms often leads to recurring incidents.',
+      },
+      {
+        kind: 'select',
+        id: 'rootcause-5whys',
+        prompt: 'What is the “5 Whys” method?',
+        choices: [
+          { id: 'a', text: 'Asking “Why?” repeatedly to trace a problem back to its root cause' },
+          { id: 'b', text: 'Asking five different people' },
+          { id: 'c', text: 'Waiting five minutes' },
+          { id: 'd', text: 'Trying five random fixes' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The 5 Whys is an RCA method that asks “Why?” multiple times to explore the cause-and-effect chain and determine the root cause of a problem.',
+      },
+      {
+        kind: 'select',
+        id: 'rootcause-when',
+        prompt: 'When is the 5 Whys method most useful?',
+        choices: [
+          { id: 'a', text: 'For simple to moderately difficult problems, especially those involving human error' },
+          { id: 'b', text: 'Only for hardware failures' },
+          { id: 'c', text: 'Never' },
+          { id: 'd', text: 'Only for billing questions' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The 5 Whys works best for simple to moderately difficult problems, particularly when human factors or human error are involved.',
+      },
+      {
+        kind: 'select',
+        id: 'rootcause-example',
+        prompt:
+          'A website crashed at peak hours from a traffic surge, caused by a viral code, caused by a typo, with no review process. What is the root cause?',
+        choices: [
+          { id: 'a', text: 'The lack of a review process for promotional discount entries' },
+          { id: 'b', text: 'Too many customers' },
+          { id: 'c', text: 'Social media' },
+          { id: 'd', text: 'The website software' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Following the 5 Whys chain, the true root cause was the lack of a review process for validating promotional discounts before they went live — not the traffic itself.',
+      },
+    ],
+  },
+  {
+    id: 'document',
+    title: 'Diagnose & Document',
+    subtitle: 'Pick the right tool and record what you find.',
+    icon: '📝',
+    week: 5,
+    topic: 'Diagnostic tools and documentation',
+    questions: [
+      {
+        kind: 'match',
+        id: 'document-tools',
+        prompt: 'Match each issue to an appropriate diagnostic tool.',
+        pairs: [
+          { id: 'dt1', term: 'Slow computer', meaning: 'Task Manager' },
+          { id: 'dt2', term: 'Network issue', meaning: 'Ping / Tracert' },
+          { id: 'dt3', term: 'Application crashes', meaning: 'Event Viewer' },
+          { id: 'dt4', term: 'Malware concerns', meaning: 'Antivirus Scanner' },
+        ],
+        explanation:
+          'Choose the tool for the issue: Task Manager for a slow computer, Ping/Tracert for network problems, Event Viewer for app crashes, and an antivirus scanner for malware.',
+      },
+      {
+        kind: 'select',
+        id: 'document-verify',
+        prompt: 'Before applying a recommendation from an online resource, what should you do?',
+        choices: [
+          { id: 'a', text: 'Verify the information from reputable sources' },
+          { id: 'b', text: 'Apply it blindly' },
+          { id: 'c', text: 'Ignore all documentation' },
+          { id: 'd', text: 'Delete the ticket' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Online resources (vendor knowledge bases, forums, manuals) can reduce investigation time, but always verify information from reputable sources before applying recommendations.',
+      },
+      {
+        kind: 'select',
+        id: 'document-why',
+        prompt: 'Why does good documentation matter?',
+        choices: [
+          { id: 'a', text: 'It creates a historical record and saves time if the same issue recurs' },
+          { id: 'b', text: 'It slows everyone down for no reason' },
+          { id: 'c', text: 'It hides what was done' },
+          { id: 'd', text: 'It replaces the need to fix issues' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clear, accurate documentation supports collaboration and knowledge sharing, creates historical records, assists future troubleshooting and demonstrates professionalism.',
+      },
+      {
+        kind: 'select',
+        id: 'document-report',
+        prompt: 'Which belongs in a good incident report?',
+        choices: [
+          { id: 'a', text: 'Incident summary, symptoms, findings, root cause and solution' },
+          { id: 'b', text: 'Only the technician’s lunch order' },
+          { id: 'c', text: 'Nothing at all' },
+          { id: 'd', text: 'A marketing plan' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A good incident report includes an incident summary, client details, symptoms, investigation activities, findings, root cause, solution and follow-up.',
+      },
+      {
+        kind: 'select',
+        id: 'document-logs',
+        prompt: 'Why include logs and screenshots in documentation?',
+        choices: [
+          { id: 'a', text: 'They provide supporting evidence and an accurate record for future reference' },
+          { id: 'b', text: 'They make the report longer for no reason' },
+          { id: 'c', text: 'They hide the error' },
+          { id: 'd', text: 'They are never useful' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Logs record events, warnings and errors, while screenshots capture error messages and settings — together they improve accuracy and provide useful reference for future investigations.',
+      },
+    ],
+  },
+  {
+    id: 'explain',
+    title: 'Explain It to the Client',
+    subtitle: 'Turn technical findings into advice clients understand.',
+    icon: '🤝',
+    week: 5,
+    topic: 'Communicating technical advice to clients',
+    questions: [
+      {
+        kind: 'select',
+        id: 'explain-goal',
+        prompt: 'What is the goal when communicating technical advice to clients?',
+        choices: [
+          { id: 'a', text: 'To bridge the gap between technical knowledge and the client’s level of understanding' },
+          { id: 'b', text: 'To use as much jargon as possible' },
+          { id: 'c', text: 'To confuse the client' },
+          { id: 'd', text: 'To avoid talking to them' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The goal is to explain findings and solutions in a way clients easily understand — bridging the gap between technical knowledge and the client’s level of understanding, which builds trust.',
+      },
+      {
+        kind: 'select',
+        id: 'explain-plain',
+        prompt: 'Which is the clearest way to explain a problem to a client?',
+        choices: [
+          { id: 'a', text: '“Your computer was unable to obtain a network address automatically.”' },
+          { id: 'b', text: '“The DHCP service failed due to an IP addressing conflict.”' },
+          { id: 'c', text: '“It’s a layer-3 misconfiguration.”' },
+          { id: 'd', text: '“Your authentication tokens were compromised.”' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Use simple, clear language that emphasises the practical impact. Say “your computer couldn’t get a network address automatically” instead of “the DHCP service failed due to an IP addressing conflict.”',
+      },
+      {
+        kind: 'select',
+        id: 'explain-empathy',
+        prompt: 'A client is frustrated after clicking the wrong option. What is the empathetic response?',
+        choices: [
+          { id: 'a', text: '“I understand how frustrating this can be. Let’s work through it together.”' },
+          { id: 'b', text: '“You clicked the wrong option.”' },
+          { id: 'c', text: '“That was your mistake.”' },
+          { id: 'd', text: '“You should know better.”' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Being empathetic acknowledges client frustration and builds trust. Say “I understand how frustrating this can be — let’s work through it together” rather than blaming them.',
+      },
+      {
+        kind: 'select',
+        id: 'explain-familiar',
+        prompt: 'Comparing computer memory to a cluttered desk helps because...',
+        choices: [
+          { id: 'a', text: 'Clients learn best when concepts relate to something they already know' },
+          { id: 'b', text: 'It sounds clever' },
+          { id: 'c', text: 'It avoids explaining anything' },
+          { id: 'd', text: 'It uses more jargon' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Relating concepts to familiar experiences helps clients understand — e.g. comparing computer memory to a desk that gets cluttered when too many items are on it.',
+      },
+      {
+        kind: 'select',
+        id: 'explain-nextsteps',
+        prompt: 'What should you do at the end of every client interaction?',
+        choices: [
+          { id: 'a', text: 'Clearly explain the next steps, actions taken and timeframes for updates' },
+          { id: 'b', text: 'Hang up without a word' },
+          { id: 'c', text: 'Leave the client guessing' },
+          { id: 'd', text: 'Delete the ticket' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Always provide clear next steps: what actions were taken, any further investigation, timeframes for updates, and any steps the client should take.',
+      },
+    ],
+  },
+  {
+    id: 'terms5',
+    title: 'Week 5 Terms Challenge',
+    subtitle: 'Match the Week 5 IT terms to their meanings.',
+    icon: '🧩',
+    week: 5,
+    topic: 'Week 5 IT terms and their meanings',
+    questions: [
+      {
+        kind: 'match',
+        id: 'terms5-support',
+        prompt: 'Match each technical support term to its meaning.',
+        pairs: [
+          { id: 'y1', term: 'Hardware', meaning: 'Physical components you can touch' },
+          { id: 'y2', term: 'Operating system', meaning: 'Software that manages hardware and applications' },
+          { id: 'y3', term: 'Router', meaning: 'Directs traffic between networks' },
+          { id: 'y4', term: 'RAM', meaning: 'Temporary memory for data in use' },
+        ],
+        explanation:
+          'Hardware is physical, the operating system manages it, routers connect networks, and RAM holds the data a computer is currently using.',
+      },
+      {
+        kind: 'match',
+        id: 'terms5-investigation',
+        prompt: 'Match each investigation term to its meaning.',
+        pairs: [
+          { id: 'z1', term: 'Symptoms', meaning: 'The visible signs of a problem' },
+          { id: 'z2', term: 'Scope', meaning: 'The extent of a problem: who and what is affected' },
+          { id: 'z3', term: 'Root cause analysis', meaning: 'Finding the real underlying cause' },
+          { id: 'z4', term: '5 Whys', meaning: 'Asking “Why?” repeatedly to reach the root cause' },
+        ],
+        explanation:
+          'Symptoms are the visible signs, scope is how far a problem reaches, and root cause analysis (often using the 5 Whys) finds the real underlying cause.',
+      },
+      {
+        kind: 'match',
+        id: 'terms5-document',
+        prompt: 'Match each documentation and communication term to its meaning.',
+        pairs: [
+          { id: 'q1', term: 'Event Viewer', meaning: 'A tool to view system events and errors' },
+          { id: 'q2', term: 'Ping', meaning: 'A tool to test network connectivity' },
+          { id: 'q3', term: 'Incident report', meaning: 'A structured record of an investigation' },
+          { id: 'q4', term: 'Empathy', meaning: 'Acknowledging the client’s frustration' },
+        ],
+        explanation:
+          'Event Viewer and Ping are diagnostic tools, an incident report records the investigation, and empathy keeps client communication supportive.',
+      },
+    ],
+  },
 ];
 
 /** Find a mission by its id (used by the mission screen). */

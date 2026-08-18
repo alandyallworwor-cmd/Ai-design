@@ -4,7 +4,7 @@ A simple, mobile-first learning game for **Work Skills** (ICTICT313, BSBXTW301 &
 ICTSAS305). You play a new junior IT worker and complete short missions to learn
 about **teamwork, privacy, IP, ethics and doing IT work the right way**.
 
-All learning content comes from the supplied Weeks 1–4 study notes.
+All learning content comes from the supplied Weeks 1–5 study notes.
 
 ## Tech
 
@@ -34,7 +34,7 @@ npm test            # run the tests once
 ## What's included
 
 - **Welcome** screen and **mode select** (Study or Challenge)
-- **Twenty-four missions**, grouped into **Week 1** through **Week 4**, all built from the notes:
+- **Thirty missions**, grouped into **Week 1** through **Week 5**, all built from the notes:
   - **Week 1**
     1. Plan the Project (teamwork)
     2. Organise the Work (ordering: data-breach response, outage fix)
@@ -63,6 +63,13 @@ npm test            # run the tests once
     22. Spot Non-Compliance (risk assessment, auditing, reporting, analytics)
     23. Respond to Non-Compliance (contain, investigate, remediate, train, improve)
     24. Week 4 Terms Challenge (match Week 4 terms to meanings)
+  - **Week 5**
+    25. What IT Support Covers (hardware, software, OS, networking devices)
+    26. Investigate the Issue (symptoms, error messages, affected users, scope)
+    27. Find the Root Cause (root cause analysis, the 5 Whys)
+    28. Diagnose & Document (diagnostic tools, incident reports, logs)
+    29. Explain It to the Client (plain language, empathy, next steps)
+    30. Week 5 Terms Challenge (match Week 5 terms to meanings)
 - **Study Mode** (relaxed, no score) and **Challenge Mode** (XP + stars, saved)
 - Instant feedback with a plain-English explanation on every answer
 - **Glossary** of IT terms

@@ -20,6 +20,8 @@ const GROUPS: GlossaryTerm['group'][] = [
   'Policy Frameworks',
   'Communication & Culture',
   'Compliance & Incidents',
+  'Technical Support',
+  'Troubleshooting & Diagnostics',
 ];
 
 /** A simple, scrollable list of IT terms and their meanings. */
@@ -30,7 +32,7 @@ export function GlossaryScreen({ xp, onBack }: GlossaryScreenProps) {
       <main className="glossary">
         <h2 className="glossary__heading">Glossary</h2>
         <p className="glossary__intro">
-          Key IT terms from your Week 1 to Week 4 notes.
+          Key IT terms from your Week 1 to Week 5 notes.
         </p>
 
         {GROUPS.map((group) => (
