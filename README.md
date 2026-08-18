@@ -5,8 +5,7 @@ ICTSAS305). You play a new junior IT worker and complete short missions to learn
 about **teamwork, privacy, IP, ethics, time management, Agile, meetings,
 communication and doing IT work the right way**.
 
-All learning content comes from the supplied Week 1, Week 2 and Week 3 study
-notes.
+All learning content comes from the supplied Week 1 to Week 5 study notes.
 
 > **Development & deployment are 100% browser-based.** Nothing is installed
 > locally — see [`WORKFLOW.md`](./WORKFLOW.md). Coding and testing happen in
@@ -41,7 +40,7 @@ npm test            # run the tests once
 ## What's included
 
 - **Welcome** screen and **mode select** (Study, Challenge or Timed)
-- **Eighteen missions**, grouped into **Week 1**, **Week 2**, **Week 3** and a final **Exam Revision** section, all built from the notes:
+- **Thirty missions**, grouped into **Week 1** through **Week 5** and a final **Exam Revision** section, all built from the notes:
   - **Week 1**
     1. Plan the Project (teamwork)
     2. Organise the Work (ordering: data-breach response, outage fix)
@@ -62,8 +61,22 @@ npm test            # run the tests once
     15. Communicate Well (active listening, clarity, conflict, giving/receiving feedback)
     16. Ethics & Privacy Principles (the 7 principles and policy frameworks)
     17. Week 3 Terms Challenge (match terms to meanings)
+  - **Week 4**
+    18. Communicate Across Cultures (cross-cultural communication, styles)
+    19. Break Down Barriers (language barriers, cultural competence, inclusion)
+    20. Listen and Clarify (active listening, clarifying techniques)
+    21. Spot Non-Compliance (risk assessment, auditing, reporting, analytics)
+    22. Respond to Non-Compliance (contain, investigate, remediate, train, improve)
+    23. Week 4 Terms Challenge (match terms to meanings)
+  - **Week 5**
+    24. What IT Support Covers (hardware, software, OS, networking devices)
+    25. Investigate the Issue (symptoms, error messages, affected users, scope)
+    26. Find the Root Cause (root cause analysis, the 5 Whys)
+    27. Diagnose & Document (diagnostic tools, incident reports, logs)
+    28. Explain It to the Client (plain language, empathy, next steps)
+    29. Week 5 Terms Challenge (match terms to meanings)
   - **Exam Revision**
-    18. Exam Revision (mixed quiz across all three weeks, for AT/quiz prep)
+    30. Exam Revision (mixed quiz across the study weeks, for AT/quiz prep)
 - **Three ways to play:**
   - **Study Mode** — relaxed, nothing scored or saved
   - **Challenge Mode** — earn XP + stars, progress saved

@@ -1357,7 +1357,7 @@ export const missions: Mission[] = [
     title: 'Exam Revision',
     subtitle: 'Mixed quiz across all three weeks — get ready for the ATs.',
     icon: '🎓',
-    week: 4,
+    week: 6,
     topic: 'Whole-course revision across Weeks 1–3',
     questions: [
       {
@@ -1486,6 +1486,904 @@ export const missions: Mission[] = [
         ],
         explanation:
           'Escalation moves hard issues up a tier, a sprint is a fixed work period, an AUP sets rules for company systems, and accountability assigns and tracks responsibility.',
+      },
+    ],
+  },
+  // ===================== WEEK 4 =====================
+  // All Week 4 content comes from the Week 4 Work Skills slides, covering
+  // BSBXTW301 / ICTSAS305 (cross-cultural communication, listening and
+  // clarifying) and ICTICT313 (identifying and responding to non-compliance
+  // incidents). Nothing here is invented outside those notes.
+  {
+    id: 'culture',
+    title: 'Communicate Across Cultures',
+    subtitle: 'Work respectfully with people from different backgrounds.',
+    icon: '🌏',
+    week: 4,
+    topic: 'Cross-cultural communication',
+    questions: [
+      {
+        kind: 'select',
+        id: 'culture-what',
+        prompt: 'What is cross-cultural communication?',
+        choices: [
+          { id: 'a', text: 'The exchange of information between people from different cultural backgrounds' },
+          { id: 'b', text: 'Only ever speaking one language' },
+          { id: 'c', text: 'Avoiding talking to teammates' },
+          { id: 'd', text: 'A type of network protocol' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Cross-cultural communication is the exchange of information, ideas and messages between people from different cultural backgrounds — common in ICT teams spread across countries.',
+      },
+      {
+        kind: 'select',
+        id: 'culture-why',
+        prompt: 'Why is cross-cultural communication important in ICT?',
+        choices: [
+          { id: 'a', text: 'It builds relationships, reduces misunderstandings and improves client satisfaction' },
+          { id: 'b', text: 'It slows every project down' },
+          { id: 'c', text: 'It replaces the need for teamwork' },
+          { id: 'd', text: 'It has no benefits' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Effective cross-cultural communication builds positive relationships, reduces misunderstandings, improves teamwork and productivity, and supports diversity and inclusion.',
+      },
+      {
+        kind: 'select',
+        id: 'culture-direct',
+        prompt:
+          'A teammate expresses opinions and feedback openly and clearly. Which communication style is this?',
+        choices: [
+          { id: 'a', text: 'Direct communication' },
+          { id: 'b', text: 'Indirect communication' },
+          { id: 'c', text: 'A language barrier' },
+          { id: 'd', text: 'An audit' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Direct communication is clear and straightforward. Indirect communication conveys messages more subtly to maintain harmony and avoid confrontation.',
+      },
+      {
+        kind: 'select',
+        id: 'culture-bodylanguage',
+        prompt:
+          'Strong eye contact can mean confidence in one culture but disrespect in another. This is a difference in...',
+        choices: [
+          { id: 'a', text: 'Personal space and body language' },
+          { id: 'b', text: 'Software licensing' },
+          { id: 'c', text: 'Patent law' },
+          { id: 'd', text: 'Sprint length' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Eye contact, personal space, gestures and facial expressions can carry different meanings in different cultures, so it is important to be aware and respectful.',
+      },
+      {
+        kind: 'select',
+        id: 'culture-respect',
+        prompt: 'Which is a good way to work respectfully across cultures?',
+        choices: [
+          { id: 'a', text: 'Be curious rather than judgmental and avoid making assumptions' },
+          { id: 'b', text: 'Assume everyone thinks like you' },
+          { id: 'c', text: 'Use offensive jokes' },
+          { id: 'd', text: 'Ignore people’s preferences' },
+        ],
+        correctId: 'a',
+        explanation:
+          'You can make a difference by treating everyone respectfully, avoiding assumptions, being curious rather than judgmental, and asking team members for their communication preferences.',
+      },
+    ],
+  },
+  {
+    id: 'barriers',
+    title: 'Break Down Barriers',
+    subtitle: 'Overcome language barriers and communicate inclusively.',
+    icon: '🗣️',
+    week: 4,
+    topic: 'Language barriers, cultural competence and inclusion',
+    questions: [
+      {
+        kind: 'select',
+        id: 'barriers-what',
+        prompt: 'What is a language barrier?',
+        choices: [
+          { id: 'a', text: 'Difficulty understanding one another due to differences in language, vocabulary, accent or style' },
+          { id: 'b', text: 'A firewall rule' },
+          { id: 'c', text: 'A type of trademark' },
+          { id: 'd', text: 'A meeting agenda' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Language barriers occur when people struggle to understand each other due to differences in language, vocabulary, accent, speaking speed, idioms or slang.',
+      },
+      {
+        kind: 'select',
+        id: 'barriers-overcome',
+        prompt:
+          'A client can’t follow the technical terms in your email. What helps overcome this language barrier?',
+        choices: [
+          { id: 'a', text: 'Provide supporting diagrams, screenshots or written instructions, and confirm understanding' },
+          { id: 'b', text: 'Use even more jargon' },
+          { id: 'c', text: 'Speak faster' },
+          { id: 'd', text: 'Assume they understood' },
+        ],
+        correctId: 'a',
+        explanation:
+          'To overcome language barriers, keep a glossary of industry terms, provide supporting materials like diagrams and screenshots, and confirm understanding rather than assuming.',
+      },
+      {
+        kind: 'select',
+        id: 'barriers-competence',
+        prompt: 'What is cultural competence?',
+        choices: [
+          { id: 'a', text: 'The ability to communicate and work effectively with people from different cultural backgrounds' },
+          { id: 'b', text: 'Knowing only your own culture' },
+          { id: 'c', text: 'A programming language' },
+          { id: 'd', text: 'A privacy law' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Cultural competence is the ability to work effectively across cultures. It involves awareness, understanding, respect, adaptability and continuous learning.',
+      },
+      {
+        kind: 'select',
+        id: 'barriers-inclusive',
+        prompt: 'What is inclusive communication?',
+        choices: [
+          { id: 'a', text: 'Making sure everyone feels respected, valued and able to understand and participate' },
+          { id: 'b', text: 'Talking only to people like you' },
+          { id: 'c', text: 'Interrupting others' },
+          { id: 'd', text: 'Using inaccessible documents' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Inclusive communication ensures everyone feels respected and has an equal opportunity to understand and participate, considering language, culture, gender, disability, age and experience.',
+      },
+      {
+        kind: 'select',
+        id: 'barriers-inclusive-how',
+        prompt: 'Which action supports inclusive communication?',
+        choices: [
+          { id: 'a', text: 'Respect preferred names and pronouns, and use accessible documents' },
+          { id: 'b', text: 'Tell offensive jokes' },
+          { id: 'c', text: 'Interrupt people who speak slowly' },
+          { id: 'd', text: 'Assume everyone understood' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Inclusive communication means using respectful language, speaking clearly, encouraging everyone to contribute, respecting preferred names and pronouns, and using accessible documents.',
+      },
+    ],
+  },
+  {
+    id: 'listen',
+    title: 'Listen and Clarify',
+    subtitle: 'Listen actively and confirm you understood the task.',
+    icon: '👂',
+    week: 4,
+    topic: 'Active listening and clarifying instructions',
+    questions: [
+      {
+        kind: 'select',
+        id: 'listen-active',
+        prompt: 'What is active listening?',
+        choices: [
+          { id: 'a', text: 'Fully concentrating on and understanding a speaker’s message before responding' },
+          { id: 'b', text: 'Waiting for your turn to talk' },
+          { id: 'c', text: 'Doing other tasks while they speak' },
+          { id: 'd', text: 'Interrupting to give your view' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Active listening is fully concentrating on and understanding a speaker’s message — hearing not just the words but the meaning behind them — before responding.',
+      },
+      {
+        kind: 'match',
+        id: 'listen-techniques',
+        prompt: 'Match each clarifying technique to an example phrase.',
+        pairs: [
+          { id: 'cl1', term: 'Admit you’re unsure', meaning: '“I’m not quite sure I understand what you are saying.”' },
+          { id: 'cl2', term: 'Ask for repetition', meaning: '“Could you repeat that?”' },
+          { id: 'cl3', term: 'Repeat back to confirm', meaning: '“Let me see if I’ve understood you correctly. You…”' },
+          { id: 'cl4', term: 'Ask for an example', meaning: '“Could you give me an example of that?”' },
+        ],
+        explanation:
+          'Clarifying techniques include admitting when you are unsure, asking for repetition, repeating back what you heard to confirm, and asking for specific examples.',
+      },
+      {
+        kind: 'select',
+        id: 'listen-clarify',
+        prompt: 'What is clarification?',
+        choices: [
+          { id: 'a', text: 'Confirming understanding when instructions or expectations are unclear' },
+          { id: 'b', text: 'A sign of weakness' },
+          { id: 'c', text: 'Ignoring instructions' },
+          { id: 'd', text: 'A type of audit' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clarification is confirming understanding when things are unclear. It is not a sign of weakness — asking clarifying questions shows responsibility, attention to detail and commitment to quality.',
+      },
+      {
+        kind: 'select',
+        id: 'listen-why',
+        prompt: 'Why does clarification matter?',
+        choices: [
+          { id: 'a', text: 'It prevents errors, avoids rework and creates shared understanding' },
+          { id: 'b', text: 'It wastes time' },
+          { id: 'c', text: 'It annoys the speaker' },
+          { id: 'd', text: 'It hides problems' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clarification helps prevent errors, avoid rework, improve productivity, ensure accurate task completion and create shared understanding.',
+      },
+      {
+        kind: 'select',
+        id: 'listen-shared',
+        prompt: 'Clear communication is whose responsibility?',
+        choices: [
+          { id: 'a', text: 'A shared responsibility between team members and leaders' },
+          { id: 'b', text: 'Only the manager’s' },
+          { id: 'c', text: 'Only the newest worker’s' },
+          { id: 'd', text: 'Nobody’s' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clear communication is a shared responsibility — team members listen actively, ask questions and confirm understanding, while leaders give clear instructions and encourage feedback.',
+      },
+    ],
+  },
+  {
+    id: 'noncompliance',
+    title: 'Spot Non-Compliance',
+    subtitle: 'Identify and monitor incidents that break the rules.',
+    icon: '🚨',
+    week: 4,
+    topic: 'Identifying non-compliance incidents',
+    questions: [
+      {
+        kind: 'select',
+        id: 'noncompliance-what',
+        prompt: 'What is a non-compliance incident?',
+        choices: [
+          { id: 'a', text: 'When actions, processes or systems fail to follow policies, laws or ethical standards' },
+          { id: 'b', text: 'A successful project' },
+          { id: 'c', text: 'A team-building activity' },
+          { id: 'd', text: 'A routine software update' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A non-compliance incident is when actions, processes or systems fail to follow organisational policies, legal requirements or ethical standards. It can be intentional or unintentional.',
+      },
+      {
+        kind: 'select',
+        id: 'noncompliance-example',
+        prompt:
+          'An employee uploads confidential customer data to an unapproved cloud platform. What is this?',
+        choices: [
+          { id: 'a', text: 'A non-compliance incident that violates data handling policy' },
+          { id: 'b', text: 'Good practice' },
+          { id: 'c', text: 'A patent' },
+          { id: 'd', text: 'A sprint' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Uploading confidential data to an unapproved platform violates the organisation’s data handling policy — a non-compliance incident that exposes it to legal, financial and reputational risk.',
+      },
+      {
+        kind: 'match',
+        id: 'noncompliance-methods',
+        prompt: 'Match each detection method to what it does.',
+        pairs: [
+          { id: 'nm1', term: 'Risk assessment', meaning: 'Identify potential threats and evaluate their likelihood and impact' },
+          { id: 'nm2', term: 'Auditing', meaning: 'Formal reviews of systems and processes to ensure policy adherence' },
+          { id: 'nm3', term: 'Incident reporting', meaning: 'Processes that let staff report breaches or suspected issues' },
+          { id: 'nm4', term: 'Data analysis & AI', meaning: 'Analytics that detect anomalies or patterns of non-compliance' },
+        ],
+        explanation:
+          'Organisations identify and monitor non-compliance using risk assessment, auditing, incident reporting, data analysis/AI and external resources.',
+      },
+      {
+        kind: 'select',
+        id: 'noncompliance-ai',
+        prompt: 'Automated monitoring detects unusual login activity and data transfers. Which method is this?',
+        choices: [
+          { id: 'a', text: 'Data analysis and AI' },
+          { id: 'b', text: 'A team stand-up' },
+          { id: 'c', text: 'A trademark search' },
+          { id: 'd', text: 'A lunch break' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Data analysis and AI use analytics tools to monitor large datasets, detect anomalies and identify trends humans may miss — supporting proactive prevention.',
+      },
+      {
+        kind: 'select',
+        id: 'noncompliance-external',
+        prompt: 'Why consult external resources such as regulators or third-party assessments?',
+        choices: [
+          { id: 'a', text: 'They ensure industry alignment and provide an objective perspective' },
+          { id: 'b', text: 'They make things less compliant' },
+          { id: 'c', text: 'They replace all internal checks' },
+          { id: 'd', text: 'They are never useful' },
+        ],
+        correctId: 'a',
+        explanation:
+          'External resources (regulatory guidance, third-party assessments, cybersecurity experts) ensure industry alignment, provide an objective perspective and support regulatory compliance.',
+      },
+    ],
+  },
+  {
+    id: 'respond',
+    title: 'Respond to Non-Compliance',
+    subtitle: 'Take the right steps to contain and fix an incident.',
+    icon: '🛠️',
+    week: 4,
+    topic: 'Overcoming non-compliance incidents',
+    questions: [
+      {
+        kind: 'order',
+        id: 'respond-steps',
+        prompt: 'Tap the response strategies for a non-compliance incident in the correct order.',
+        items: [
+          { id: 'rs1', text: 'Swift and proactive response: contain the damage' },
+          { id: 'rs2', text: 'Investigation and root cause analysis: find the underlying cause' },
+          { id: 'rs3', text: 'Remediation and corrective measures: fix issues and restore compliance' },
+          { id: 'rs4', text: 'Training and education: build staff awareness' },
+          { id: 'rs5', text: 'Continuous improvement: update policies and procedures' },
+        ],
+        correctOrder: ['rs1', 'rs2', 'rs3', 'rs4', 'rs5'],
+        explanation:
+          'A structured response moves from swift containment, to investigating the root cause, to remediation, to training, and finally to continuous improvement of policies.',
+      },
+      {
+        kind: 'select',
+        id: 'respond-structured',
+        prompt:
+          'After detecting unauthorised software, the org removes it, investigates the cause and reinforces training. What is this?',
+        choices: [
+          { id: 'a', text: 'A structured response to non-compliance' },
+          { id: 'b', text: 'Ignoring the problem' },
+          { id: 'c', text: 'A new feature release' },
+          { id: 'd', text: 'A trademark filing' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Responding to non-compliance involves structured actions to manage incidents, reduce harm and restore policy alignment — while supporting organisational learning.',
+      },
+      {
+        kind: 'select',
+        id: 'respond-rootcause',
+        prompt: 'What does root cause analysis do?',
+        choices: [
+          { id: 'a', text: 'Determines the underlying causes so the issue doesn’t recur' },
+          { id: 'b', text: 'Blames one person' },
+          { id: 'c', text: 'Hides the incident' },
+          { id: 'd', text: 'Skips the investigation' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Investigation and root cause analysis determine the underlying causes and factors, identify weaknesses, enable targeted corrective actions and prevent recurrence.',
+      },
+      {
+        kind: 'select',
+        id: 'respond-prompt',
+        prompt: 'Why is prompt action important when responding to non-compliance?',
+        choices: [
+          { id: 'a', text: 'It prevents escalation and signals commitment to ethical practice' },
+          { id: 'b', text: 'It makes the incident worse' },
+          { id: 'c', text: 'It avoids all investigation' },
+          { id: 'd', text: 'It ignores employee rights' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Organisations must address incidents without delay while keeping investigations objective and respectful of employee rights. Prompt action prevents escalation and signals commitment to ethical practice.',
+      },
+      {
+        kind: 'select',
+        id: 'respond-improve',
+        prompt: 'After an incident review, an organisation revises its procedures. Which strategy is this?',
+        choices: [
+          { id: 'a', text: 'Continuous improvement and policy enhancement' },
+          { id: 'b', text: 'Swift response' },
+          { id: 'c', text: 'A stand-up meeting' },
+          { id: 'd', text: 'A language barrier' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Continuous improvement and policy enhancement means updating policies and procedures to address evolving risks, keeping them relevant and strengthening compliance.',
+      },
+    ],
+  },
+  {
+    id: 'terms4',
+    title: 'Week 4 Terms Challenge',
+    subtitle: 'Match the Week 4 IT terms to their meanings.',
+    icon: '🧩',
+    week: 4,
+    topic: 'Week 4 IT terms and their meanings',
+    questions: [
+      {
+        kind: 'match',
+        id: 'terms4-culture',
+        prompt: 'Match each communication term to its meaning.',
+        pairs: [
+          { id: 'u1', term: 'Cross-cultural communication', meaning: 'Exchanging messages between different cultures' },
+          { id: 'u2', term: 'Cultural competence', meaning: 'Working effectively with people from other cultures' },
+          { id: 'u3', term: 'Inclusive communication', meaning: 'Ensuring everyone can understand and participate' },
+          { id: 'u4', term: 'Language barrier', meaning: 'Difficulty understanding due to language differences' },
+        ],
+        explanation:
+          'Cross-cultural communication, cultural competence and inclusive communication all help teams work across differences, while language barriers are what they help overcome.',
+      },
+      {
+        kind: 'match',
+        id: 'terms4-listen',
+        prompt: 'Match each listening term to its meaning.',
+        pairs: [
+          { id: 'v1', term: 'Active listening', meaning: 'Fully concentrating before responding' },
+          { id: 'v2', term: 'Clarification', meaning: 'Confirming understanding when things are unclear' },
+          { id: 'v3', term: 'Direct communication', meaning: 'Expressing opinions openly and clearly' },
+          { id: 'v4', term: 'Indirect communication', meaning: 'Conveying messages subtly to keep harmony' },
+        ],
+        explanation:
+          'Active listening and clarification build shared understanding, while direct and indirect styles describe how openly people express themselves.',
+      },
+      {
+        kind: 'match',
+        id: 'terms4-compliance',
+        prompt: 'Match each compliance term to its meaning.',
+        pairs: [
+          { id: 'w1', term: 'Non-compliance incident', meaning: 'Failing to follow policy, law or ethics' },
+          { id: 'w2', term: 'Auditing', meaning: 'Formal reviews to check policy adherence' },
+          { id: 'w3', term: 'Risk assessment', meaning: 'Identifying threats and their likelihood and impact' },
+          { id: 'w4', term: 'Root cause analysis', meaning: 'Finding the underlying cause to prevent recurrence' },
+        ],
+        explanation:
+          'Non-compliance is a breach of the rules; auditing and risk assessment help detect it, and root cause analysis helps stop it happening again.',
+      },
+    ],
+  },
+
+  // ===================== WEEK 5 =====================
+  // All Week 5 content comes from the Week 5 Work Skills slides for
+  // ICTSAS305 (Providing Technical Support to Clients - Part 1): what the IT
+  // team supports, investigating and documenting technical issues, diagnostic
+  // tools, and communicating technical advice to clients. The later ICTICT313
+  // sections in the deck are Week 6/7 reading and are held for those weeks.
+  {
+    id: 'support-basics',
+    title: 'What IT Support Covers',
+    subtitle: 'Know the hardware, software and networking you support.',
+    icon: '🖥️',
+    week: 5,
+    topic: 'What the IT support team supports',
+    questions: [
+      {
+        kind: 'select',
+        id: 'support-basics-role',
+        prompt: 'In a medium-sized organisation, what does the IT support team do?',
+        choices: [
+          { id: 'a', text: 'Keeps technology systems functional, secure and productive for users' },
+          { id: 'b', text: 'Only makes the coffee' },
+          { id: 'c', text: 'Designs the office building' },
+          { id: 'd', text: 'Writes marketing copy' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The IT support team keeps technology systems functional, secure and productive — maintaining equipment, managing software, troubleshooting networks and advising clients.',
+      },
+      {
+        kind: 'select',
+        id: 'support-basics-hardware',
+        prompt: 'Which of these is hardware?',
+        choices: [
+          { id: 'a', text: 'A monitor, keyboard or printer' },
+          { id: 'b', text: 'The Windows operating system' },
+          { id: 'c', text: 'Microsoft Teams' },
+          { id: 'd', text: 'A privacy policy' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Hardware is the physical components you can touch — desktops, laptops, monitors, keyboards, printers, servers and external drives.',
+      },
+      {
+        kind: 'select',
+        id: 'support-basics-os',
+        prompt: 'What is an operating system (OS)?',
+        choices: [
+          { id: 'a', text: 'Software that manages a computer’s hardware, memory, processes and applications' },
+          { id: 'b', text: 'A physical cable' },
+          { id: 'c', text: 'A type of printer' },
+          { id: 'd', text: 'A network switch' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The OS is the fundamental software that manages hardware, memory, processes and applications, acting as the intermediary between users and hardware (e.g. Windows, macOS, Linux, Android).',
+      },
+      {
+        kind: 'match',
+        id: 'support-basics-network',
+        prompt: 'Match each networking device to its function.',
+        pairs: [
+          { id: 'nd1', term: 'Router', meaning: 'Directs traffic between networks' },
+          { id: 'nd2', term: 'Switch', meaning: 'Connects devices within a network' },
+          { id: 'nd3', term: 'Wireless Access Point', meaning: 'Provides Wi-Fi connectivity' },
+          { id: 'nd4', term: 'Modem', meaning: 'Connects the network to the ISP' },
+        ],
+        explanation:
+          'Routers direct traffic between networks, switches connect devices within a network, wireless access points provide Wi-Fi, and modems connect the network to the internet service provider.',
+      },
+      {
+        kind: 'match',
+        id: 'support-basics-components',
+        prompt: 'Match each computer component to its role.',
+        pairs: [
+          { id: 'cc1', term: 'CPU (Processor)', meaning: 'The “brain” that executes instructions' },
+          { id: 'cc2', term: 'RAM (Memory)', meaning: 'Temporary memory for data currently in use' },
+          { id: 'cc3', term: 'Storage (SSD/HDD)', meaning: 'Long-term storage for the OS, apps and files' },
+          { id: 'cc4', term: 'GPU', meaning: 'Handles visual rendering' },
+        ],
+        explanation:
+          'The CPU processes instructions, RAM holds data in use for fast access, storage keeps files long-term, and the GPU handles graphics.',
+      },
+    ],
+  },
+  {
+    id: 'investigate',
+    title: 'Investigate the Issue',
+    subtitle: 'Gather the right information before jumping to a fix.',
+    icon: '🔎',
+    week: 5,
+    topic: 'Investigating technical issues',
+    questions: [
+      {
+        kind: 'select',
+        id: 'investigate-what',
+        prompt: 'What is technical investigation?',
+        choices: [
+          { id: 'a', text: 'Identifying the cause of a problem by collecting information, testing assumptions and analysing evidence' },
+          { id: 'b', text: 'Guessing randomly' },
+          { id: 'c', text: 'Ignoring the problem' },
+          { id: 'd', text: 'Restarting without thinking' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Technical investigation identifies the cause of a problem by collecting information, testing assumptions, analysing evidence and determining an appropriate solution.',
+      },
+      {
+        kind: 'select',
+        id: 'investigate-symptoms',
+        prompt: 'What are “symptoms” in troubleshooting?',
+        choices: [
+          { id: 'a', text: 'The visible signs of a problem, like freezing or an app crashing' },
+          { id: 'b', text: 'The root cause' },
+          { id: 'c', text: 'The final solution' },
+          { id: 'd', text: 'A type of hardware' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Symptoms are the visible signs of a problem — computer freezing, internet dropping out, an app crashing — and often give valuable clues about the underlying issue.',
+      },
+      {
+        kind: 'select',
+        id: 'investigate-errors',
+        prompt: 'When you get an error message, what is best practice?',
+        choices: [
+          { id: 'a', text: 'Record the exact wording, note error codes and take screenshots' },
+          { id: 'b', text: 'Ignore it' },
+          { id: 'c', text: 'Try to remember it later' },
+          { id: 'd', text: 'Close it immediately' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Error messages provide important clues. Record the exact wording, note any error codes and take screenshots — small wording differences can reveal different causes.',
+      },
+      {
+        kind: 'select',
+        id: 'investigate-affected',
+        prompt: 'Why check how many users are affected (one user, a department, or the whole org)?',
+        choices: [
+          { id: 'a', text: 'It helps define the scope and whether the issue is localised or widespread' },
+          { id: 'b', text: 'It has no effect on the diagnosis' },
+          { id: 'c', text: 'To assign blame' },
+          { id: 'd', text: 'To delay the fix' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Identifying affected users helps define the scope — whether the problem is localised (one device or account) or widespread (servers, networks or applications) — guiding escalation and resources.',
+      },
+      {
+        kind: 'order',
+        id: 'investigate-process',
+        prompt: 'Tap the early investigation steps in the correct order.',
+        items: [
+          { id: 'iv1', text: 'Issue reported' },
+          { id: 'iv2', text: 'Gather information' },
+          { id: 'iv3', text: 'Define the scope' },
+          { id: 'iv4', text: 'Analyse the problem' },
+        ],
+        correctOrder: ['iv1', 'iv2', 'iv3', 'iv4'],
+        explanation:
+          'A methodical investigation starts when the issue is reported, then gathers information, defines the scope, and analyses the problem before identifying the root cause.',
+      },
+    ],
+  },
+  {
+    id: 'rootcause',
+    title: 'Find the Root Cause',
+    subtitle: 'Dig past the symptoms to the real underlying cause.',
+    icon: '🌱',
+    week: 5,
+    topic: 'Root cause analysis and the 5 Whys',
+    questions: [
+      {
+        kind: 'select',
+        id: 'rootcause-what',
+        prompt: 'What is root cause analysis (RCA)?',
+        choices: [
+          { id: 'a', text: 'Discovering the real, underlying cause of a problem rather than just treating symptoms' },
+          { id: 'b', text: 'Fixing only the visible symptom' },
+          { id: 'c', text: 'Rebooting the server and hoping' },
+          { id: 'd', text: 'Blaming the user' },
+        ],
+        correctId: 'a',
+        explanation:
+          'RCA discovers the real, underlying cause of problems rather than just treating symptoms. Fixing only symptoms often leads to recurring incidents.',
+      },
+      {
+        kind: 'select',
+        id: 'rootcause-5whys',
+        prompt: 'What is the “5 Whys” method?',
+        choices: [
+          { id: 'a', text: 'Asking “Why?” repeatedly to trace a problem back to its root cause' },
+          { id: 'b', text: 'Asking five different people' },
+          { id: 'c', text: 'Waiting five minutes' },
+          { id: 'd', text: 'Trying five random fixes' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The 5 Whys is an RCA method that asks “Why?” multiple times to explore the cause-and-effect chain and determine the root cause of a problem.',
+      },
+      {
+        kind: 'select',
+        id: 'rootcause-when',
+        prompt: 'When is the 5 Whys method most useful?',
+        choices: [
+          { id: 'a', text: 'For simple to moderately difficult problems, especially those involving human error' },
+          { id: 'b', text: 'Only for hardware failures' },
+          { id: 'c', text: 'Never' },
+          { id: 'd', text: 'Only for billing questions' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The 5 Whys works best for simple to moderately difficult problems, particularly when human factors or human error are involved.',
+      },
+      {
+        kind: 'select',
+        id: 'rootcause-example',
+        prompt:
+          'A website crashed at peak hours from a traffic surge, caused by a viral code, caused by a typo, with no review process. What is the root cause?',
+        choices: [
+          { id: 'a', text: 'The lack of a review process for promotional discount entries' },
+          { id: 'b', text: 'Too many customers' },
+          { id: 'c', text: 'Social media' },
+          { id: 'd', text: 'The website software' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Following the 5 Whys chain, the true root cause was the lack of a review process for validating promotional discounts before they went live — not the traffic itself.',
+      },
+    ],
+  },
+  {
+    id: 'document',
+    title: 'Diagnose & Document',
+    subtitle: 'Pick the right tool and record what you find.',
+    icon: '📝',
+    week: 5,
+    topic: 'Diagnostic tools and documentation',
+    questions: [
+      {
+        kind: 'match',
+        id: 'document-tools',
+        prompt: 'Match each issue to an appropriate diagnostic tool.',
+        pairs: [
+          { id: 'dt1', term: 'Slow computer', meaning: 'Task Manager' },
+          { id: 'dt2', term: 'Network issue', meaning: 'Ping / Tracert' },
+          { id: 'dt3', term: 'Application crashes', meaning: 'Event Viewer' },
+          { id: 'dt4', term: 'Malware concerns', meaning: 'Antivirus Scanner' },
+        ],
+        explanation:
+          'Choose the tool for the issue: Task Manager for a slow computer, Ping/Tracert for network problems, Event Viewer for app crashes, and an antivirus scanner for malware.',
+      },
+      {
+        kind: 'select',
+        id: 'document-verify',
+        prompt: 'Before applying a recommendation from an online resource, what should you do?',
+        choices: [
+          { id: 'a', text: 'Verify the information from reputable sources' },
+          { id: 'b', text: 'Apply it blindly' },
+          { id: 'c', text: 'Ignore all documentation' },
+          { id: 'd', text: 'Delete the ticket' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Online resources (vendor knowledge bases, forums, manuals) can reduce investigation time, but always verify information from reputable sources before applying recommendations.',
+      },
+      {
+        kind: 'select',
+        id: 'document-why',
+        prompt: 'Why does good documentation matter?',
+        choices: [
+          { id: 'a', text: 'It creates a historical record and saves time if the same issue recurs' },
+          { id: 'b', text: 'It slows everyone down for no reason' },
+          { id: 'c', text: 'It hides what was done' },
+          { id: 'd', text: 'It replaces the need to fix issues' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clear, accurate documentation supports collaboration and knowledge sharing, creates historical records, assists future troubleshooting and demonstrates professionalism.',
+      },
+      {
+        kind: 'select',
+        id: 'document-report',
+        prompt: 'Which belongs in a good incident report?',
+        choices: [
+          { id: 'a', text: 'Incident summary, symptoms, findings, root cause and solution' },
+          { id: 'b', text: 'Only the technician’s lunch order' },
+          { id: 'c', text: 'Nothing at all' },
+          { id: 'd', text: 'A marketing plan' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A good incident report includes an incident summary, client details, symptoms, investigation activities, findings, root cause, solution and follow-up.',
+      },
+      {
+        kind: 'select',
+        id: 'document-logs',
+        prompt: 'Why include logs and screenshots in documentation?',
+        choices: [
+          { id: 'a', text: 'They provide supporting evidence and an accurate record for future reference' },
+          { id: 'b', text: 'They make the report longer for no reason' },
+          { id: 'c', text: 'They hide the error' },
+          { id: 'd', text: 'They are never useful' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Logs record events, warnings and errors, while screenshots capture error messages and settings — together they improve accuracy and provide useful reference for future investigations.',
+      },
+    ],
+  },
+  {
+    id: 'explain',
+    title: 'Explain It to the Client',
+    subtitle: 'Turn technical findings into advice clients understand.',
+    icon: '🤝',
+    week: 5,
+    topic: 'Communicating technical advice to clients',
+    questions: [
+      {
+        kind: 'select',
+        id: 'explain-goal',
+        prompt: 'What is the goal when communicating technical advice to clients?',
+        choices: [
+          { id: 'a', text: 'To bridge the gap between technical knowledge and the client’s level of understanding' },
+          { id: 'b', text: 'To use as much jargon as possible' },
+          { id: 'c', text: 'To confuse the client' },
+          { id: 'd', text: 'To avoid talking to them' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The goal is to explain findings and solutions in a way clients easily understand — bridging the gap between technical knowledge and the client’s level of understanding, which builds trust.',
+      },
+      {
+        kind: 'select',
+        id: 'explain-plain',
+        prompt: 'Which is the clearest way to explain a problem to a client?',
+        choices: [
+          { id: 'a', text: '“Your computer was unable to obtain a network address automatically.”' },
+          { id: 'b', text: '“The DHCP service failed due to an IP addressing conflict.”' },
+          { id: 'c', text: '“It’s a layer-3 misconfiguration.”' },
+          { id: 'd', text: '“Your authentication tokens were compromised.”' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Use simple, clear language that emphasises the practical impact. Say “your computer couldn’t get a network address automatically” instead of “the DHCP service failed due to an IP addressing conflict.”',
+      },
+      {
+        kind: 'select',
+        id: 'explain-empathy',
+        prompt: 'A client is frustrated after clicking the wrong option. What is the empathetic response?',
+        choices: [
+          { id: 'a', text: '“I understand how frustrating this can be. Let’s work through it together.”' },
+          { id: 'b', text: '“You clicked the wrong option.”' },
+          { id: 'c', text: '“That was your mistake.”' },
+          { id: 'd', text: '“You should know better.”' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Being empathetic acknowledges client frustration and builds trust. Say “I understand how frustrating this can be — let’s work through it together” rather than blaming them.',
+      },
+      {
+        kind: 'select',
+        id: 'explain-familiar',
+        prompt: 'Comparing computer memory to a cluttered desk helps because...',
+        choices: [
+          { id: 'a', text: 'Clients learn best when concepts relate to something they already know' },
+          { id: 'b', text: 'It sounds clever' },
+          { id: 'c', text: 'It avoids explaining anything' },
+          { id: 'd', text: 'It uses more jargon' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Relating concepts to familiar experiences helps clients understand — e.g. comparing computer memory to a desk that gets cluttered when too many items are on it.',
+      },
+      {
+        kind: 'select',
+        id: 'explain-nextsteps',
+        prompt: 'What should you do at the end of every client interaction?',
+        choices: [
+          { id: 'a', text: 'Clearly explain the next steps, actions taken and timeframes for updates' },
+          { id: 'b', text: 'Hang up without a word' },
+          { id: 'c', text: 'Leave the client guessing' },
+          { id: 'd', text: 'Delete the ticket' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Always provide clear next steps: what actions were taken, any further investigation, timeframes for updates, and any steps the client should take.',
+      },
+    ],
+  },
+  {
+    id: 'terms5',
+    title: 'Week 5 Terms Challenge',
+    subtitle: 'Match the Week 5 IT terms to their meanings.',
+    icon: '🧩',
+    week: 5,
+    topic: 'Week 5 IT terms and their meanings',
+    questions: [
+      {
+        kind: 'match',
+        id: 'terms5-support',
+        prompt: 'Match each technical support term to its meaning.',
+        pairs: [
+          { id: 'y1', term: 'Hardware', meaning: 'Physical components you can touch' },
+          { id: 'y2', term: 'Operating system', meaning: 'Software that manages hardware and applications' },
+          { id: 'y3', term: 'Router', meaning: 'Directs traffic between networks' },
+          { id: 'y4', term: 'RAM', meaning: 'Temporary memory for data in use' },
+        ],
+        explanation:
+          'Hardware is physical, the operating system manages it, routers connect networks, and RAM holds the data a computer is currently using.',
+      },
+      {
+        kind: 'match',
+        id: 'terms5-investigation',
+        prompt: 'Match each investigation term to its meaning.',
+        pairs: [
+          { id: 'z1', term: 'Symptoms', meaning: 'The visible signs of a problem' },
+          { id: 'z2', term: 'Scope', meaning: 'The extent of a problem: who and what is affected' },
+          { id: 'z3', term: 'Root cause analysis', meaning: 'Finding the real underlying cause' },
+          { id: 'z4', term: '5 Whys', meaning: 'Asking “Why?” repeatedly to reach the root cause' },
+        ],
+        explanation:
+          'Symptoms are the visible signs, scope is how far a problem reaches, and root cause analysis (often using the 5 Whys) finds the real underlying cause.',
+      },
+      {
+        kind: 'match',
+        id: 'terms5-document',
+        prompt: 'Match each documentation and communication term to its meaning.',
+        pairs: [
+          { id: 'q1', term: 'Event Viewer', meaning: 'A tool to view system events and errors' },
+          { id: 'q2', term: 'Ping', meaning: 'A tool to test network connectivity' },
+          { id: 'q3', term: 'Incident report', meaning: 'A structured record of an investigation' },
+          { id: 'q4', term: 'Empathy', meaning: 'Acknowledging the client’s frustration' },
+        ],
+        explanation:
+          'Event Viewer and Ping are diagnostic tools, an incident report records the investigation, and empathy keeps client communication supportive.',
       },
     ],
   },
