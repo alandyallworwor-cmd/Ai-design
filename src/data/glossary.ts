@@ -15,7 +15,9 @@ export interface GlossaryTerm {
     | 'Time & Agile'
     | 'Meetings & Communication'
     | 'Ethics Principles'
-    | 'Policy Frameworks';
+    | 'Policy Frameworks'
+    | 'Communication & Culture'
+    | 'Compliance & Incidents';
 }
 
 export const glossary: GlossaryTerm[] = [
@@ -335,5 +337,80 @@ export const glossary: GlossaryTerm[] = [
     term: 'Enforcement and review',
     meaning: 'Disciplinary processes and scheduled reviews that keep a policy effective and up to date.',
     group: 'Policy Frameworks',
+  },
+
+  // --- Week 4: Communication & Culture ---
+  {
+    term: 'Cross-cultural communication',
+    meaning:
+      'The exchange of information, ideas and messages between people from different cultural backgrounds.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Cultural competence',
+    meaning:
+      'The ability to communicate and work effectively with people from different cultural backgrounds.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Inclusive communication',
+    meaning:
+      'Communicating so everyone feels respected, valued and has an equal opportunity to understand and participate.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Language barrier',
+    meaning:
+      'Difficulty understanding one another due to differences in language, vocabulary, accent or communication style.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Direct communication',
+    meaning: 'A clear, straightforward style where people express opinions and feedback openly.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Indirect communication',
+    meaning: 'A subtle style where messages are implied to maintain harmony and avoid confrontation.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Clarification',
+    meaning:
+      'Confirming understanding when instructions or expectations are unclear, to prevent errors and rework.',
+    group: 'Communication & Culture',
+  },
+
+  // --- Week 4: Compliance & Incidents (ICTICT313) ---
+  {
+    term: 'Non-compliance incident',
+    meaning:
+      'When actions, processes or systems fail to follow organisational policies, legal requirements or ethical standards.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Risk assessment',
+    meaning: 'A systematic process for identifying threats to compliance and evaluating their likelihood and impact.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Auditing',
+    meaning: 'Formal reviews of systems, processes and behaviours to ensure policies are being followed.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Incident reporting',
+    meaning: 'Processes that allow staff to report breaches or suspected issues, enabling early detection.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Root cause analysis',
+    meaning: 'Investigating the underlying causes of an incident to enable corrective action and prevent recurrence.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Remediation',
+    meaning: 'Fixing issues and restoring compliance, for example by installing updated security controls.',
+    group: 'Compliance & Incidents',
   },
 ];

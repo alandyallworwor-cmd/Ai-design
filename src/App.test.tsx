@@ -79,7 +79,7 @@ describe('IT Quest app flow', () => {
 
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/40 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/1 of 18 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 of 24 completed/i)).toBeInTheDocument();
   });
 
   it('does NOT save score in study mode', async () => {
@@ -91,7 +91,7 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('heading', { name: /practice complete/i })).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/0 of 18 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/0 of 24 completed/i)).toBeInTheDocument();
   });
 
   it('lets the player order the steps correctly', async () => {
@@ -154,15 +154,16 @@ describe('IT Quest app flow', () => {
     // Confirming clears everything.
     await user.click(within(dialog).getByRole('button', { name: /yes, reset/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.queryByText(/1 of 18 completed/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/1 of 24 completed/i)).not.toBeInTheDocument();
   });
 
-  it('shows Week 1, Week 2 and Week 3 sections with a Week 2 mission', async () => {
+  it('shows Week 1 through Week 4 sections with a Week 2 mission', async () => {
     const user = userEvent.setup();
     await startGame(user);
     expect(screen.getByRole('heading', { name: /week 1/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /week 2/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /week 3/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /week 4/i })).toBeInTheDocument();
     // A Week 2 mission is reachable and opens correctly.
     await user.click(screen.getByRole('button', { name: /policies & procedures/i }));
     expect(screen.getByText(/what is a policy/i)).toBeInTheDocument();
@@ -180,6 +181,22 @@ describe('IT Quest app flow', () => {
     const feedback = screen.getByRole('status');
     expect(within(feedback).getByText(/correct/i)).toBeInTheDocument();
     expect(within(feedback).getByText(/small, manageable stages/i)).toBeInTheDocument();
+  });
+
+  it('teaches a Week 4 answer (cross-cultural communication) with feedback', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /communicate across cultures/i }));
+    await user.click(
+      screen.getByRole('button', {
+        name: /the exchange of information between people from different cultural backgrounds/i,
+      }),
+    );
+    const feedback = screen.getByRole('status');
+    expect(within(feedback).getByText(/correct/i)).toBeInTheDocument();
+    expect(
+      within(feedback).getByText(/exchange of information, ideas and messages/i),
+    ).toBeInTheDocument();
   });
 
   it('teaches a Week 2 answer (SMART goals) with feedback', async () => {

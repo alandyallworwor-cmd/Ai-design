@@ -1309,6 +1309,465 @@ export const missions: Mission[] = [
       },
     ],
   },
+
+  // ===================== WEEK 4 =====================
+  // All Week 4 content comes from the Week 4 Work Skills slides, covering
+  // BSBXTW301 / ICTSAS305 (cross-cultural communication, listening and
+  // clarifying) and ICTICT313 (identifying and responding to non-compliance
+  // incidents). Nothing here is invented outside those notes.
+  {
+    id: 'culture',
+    title: 'Communicate Across Cultures',
+    subtitle: 'Work respectfully with people from different backgrounds.',
+    icon: '🌏',
+    week: 4,
+    topic: 'Cross-cultural communication',
+    questions: [
+      {
+        kind: 'select',
+        id: 'culture-what',
+        prompt: 'What is cross-cultural communication?',
+        choices: [
+          { id: 'a', text: 'The exchange of information between people from different cultural backgrounds' },
+          { id: 'b', text: 'Only ever speaking one language' },
+          { id: 'c', text: 'Avoiding talking to teammates' },
+          { id: 'd', text: 'A type of network protocol' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Cross-cultural communication is the exchange of information, ideas and messages between people from different cultural backgrounds — common in ICT teams spread across countries.',
+      },
+      {
+        kind: 'select',
+        id: 'culture-why',
+        prompt: 'Why is cross-cultural communication important in ICT?',
+        choices: [
+          { id: 'a', text: 'It builds relationships, reduces misunderstandings and improves client satisfaction' },
+          { id: 'b', text: 'It slows every project down' },
+          { id: 'c', text: 'It replaces the need for teamwork' },
+          { id: 'd', text: 'It has no benefits' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Effective cross-cultural communication builds positive relationships, reduces misunderstandings, improves teamwork and productivity, and supports diversity and inclusion.',
+      },
+      {
+        kind: 'select',
+        id: 'culture-direct',
+        prompt:
+          'A teammate expresses opinions and feedback openly and clearly. Which communication style is this?',
+        choices: [
+          { id: 'a', text: 'Direct communication' },
+          { id: 'b', text: 'Indirect communication' },
+          { id: 'c', text: 'A language barrier' },
+          { id: 'd', text: 'An audit' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Direct communication is clear and straightforward. Indirect communication conveys messages more subtly to maintain harmony and avoid confrontation.',
+      },
+      {
+        kind: 'select',
+        id: 'culture-bodylanguage',
+        prompt:
+          'Strong eye contact can mean confidence in one culture but disrespect in another. This is a difference in...',
+        choices: [
+          { id: 'a', text: 'Personal space and body language' },
+          { id: 'b', text: 'Software licensing' },
+          { id: 'c', text: 'Patent law' },
+          { id: 'd', text: 'Sprint length' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Eye contact, personal space, gestures and facial expressions can carry different meanings in different cultures, so it is important to be aware and respectful.',
+      },
+      {
+        kind: 'select',
+        id: 'culture-respect',
+        prompt: 'Which is a good way to work respectfully across cultures?',
+        choices: [
+          { id: 'a', text: 'Be curious rather than judgmental and avoid making assumptions' },
+          { id: 'b', text: 'Assume everyone thinks like you' },
+          { id: 'c', text: 'Use offensive jokes' },
+          { id: 'd', text: 'Ignore people’s preferences' },
+        ],
+        correctId: 'a',
+        explanation:
+          'You can make a difference by treating everyone respectfully, avoiding assumptions, being curious rather than judgmental, and asking team members for their communication preferences.',
+      },
+    ],
+  },
+  {
+    id: 'barriers',
+    title: 'Break Down Barriers',
+    subtitle: 'Overcome language barriers and communicate inclusively.',
+    icon: '🗣️',
+    week: 4,
+    topic: 'Language barriers, cultural competence and inclusion',
+    questions: [
+      {
+        kind: 'select',
+        id: 'barriers-what',
+        prompt: 'What is a language barrier?',
+        choices: [
+          { id: 'a', text: 'Difficulty understanding one another due to differences in language, vocabulary, accent or style' },
+          { id: 'b', text: 'A firewall rule' },
+          { id: 'c', text: 'A type of trademark' },
+          { id: 'd', text: 'A meeting agenda' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Language barriers occur when people struggle to understand each other due to differences in language, vocabulary, accent, speaking speed, idioms or slang.',
+      },
+      {
+        kind: 'select',
+        id: 'barriers-overcome',
+        prompt:
+          'A client can’t follow the technical terms in your email. What helps overcome this language barrier?',
+        choices: [
+          { id: 'a', text: 'Provide supporting diagrams, screenshots or written instructions, and confirm understanding' },
+          { id: 'b', text: 'Use even more jargon' },
+          { id: 'c', text: 'Speak faster' },
+          { id: 'd', text: 'Assume they understood' },
+        ],
+        correctId: 'a',
+        explanation:
+          'To overcome language barriers, keep a glossary of industry terms, provide supporting materials like diagrams and screenshots, and confirm understanding rather than assuming.',
+      },
+      {
+        kind: 'select',
+        id: 'barriers-competence',
+        prompt: 'What is cultural competence?',
+        choices: [
+          { id: 'a', text: 'The ability to communicate and work effectively with people from different cultural backgrounds' },
+          { id: 'b', text: 'Knowing only your own culture' },
+          { id: 'c', text: 'A programming language' },
+          { id: 'd', text: 'A privacy law' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Cultural competence is the ability to work effectively across cultures. It involves awareness, understanding, respect, adaptability and continuous learning.',
+      },
+      {
+        kind: 'select',
+        id: 'barriers-inclusive',
+        prompt: 'What is inclusive communication?',
+        choices: [
+          { id: 'a', text: 'Making sure everyone feels respected, valued and able to understand and participate' },
+          { id: 'b', text: 'Talking only to people like you' },
+          { id: 'c', text: 'Interrupting others' },
+          { id: 'd', text: 'Using inaccessible documents' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Inclusive communication ensures everyone feels respected and has an equal opportunity to understand and participate, considering language, culture, gender, disability, age and experience.',
+      },
+      {
+        kind: 'select',
+        id: 'barriers-inclusive-how',
+        prompt: 'Which action supports inclusive communication?',
+        choices: [
+          { id: 'a', text: 'Respect preferred names and pronouns, and use accessible documents' },
+          { id: 'b', text: 'Tell offensive jokes' },
+          { id: 'c', text: 'Interrupt people who speak slowly' },
+          { id: 'd', text: 'Assume everyone understood' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Inclusive communication means using respectful language, speaking clearly, encouraging everyone to contribute, respecting preferred names and pronouns, and using accessible documents.',
+      },
+    ],
+  },
+  {
+    id: 'listen',
+    title: 'Listen and Clarify',
+    subtitle: 'Listen actively and confirm you understood the task.',
+    icon: '👂',
+    week: 4,
+    topic: 'Active listening and clarifying instructions',
+    questions: [
+      {
+        kind: 'select',
+        id: 'listen-active',
+        prompt: 'What is active listening?',
+        choices: [
+          { id: 'a', text: 'Fully concentrating on and understanding a speaker’s message before responding' },
+          { id: 'b', text: 'Waiting for your turn to talk' },
+          { id: 'c', text: 'Doing other tasks while they speak' },
+          { id: 'd', text: 'Interrupting to give your view' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Active listening is fully concentrating on and understanding a speaker’s message — hearing not just the words but the meaning behind them — before responding.',
+      },
+      {
+        kind: 'match',
+        id: 'listen-techniques',
+        prompt: 'Match each clarifying technique to an example phrase.',
+        pairs: [
+          { id: 'cl1', term: 'Admit you’re unsure', meaning: '“I’m not quite sure I understand what you are saying.”' },
+          { id: 'cl2', term: 'Ask for repetition', meaning: '“Could you repeat that?”' },
+          { id: 'cl3', term: 'Repeat back to confirm', meaning: '“Let me see if I’ve understood you correctly. You…”' },
+          { id: 'cl4', term: 'Ask for an example', meaning: '“Could you give me an example of that?”' },
+        ],
+        explanation:
+          'Clarifying techniques include admitting when you are unsure, asking for repetition, repeating back what you heard to confirm, and asking for specific examples.',
+      },
+      {
+        kind: 'select',
+        id: 'listen-clarify',
+        prompt: 'What is clarification?',
+        choices: [
+          { id: 'a', text: 'Confirming understanding when instructions or expectations are unclear' },
+          { id: 'b', text: 'A sign of weakness' },
+          { id: 'c', text: 'Ignoring instructions' },
+          { id: 'd', text: 'A type of audit' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clarification is confirming understanding when things are unclear. It is not a sign of weakness — asking clarifying questions shows responsibility, attention to detail and commitment to quality.',
+      },
+      {
+        kind: 'select',
+        id: 'listen-why',
+        prompt: 'Why does clarification matter?',
+        choices: [
+          { id: 'a', text: 'It prevents errors, avoids rework and creates shared understanding' },
+          { id: 'b', text: 'It wastes time' },
+          { id: 'c', text: 'It annoys the speaker' },
+          { id: 'd', text: 'It hides problems' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clarification helps prevent errors, avoid rework, improve productivity, ensure accurate task completion and create shared understanding.',
+      },
+      {
+        kind: 'select',
+        id: 'listen-shared',
+        prompt: 'Clear communication is whose responsibility?',
+        choices: [
+          { id: 'a', text: 'A shared responsibility between team members and leaders' },
+          { id: 'b', text: 'Only the manager’s' },
+          { id: 'c', text: 'Only the newest worker’s' },
+          { id: 'd', text: 'Nobody’s' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clear communication is a shared responsibility — team members listen actively, ask questions and confirm understanding, while leaders give clear instructions and encourage feedback.',
+      },
+    ],
+  },
+  {
+    id: 'noncompliance',
+    title: 'Spot Non-Compliance',
+    subtitle: 'Identify and monitor incidents that break the rules.',
+    icon: '🚨',
+    week: 4,
+    topic: 'Identifying non-compliance incidents',
+    questions: [
+      {
+        kind: 'select',
+        id: 'noncompliance-what',
+        prompt: 'What is a non-compliance incident?',
+        choices: [
+          { id: 'a', text: 'When actions, processes or systems fail to follow policies, laws or ethical standards' },
+          { id: 'b', text: 'A successful project' },
+          { id: 'c', text: 'A team-building activity' },
+          { id: 'd', text: 'A routine software update' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A non-compliance incident is when actions, processes or systems fail to follow organisational policies, legal requirements or ethical standards. It can be intentional or unintentional.',
+      },
+      {
+        kind: 'select',
+        id: 'noncompliance-example',
+        prompt:
+          'An employee uploads confidential customer data to an unapproved cloud platform. What is this?',
+        choices: [
+          { id: 'a', text: 'A non-compliance incident that violates data handling policy' },
+          { id: 'b', text: 'Good practice' },
+          { id: 'c', text: 'A patent' },
+          { id: 'd', text: 'A sprint' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Uploading confidential data to an unapproved platform violates the organisation’s data handling policy — a non-compliance incident that exposes it to legal, financial and reputational risk.',
+      },
+      {
+        kind: 'match',
+        id: 'noncompliance-methods',
+        prompt: 'Match each detection method to what it does.',
+        pairs: [
+          { id: 'nm1', term: 'Risk assessment', meaning: 'Identify potential threats and evaluate their likelihood and impact' },
+          { id: 'nm2', term: 'Auditing', meaning: 'Formal reviews of systems and processes to ensure policy adherence' },
+          { id: 'nm3', term: 'Incident reporting', meaning: 'Processes that let staff report breaches or suspected issues' },
+          { id: 'nm4', term: 'Data analysis & AI', meaning: 'Analytics that detect anomalies or patterns of non-compliance' },
+        ],
+        explanation:
+          'Organisations identify and monitor non-compliance using risk assessment, auditing, incident reporting, data analysis/AI and external resources.',
+      },
+      {
+        kind: 'select',
+        id: 'noncompliance-ai',
+        prompt: 'Automated monitoring detects unusual login activity and data transfers. Which method is this?',
+        choices: [
+          { id: 'a', text: 'Data analysis and AI' },
+          { id: 'b', text: 'A team stand-up' },
+          { id: 'c', text: 'A trademark search' },
+          { id: 'd', text: 'A lunch break' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Data analysis and AI use analytics tools to monitor large datasets, detect anomalies and identify trends humans may miss — supporting proactive prevention.',
+      },
+      {
+        kind: 'select',
+        id: 'noncompliance-external',
+        prompt: 'Why consult external resources such as regulators or third-party assessments?',
+        choices: [
+          { id: 'a', text: 'They ensure industry alignment and provide an objective perspective' },
+          { id: 'b', text: 'They make things less compliant' },
+          { id: 'c', text: 'They replace all internal checks' },
+          { id: 'd', text: 'They are never useful' },
+        ],
+        correctId: 'a',
+        explanation:
+          'External resources (regulatory guidance, third-party assessments, cybersecurity experts) ensure industry alignment, provide an objective perspective and support regulatory compliance.',
+      },
+    ],
+  },
+  {
+    id: 'respond',
+    title: 'Respond to Non-Compliance',
+    subtitle: 'Take the right steps to contain and fix an incident.',
+    icon: '🛠️',
+    week: 4,
+    topic: 'Overcoming non-compliance incidents',
+    questions: [
+      {
+        kind: 'order',
+        id: 'respond-steps',
+        prompt: 'Tap the response strategies for a non-compliance incident in the correct order.',
+        items: [
+          { id: 'rs1', text: 'Swift and proactive response: contain the damage' },
+          { id: 'rs2', text: 'Investigation and root cause analysis: find the underlying cause' },
+          { id: 'rs3', text: 'Remediation and corrective measures: fix issues and restore compliance' },
+          { id: 'rs4', text: 'Training and education: build staff awareness' },
+          { id: 'rs5', text: 'Continuous improvement: update policies and procedures' },
+        ],
+        correctOrder: ['rs1', 'rs2', 'rs3', 'rs4', 'rs5'],
+        explanation:
+          'A structured response moves from swift containment, to investigating the root cause, to remediation, to training, and finally to continuous improvement of policies.',
+      },
+      {
+        kind: 'select',
+        id: 'respond-structured',
+        prompt:
+          'After detecting unauthorised software, the org removes it, investigates the cause and reinforces training. What is this?',
+        choices: [
+          { id: 'a', text: 'A structured response to non-compliance' },
+          { id: 'b', text: 'Ignoring the problem' },
+          { id: 'c', text: 'A new feature release' },
+          { id: 'd', text: 'A trademark filing' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Responding to non-compliance involves structured actions to manage incidents, reduce harm and restore policy alignment — while supporting organisational learning.',
+      },
+      {
+        kind: 'select',
+        id: 'respond-rootcause',
+        prompt: 'What does root cause analysis do?',
+        choices: [
+          { id: 'a', text: 'Determines the underlying causes so the issue doesn’t recur' },
+          { id: 'b', text: 'Blames one person' },
+          { id: 'c', text: 'Hides the incident' },
+          { id: 'd', text: 'Skips the investigation' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Investigation and root cause analysis determine the underlying causes and factors, identify weaknesses, enable targeted corrective actions and prevent recurrence.',
+      },
+      {
+        kind: 'select',
+        id: 'respond-prompt',
+        prompt: 'Why is prompt action important when responding to non-compliance?',
+        choices: [
+          { id: 'a', text: 'It prevents escalation and signals commitment to ethical practice' },
+          { id: 'b', text: 'It makes the incident worse' },
+          { id: 'c', text: 'It avoids all investigation' },
+          { id: 'd', text: 'It ignores employee rights' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Organisations must address incidents without delay while keeping investigations objective and respectful of employee rights. Prompt action prevents escalation and signals commitment to ethical practice.',
+      },
+      {
+        kind: 'select',
+        id: 'respond-improve',
+        prompt: 'After an incident review, an organisation revises its procedures. Which strategy is this?',
+        choices: [
+          { id: 'a', text: 'Continuous improvement and policy enhancement' },
+          { id: 'b', text: 'Swift response' },
+          { id: 'c', text: 'A stand-up meeting' },
+          { id: 'd', text: 'A language barrier' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Continuous improvement and policy enhancement means updating policies and procedures to address evolving risks, keeping them relevant and strengthening compliance.',
+      },
+    ],
+  },
+  {
+    id: 'terms4',
+    title: 'Week 4 Terms Challenge',
+    subtitle: 'Match the Week 4 IT terms to their meanings.',
+    icon: '🧩',
+    week: 4,
+    topic: 'Week 4 IT terms and their meanings',
+    questions: [
+      {
+        kind: 'match',
+        id: 'terms4-culture',
+        prompt: 'Match each communication term to its meaning.',
+        pairs: [
+          { id: 'u1', term: 'Cross-cultural communication', meaning: 'Exchanging messages between different cultures' },
+          { id: 'u2', term: 'Cultural competence', meaning: 'Working effectively with people from other cultures' },
+          { id: 'u3', term: 'Inclusive communication', meaning: 'Ensuring everyone can understand and participate' },
+          { id: 'u4', term: 'Language barrier', meaning: 'Difficulty understanding due to language differences' },
+        ],
+        explanation:
+          'Cross-cultural communication, cultural competence and inclusive communication all help teams work across differences, while language barriers are what they help overcome.',
+      },
+      {
+        kind: 'match',
+        id: 'terms4-listen',
+        prompt: 'Match each listening term to its meaning.',
+        pairs: [
+          { id: 'v1', term: 'Active listening', meaning: 'Fully concentrating before responding' },
+          { id: 'v2', term: 'Clarification', meaning: 'Confirming understanding when things are unclear' },
+          { id: 'v3', term: 'Direct communication', meaning: 'Expressing opinions openly and clearly' },
+          { id: 'v4', term: 'Indirect communication', meaning: 'Conveying messages subtly to keep harmony' },
+        ],
+        explanation:
+          'Active listening and clarification build shared understanding, while direct and indirect styles describe how openly people express themselves.',
+      },
+      {
+        kind: 'match',
+        id: 'terms4-compliance',
+        prompt: 'Match each compliance term to its meaning.',
+        pairs: [
+          { id: 'w1', term: 'Non-compliance incident', meaning: 'Failing to follow policy, law or ethics' },
+          { id: 'w2', term: 'Auditing', meaning: 'Formal reviews to check policy adherence' },
+          { id: 'w3', term: 'Risk assessment', meaning: 'Identifying threats and their likelihood and impact' },
+          { id: 'w4', term: 'Root cause analysis', meaning: 'Finding the underlying cause to prevent recurrence' },
+        ],
+        explanation:
+          'Non-compliance is a breach of the rules; auditing and risk assessment help detect it, and root cause analysis helps stop it happening again.',
+      },
+    ],
+  },
 ];
 
 /** Find a mission by its id (used by the mission screen). */
