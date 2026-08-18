@@ -821,6 +821,494 @@ export const missions: Mission[] = [
       },
     ],
   },
+
+  // ===================== WEEK 3 =====================
+  // All Week 3 content comes from the Week 3 Work Skills slides, covering
+  // BSBXTW301 / ICTSAS305 (time management, Agile, meetings, team tools and
+  // communication) and ICTICT313 (ethical principles and policy frameworks).
+  {
+    id: 'time',
+    title: 'Manage Your Time',
+    subtitle: 'Plan, prioritise and keep the whole team on schedule.',
+    icon: '🕒',
+    week: 3,
+    topic: 'Time management and prioritisation',
+    questions: [
+      {
+        kind: 'select',
+        id: 'time-what',
+        prompt: 'What is time management?',
+        choices: [
+          { id: 'a', text: 'Organising and planning how much time to spend on different activities' },
+          { id: 'b', text: 'Doing tasks in a random order' },
+          { id: 'c', text: 'Working with no plan at all' },
+          { id: 'd', text: 'Avoiding every deadline' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Time management is the process of organising and planning how much time to spend on activities, prioritising work by urgency and importance.',
+      },
+      {
+        kind: 'select',
+        id: 'time-priority',
+        prompt:
+          'A banking app has a typo, a security vulnerability and a colour-change request. Which is fixed FIRST?',
+        choices: [
+          { id: 'a', text: 'The security vulnerability' },
+          { id: 'b', text: 'The typo on the homepage' },
+          { id: 'c', text: 'The colour change' },
+          { id: 'd', text: 'None of them' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Teams prioritise by business impact and risk, so the security vulnerability comes first, then client-deadline work, then the minor typo.',
+      },
+      {
+        kind: 'select',
+        id: 'time-eisenhower',
+        prompt: 'The Eisenhower Matrix sorts tasks using which two questions?',
+        choices: [
+          { id: 'a', text: 'Is it urgent? Is it important?' },
+          { id: 'b', text: 'Is it big? Is it small?' },
+          { id: 'c', text: 'Is it cheap? Is it new?' },
+          { id: 'd', text: 'Is it fun? Is it boring?' },
+        ],
+        correctId: 'a',
+        explanation:
+          'The Eisenhower Matrix prioritises work by asking whether a task is urgent (needs immediate attention) and whether it is important (linked to your goals).',
+      },
+      {
+        kind: 'select',
+        id: 'time-habits',
+        prompt: 'Which is a good time-management habit in an ICT team?',
+        choices: [
+          { id: 'a', text: 'Break big tasks into smaller ones and avoid multitasking' },
+          { id: 'b', text: 'Constantly switch between tasks' },
+          { id: 'c', text: 'Leave all notifications on all day' },
+          { id: 'd', text: 'Never review your priorities' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Good ICT professionals estimate task duration by breaking work down, avoid multitasking, reduce distractions and regularly review priorities.',
+      },
+      {
+        kind: 'select',
+        id: 'time-impact',
+        prompt:
+          'A network technician delays configuring a server. What is the likely result for the team?',
+        choices: [
+          { id: 'a', text: 'Software installation, testing and client deployment are all delayed' },
+          { id: 'b', text: 'Nothing changes' },
+          { id: 'c', text: 'The project finishes early' },
+          { id: 'd', text: 'The client is happier' },
+        ],
+        correctId: 'a',
+        explanation:
+          'In a team, one person’s work affects others. One missed task can delay the whole project — software can’t be installed, testing is delayed and deployment is postponed.',
+      },
+    ],
+  },
+  {
+    id: 'agile',
+    title: 'Work the Agile Way',
+    subtitle: 'Deliver work in short sprints using Scrum.',
+    icon: '🔁',
+    week: 3,
+    topic: 'Agile and Scrum for team task management',
+    questions: [
+      {
+        kind: 'select',
+        id: 'agile-what',
+        prompt: 'What is Agile?',
+        choices: [
+          { id: 'a', text: 'Delivering work in small stages with continuous feedback and improvement' },
+          { id: 'b', text: 'Planning everything upfront and never changing' },
+          { id: 'c', text: 'Working alone with no feedback' },
+          { id: 'd', text: 'A type of firewall' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Agile delivers work in small, manageable stages while encouraging continuous collaboration and improvement, adapting to changes as feedback arrives.',
+      },
+      {
+        kind: 'select',
+        id: 'agile-roles',
+        prompt: 'Which three roles make up a Scrum team?',
+        choices: [
+          { id: 'a', text: 'Product Owner, Scrum Master and Development Team' },
+          { id: 'b', text: 'Only a single manager' },
+          { id: 'c', text: 'Client, hacker and vendor' },
+          { id: 'd', text: 'Tier 1, Tier 2 and Tier 3' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A Scrum team usually includes a Product Owner, a Scrum Master and the Development Team.',
+      },
+      {
+        kind: 'select',
+        id: 'agile-sprint',
+        prompt: 'What is a sprint?',
+        choices: [
+          { id: 'a', text: 'A fixed 2–4 week burst of focused work ending with a working product' },
+          { id: 'b', text: 'A short 15-minute daily meeting' },
+          { id: 'c', text: 'A type of privacy law' },
+          { id: 'd', text: 'A project that never ends' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A sprint is a short, fixed period of work (usually 2–4 weeks). At the end, a working product is delivered, feedback is collected and improvements are planned.',
+      },
+      {
+        kind: 'select',
+        id: 'agile-standup',
+        prompt: 'In a daily stand-up, what does each team member share?',
+        choices: [
+          { id: 'a', text: 'What they did yesterday, what they’ll do today, and any obstacles' },
+          { id: 'b', text: 'Their favourite food' },
+          { id: 'c', text: 'The full project budget' },
+          { id: 'd', text: 'Nothing at all' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A stand-up is a short (about 15-minute) daily meeting where each member says what they completed yesterday, what they’ll work on today, and what obstacles they face.',
+      },
+      {
+        kind: 'order',
+        id: 'agile-workflow',
+        prompt: 'Tap the Scrum workflow steps in the correct order.',
+        items: [
+          { id: 'sc1', text: 'Product Backlog: a prioritised list of all work' },
+          { id: 'sc2', text: 'Sprint Planning: choose the work for the sprint' },
+          { id: 'sc3', text: 'Sprint: complete the planned work' },
+          { id: 'sc4', text: 'Sprint Review: demo the work and get feedback' },
+          { id: 'sc5', text: 'Sprint Retrospective: reflect and improve' },
+        ],
+        correctOrder: ['sc1', 'sc2', 'sc3', 'sc4', 'sc5'],
+        explanation:
+          'Scrum flows from a prioritised Product Backlog into Sprint Planning, the Sprint itself, a Sprint Review to gather feedback, and a Retrospective to improve the next sprint.',
+      },
+    ],
+  },
+  {
+    id: 'meetings',
+    title: 'Meetings That Work',
+    subtitle: 'Run formal meetings and keep good records.',
+    icon: '📅',
+    week: 3,
+    topic: 'Formal meetings and documentation',
+    questions: [
+      {
+        kind: 'order',
+        id: 'meetings-stages',
+        prompt: 'Tap the three stages of a formal meeting in order.',
+        items: [
+          { id: 'mt1', text: 'Before: prepare an agenda and send invitations' },
+          { id: 'mt2', text: 'During: follow the agenda and agree on actions' },
+          { id: 'mt3', text: 'After: confirm decisions, assign tasks and follow up' },
+        ],
+        correctOrder: ['mt1', 'mt2', 'mt3'],
+        explanation:
+          'A formal meeting has three stages: preparation before, execution during, and closure and follow-up after.',
+      },
+      {
+        kind: 'select',
+        id: 'meetings-agenda',
+        prompt: 'What is a meeting agenda?',
+        choices: [
+          { id: 'a', text: 'A structured outline of the topics to be discussed' },
+          { id: 'b', text: 'A written record made after the meeting' },
+          { id: 'c', text: 'A brand logo' },
+          { id: 'd', text: 'A software licence' },
+        ],
+        correctId: 'a',
+        explanation:
+          'An agenda is a structured outline of topics to be discussed. It helps attendees prepare and keeps the meeting on track.',
+      },
+      {
+        kind: 'select',
+        id: 'meetings-minutes',
+        prompt: 'What are meeting minutes?',
+        choices: [
+          { id: 'a', text: 'A written record of discussions, decisions and action items' },
+          { id: 'b', text: 'A list of topics to discuss next time' },
+          { id: 'c', text: 'The meeting’s start time only' },
+          { id: 'd', text: 'A type of firewall' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Minutes are a written record of what happened: attendees, key discussion points, decisions, action items and deadlines. They should be clear, objective and distributed promptly.',
+      },
+      {
+        kind: 'select',
+        id: 'meetings-followup',
+        prompt: 'Why is meeting follow-up critical?',
+        choices: [
+          { id: 'a', text: 'It ensures accountability and that tasks actually get done' },
+          { id: 'b', text: 'It wastes everyone’s time' },
+          { id: 'c', text: 'It hides decisions from the team' },
+          { id: 'd', text: 'It replaces the need for an agenda' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Without follow-up, tasks may not be completed, clients may lose confidence and issues may remain unresolved. Distributing minutes (ideally within 24 hours) and tracking action items keeps progress on track.',
+      },
+    ],
+  },
+  {
+    id: 'teamtools',
+    title: 'Team Tools & Talk',
+    subtitle: 'Use the right tools and communicate clearly.',
+    icon: '💬',
+    week: 3,
+    topic: 'Team tools and effective communication',
+    questions: [
+      {
+        kind: 'match',
+        id: 'teamtools-tools',
+        prompt: 'Match each team tool or strategy to what it does.',
+        pairs: [
+          { id: 'tt1', term: 'Project management software', meaning: 'Assign tasks, set deadlines and track progress (e.g. Jira, Trello)' },
+          { id: 'tt2', term: 'Shared calendar', meaning: 'Coordinate milestones and meetings and avoid clashes' },
+          { id: 'tt3', term: 'Task tracking', meaning: 'Monitor progress, completion, delays and blockers' },
+          { id: 'tt4', term: 'Time-blocking', meaning: 'Schedule dedicated blocks of time for specific tasks' },
+        ],
+        explanation:
+          'Teams use project management software (Jira, Asana, Trello, Planner) to allocate work, shared calendars to coordinate, task tracking to monitor progress, and time-blocking to stay focused.',
+      },
+      {
+        kind: 'select',
+        id: 'teamtools-listening',
+        prompt: 'What is active listening?',
+        choices: [
+          { id: 'a', text: 'Giving full attention, asking clarifying questions and summarising what you heard' },
+          { id: 'b', text: 'Talking over the speaker' },
+          { id: 'c', text: 'Checking your phone while they talk' },
+          { id: 'd', text: 'Ignoring the message' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Active listening means giving full attention to the speaker, avoiding interrupting, asking clarifying questions and summarising what you heard.',
+      },
+      {
+        kind: 'select',
+        id: 'teamtools-clarity',
+        prompt: 'Which instruction shows good clarity?',
+        choices: [
+          { id: 'a', text: '“Please complete the user testing report by 3:00 pm Friday.”' },
+          { id: 'b', text: '“Finish this soon.”' },
+          { id: 'c', text: '“Do the thing.”' },
+          { id: 'd', text: '“We’ll sort it out later.”' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clear communication is specific about deadlines, responsibilities and expectations. “Complete the report by 3pm Friday” is far clearer than “finish this soon.”',
+      },
+      {
+        kind: 'select',
+        id: 'teamtools-informed',
+        prompt:
+          'A technician records their investigation steps in the helpdesk system before finishing their shift. Why does this matter?',
+        choices: [
+          { id: 'a', text: 'The next technician can continue without restarting the process' },
+          { id: 'b', text: 'It hides information from the team' },
+          { id: 'c', text: 'It is against policy' },
+          { id: 'd', text: 'It wastes time' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Keeping the team informed with documented updates (not just verbal ones) ensures continuity, so the next person can continue troubleshooting without starting over.',
+      },
+      {
+        kind: 'select',
+        id: 'teamtools-feedback',
+        prompt: 'What is constructive feedback?',
+        choices: [
+          { id: 'a', text: 'Specific, respectful, behaviour-focused information that supports improvement' },
+          { id: 'b', text: 'Calling someone “careless”' },
+          { id: 'c', text: 'A personal attack' },
+          { id: 'd', text: 'Saying nothing at all' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Effective feedback is clear, objective and behaviour-focused. Instead of “you’re careless”, say “the ticket notes were incomplete, which delayed resolution — please include detailed steps next time.”',
+      },
+    ],
+  },
+  {
+    id: 'ethics',
+    title: 'Ethics in Action',
+    subtitle: 'Apply the principles behind IP, ethics and privacy.',
+    icon: '⚖️',
+    week: 3,
+    topic: 'Principles applied in IP, ethics and privacy',
+    questions: [
+      {
+        kind: 'match',
+        id: 'ethics-principles-1',
+        prompt: 'Match each ethical principle to its meaning.',
+        pairs: [
+          { id: 'e1', term: 'Transparency', meaning: 'Clearly communicate how data and IP are used and stored' },
+          { id: 'e2', term: 'Accountability', meaning: 'Assign responsibility for actions and compliance' },
+          { id: 'e3', term: 'Proportionality', meaning: 'Only collect data that matches the organisation’s need' },
+          { id: 'e4', term: 'Consent and Choice', meaning: 'Individuals control how their data is used' },
+        ],
+        explanation:
+          'Transparency, accountability, proportionality and consent (with minimisation, fairness and continuous improvement) help organisations uphold IP, ethics and privacy values.',
+      },
+      {
+        kind: 'match',
+        id: 'ethics-principles-2',
+        prompt: 'Match the remaining ethical principles.',
+        pairs: [
+          { id: 'e5', term: 'Minimisation & Data Protection', meaning: 'Collect minimal data and secure it well' },
+          { id: 'e6', term: 'Fairness & Non-Discrimination', meaning: 'Treat individuals equitably and avoid bias' },
+          { id: 'e7', term: 'Continuous Improvement', meaning: 'Review and update policies as technology changes' },
+        ],
+        explanation:
+          'Data minimisation reduces risk, fairness prevents biased outcomes, and continuous improvement keeps policies relevant through regular reviews, audits and training.',
+      },
+      {
+        kind: 'select',
+        id: 'ethics-example',
+        prompt: 'Which is an example of ethical ICT practice?',
+        choices: [
+          { id: 'a', text: 'Refusing to install pirated software for a client' },
+          { id: 'b', text: 'Sharing customer data for fun' },
+          { id: 'c', text: 'Ignoring copyright on training materials' },
+          { id: 'd', text: 'Bypassing acceptable use policies' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Ethical practice includes refusing to install pirated software, reporting accidental data exposure, following acceptable use policies and respecting copyright.',
+      },
+      {
+        kind: 'select',
+        id: 'ethics-proportionality',
+        prompt: 'Why does the principle of proportionality matter?',
+        choices: [
+          { id: 'a', text: 'Excessive data handling increases risk and reduces trust' },
+          { id: 'b', text: 'More data is always better' },
+          { id: 'c', text: 'Privacy does not matter' },
+          { id: 'd', text: 'Monitoring should be unlimited' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Proportionality means only collecting data necessary for legitimate purposes and not monitoring beyond operational need, because excessive data handling increases risk and reduces trust.',
+      },
+    ],
+  },
+  {
+    id: 'framework',
+    title: 'Build a Policy Framework',
+    subtitle: 'Learn the parts that make a policy clear and enforceable.',
+    icon: '🏛️',
+    week: 3,
+    topic: 'Policy frameworks',
+    questions: [
+      {
+        kind: 'match',
+        id: 'framework-parts-1',
+        prompt: 'Match each policy-framework section to what it does.',
+        pairs: [
+          { id: 'f1', term: 'Purpose & Definition', meaning: 'States why the policy exists and defines key terms' },
+          { id: 'f2', term: 'Scope', meaning: 'Specifies who and what the policy applies to' },
+          { id: 'f3', term: 'Detailed Policies', meaning: 'Provides actionable rules (allowed vs prohibited)' },
+          { id: 'f4', term: 'Roles & Responsibilities', meaning: 'Assigns who enforces, monitors and follows it' },
+        ],
+        explanation:
+          'A policy framework defines its purpose and terms, scope, guiding principles, detailed rules, roles, enforcement and review, and flexibility.',
+      },
+      {
+        kind: 'match',
+        id: 'framework-parts-2',
+        prompt: 'Match the remaining framework sections.',
+        pairs: [
+          { id: 'f5', term: 'Guiding Principles', meaning: 'Core values like transparency and accountability' },
+          { id: 'f6', term: 'Enforcement & Review', meaning: 'Disciplinary processes and scheduled reviews' },
+          { id: 'f7', term: 'Flexibility', meaning: 'Lets the policy adapt to new technology' },
+        ],
+        explanation:
+          'Guiding principles shape decisions, enforcement and review keep the policy taken seriously and current, and flexibility lets it adapt (e.g. adopting new cloud services).',
+      },
+      {
+        kind: 'select',
+        id: 'framework-purpose',
+        prompt: 'What is the purpose of a policy framework?',
+        choices: [
+          { id: 'a', text: 'To give structured guidance ensuring consistency, legal compliance and clarity' },
+          { id: 'b', text: 'To make work more confusing' },
+          { id: 'c', text: 'To replace the law' },
+          { id: 'd', text: 'To store customer passwords' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Policy frameworks provide structured guidance for managing IP, ethics and privacy obligations, ensuring consistency, legal compliance and organisational clarity.',
+      },
+      {
+        kind: 'select',
+        id: 'framework-scope',
+        prompt: 'The Scope section of a policy defines...',
+        choices: [
+          { id: 'a', text: 'Who and what the policy applies to' },
+          { id: 'b', text: 'The office colour scheme' },
+          { id: 'c', text: 'The lunch menu' },
+          { id: 'd', text: 'The Wi-Fi password' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Scope specifies who (employees, contractors) and what (systems, data types) the policy applies to, preventing ambiguity.',
+      },
+    ],
+  },
+  {
+    id: 'terms3',
+    title: 'Week 3 Terms Challenge',
+    subtitle: 'Match the Week 3 IT terms to their meanings.',
+    icon: '🧩',
+    week: 3,
+    topic: 'Week 3 IT terms and their meanings',
+    questions: [
+      {
+        kind: 'match',
+        id: 'terms3-agile',
+        prompt: 'Match each time and Agile term to its meaning.',
+        pairs: [
+          { id: 'a1', term: 'Time management', meaning: 'Organising how much time to spend on tasks' },
+          { id: 'a2', term: 'Eisenhower Matrix', meaning: 'Sorts tasks by urgency and importance' },
+          { id: 'a3', term: 'Sprint', meaning: 'A fixed 2–4 week burst of focused work' },
+          { id: 'a4', term: 'Stand-up', meaning: 'A short daily meeting to share progress and blockers' },
+        ],
+        explanation:
+          'Time management and the Eisenhower Matrix help prioritise work, while sprints and stand-ups are core parts of Agile Scrum.',
+      },
+      {
+        kind: 'match',
+        id: 'terms3-comms',
+        prompt: 'Match each meeting and communication term to its meaning.',
+        pairs: [
+          { id: 'c1', term: 'Agenda', meaning: 'An outline of the topics to discuss' },
+          { id: 'c2', term: 'Minutes', meaning: 'A written record of decisions and actions' },
+          { id: 'c3', term: 'Active listening', meaning: 'Full attention, clarifying questions, summarising' },
+          { id: 'c4', term: 'Time-blocking', meaning: 'Scheduling dedicated time for each task' },
+        ],
+        explanation:
+          'Agendas and minutes keep meetings organised and recorded, while active listening and time-blocking support clear, focused teamwork.',
+      },
+      {
+        kind: 'match',
+        id: 'terms3-ethics',
+        prompt: 'Match each ethics and framework term to its meaning.',
+        pairs: [
+          { id: 'x1', term: 'Transparency', meaning: 'Clearly communicating how data is used' },
+          { id: 'x2', term: 'Accountability', meaning: 'Responsibility for actions and compliance' },
+          { id: 'x3', term: 'Data minimisation', meaning: 'Collecting only essential data' },
+          { id: 'x4', term: 'Policy framework', meaning: 'Structured guidance for IP, ethics and privacy' },
+        ],
+        explanation:
+          'Transparency, accountability and data minimisation are ethical principles, and a policy framework is the structure that puts them into practice.',
+      },
+    ],
+  },
 ];
 
 /** Find a mission by its id (used by the mission screen). */

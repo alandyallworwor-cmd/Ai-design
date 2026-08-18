@@ -70,7 +70,7 @@ export interface Mission {
   subtitle: string;
   icon: string;
   /** Which study week this mission belongs to (used to group the map). */
-  week: 1 | 2;
+  week: 1 | 2 | 3;
   /** Plain-English topic name, used for revision tips on the results screen. */
   topic: string;
   questions: Question[];

@@ -49,7 +49,7 @@ export function ResultsScreen({ progress, onBack }: ResultsScreenProps) {
         {toRevise.length === 0 ? (
           <p className="results__perfect">
             🎉 Amazing! You earned 3 stars on every mission. You have mastered
-            all the Week 1 topics.
+            all the topics across Weeks 1, 2 and 3.
           </p>
         ) : (
           <section className="results__revise">

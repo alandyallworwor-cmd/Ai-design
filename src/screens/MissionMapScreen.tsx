@@ -55,7 +55,7 @@ export function MissionMapScreen({
         </div>
 
         {/* Missions are grouped by study week so the map stays easy to scan. */}
-        {([1, 2] as const).map((week) => (
+        {([1, 2, 3] as const).map((week) => (
           <section key={week} className="map__week">
             <h3 className="map__week-title">Week {week}</h3>
             <div className="map__list">

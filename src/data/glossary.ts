@@ -11,7 +11,11 @@ export interface GlossaryTerm {
     | 'Teamwork'
     | 'Policies & Procedures'
     | 'Teams & Goals'
-    | 'ICT Support';
+    | 'ICT Support'
+    | 'Time & Agile'
+    | 'Meetings & Communication'
+    | 'Ethics Principles'
+    | 'Policy Frameworks';
 }
 
 export const glossary: GlossaryTerm[] = [
@@ -198,5 +202,138 @@ export const glossary: GlossaryTerm[] = [
     term: 'Feedback loop',
     meaning: 'Collecting client feedback, analysing it and using it to improve services, over and over.',
     group: 'ICT Support',
+  },
+
+  // --- Week 3: Time & Agile ---
+  {
+    term: 'Time management',
+    meaning:
+      'Organising and planning how much time to spend on different activities, prioritising work by urgency and importance.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Prioritisation',
+    meaning:
+      'Deciding which tasks to complete first, based on business impact, client needs, deadlines, dependencies, risk and resources.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Eisenhower Matrix',
+    meaning: 'A tool that prioritises tasks by asking whether they are urgent and whether they are important.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Agile',
+    meaning:
+      'An approach that delivers work in small stages with continuous collaboration, feedback and improvement.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Scrum',
+    meaning:
+      'A widely used Agile framework with a Product Owner, Scrum Master and Development Team working in repeating cycles.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Sprint',
+    meaning: 'A fixed period of focused work (usually 2–4 weeks) ending with a working product increment.',
+    group: 'Time & Agile',
+  },
+  {
+    term: 'Stand-up',
+    meaning: 'A short daily meeting (about 15 minutes) where members share progress, plans and obstacles.',
+    group: 'Time & Agile',
+  },
+
+  // --- Week 3: Meetings & Communication ---
+  {
+    term: 'Formal meeting',
+    meaning: 'A structured discussion between professionals with a clear purpose, agenda and expected outcomes.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Meeting agenda',
+    meaning: 'A structured outline of the topics to be discussed, used to prepare and keep the meeting on track.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Meeting minutes',
+    meaning: 'A written record of discussions, decisions, action items and deadlines, distributed promptly.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Active listening',
+    meaning: 'Giving full attention to the speaker, asking clarifying questions and summarising what you heard.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Time-blocking',
+    meaning: 'Dividing the workday into blocks and assigning each block to a specific task to encourage focused work.',
+    group: 'Meetings & Communication',
+  },
+  {
+    term: 'Constructive feedback',
+    meaning: 'Specific, respectful, behaviour-focused information given to support improvement.',
+    group: 'Meetings & Communication',
+  },
+
+  // --- Week 3: Ethics Principles (ICTICT313) ---
+  {
+    term: 'Transparency',
+    meaning: 'Clearly communicating how IP and personal data are used, stored and protected.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Accountability',
+    meaning: 'Assigning responsibility for actions and policy compliance, supported by logs and audit trails.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Proportionality',
+    meaning: 'Collecting and monitoring only what matches the organisation’s legitimate need.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Consent and Choice',
+    meaning: 'Individuals are informed about data use and can agree, change preferences or withdraw.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Data minimisation',
+    meaning: 'Collecting only essential data and securing it, so unnecessary data does not create unnecessary risk.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Fairness and Non-Discrimination',
+    meaning: 'Treating individuals equitably and avoiding biased outcomes in systems and decisions.',
+    group: 'Ethics Principles',
+  },
+  {
+    term: 'Continuous improvement',
+    meaning: 'Regularly reviewing and updating policies so they stay relevant as technology and risks change.',
+    group: 'Ethics Principles',
+  },
+
+  // --- Week 3: Policy Frameworks (ICTICT313) ---
+  {
+    term: 'Policy framework',
+    meaning:
+      'Structured guidance for managing IP, ethics and privacy obligations, ensuring consistency, compliance and clarity.',
+    group: 'Policy Frameworks',
+  },
+  {
+    term: 'Scope (of a policy)',
+    meaning: 'The section that specifies who and what a policy applies to (e.g. employees, contractors and systems).',
+    group: 'Policy Frameworks',
+  },
+  {
+    term: 'Guiding principles',
+    meaning: 'The core ethical or operational values that shape behaviour and decisions within a policy.',
+    group: 'Policy Frameworks',
+  },
+  {
+    term: 'Enforcement and review',
+    meaning: 'Disciplinary processes and scheduled reviews that keep a policy effective and up to date.',
+    group: 'Policy Frameworks',
   },
 ];
