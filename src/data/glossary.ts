@@ -14,7 +14,11 @@ export interface GlossaryTerm {
     | 'ICT Support'
     | 'Time & Agile'
     | 'Meetings & Communication'
-    | 'Ethics Principles';
+    | 'Ethics Principles'
+    | 'Communication & Culture'
+    | 'Compliance & Incidents'
+    | 'Technical Support'
+    | 'Troubleshooting & Diagnostics';
 }
 
 export const glossary: GlossaryTerm[] = [
@@ -322,5 +326,165 @@ export const glossary: GlossaryTerm[] = [
     term: 'Policy framework',
     meaning: 'Structured guidance (purpose, scope, principles, rules, roles, enforcement, flexibility) for managing IP, ethics and privacy.',
     group: 'Ethics Principles',
+  },
+  // --- Week 4: Communication & Culture ---
+  {
+    term: 'Cross-cultural communication',
+    meaning:
+      'The exchange of information, ideas and messages between people from different cultural backgrounds.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Cultural competence',
+    meaning:
+      'The ability to communicate and work effectively with people from different cultural backgrounds.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Inclusive communication',
+    meaning:
+      'Communicating so everyone feels respected, valued and has an equal opportunity to understand and participate.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Language barrier',
+    meaning:
+      'Difficulty understanding one another due to differences in language, vocabulary, accent or communication style.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Direct communication',
+    meaning: 'A clear, straightforward style where people express opinions and feedback openly.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Indirect communication',
+    meaning: 'A subtle style where messages are implied to maintain harmony and avoid confrontation.',
+    group: 'Communication & Culture',
+  },
+  {
+    term: 'Clarification',
+    meaning:
+      'Confirming understanding when instructions or expectations are unclear, to prevent errors and rework.',
+    group: 'Communication & Culture',
+  },
+
+  // --- Week 4: Compliance & Incidents (ICTICT313) ---
+  {
+    term: 'Non-compliance incident',
+    meaning:
+      'When actions, processes or systems fail to follow organisational policies, legal requirements or ethical standards.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Risk assessment',
+    meaning: 'A systematic process for identifying threats to compliance and evaluating their likelihood and impact.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Auditing',
+    meaning: 'Formal reviews of systems, processes and behaviours to ensure policies are being followed.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Incident reporting',
+    meaning: 'Processes that allow staff to report breaches or suspected issues, enabling early detection.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Root cause analysis',
+    meaning: 'Investigating the underlying causes of an incident to enable corrective action and prevent recurrence.',
+    group: 'Compliance & Incidents',
+  },
+  {
+    term: 'Remediation',
+    meaning: 'Fixing issues and restoring compliance, for example by installing updated security controls.',
+    group: 'Compliance & Incidents',
+  },
+
+  // --- Week 5: Technical Support (ICTSAS305) ---
+  {
+    term: 'Hardware',
+    meaning: 'The physical components of a computer system that can be touched, such as monitors, printers and servers.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Software',
+    meaning: 'Programs that run on a computer, including the operating system and applications.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Operating system (OS)',
+    meaning:
+      'The fundamental software that manages a computer’s hardware, memory, processes and applications (e.g. Windows, macOS, Linux).',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Router',
+    meaning: 'Networking equipment that directs traffic between networks.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Switch',
+    meaning: 'Networking equipment that connects devices within a network.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'Modem',
+    meaning: 'A device that connects a network to the internet service provider (ISP).',
+    group: 'Technical Support',
+  },
+  {
+    term: 'CPU (Processor)',
+    meaning: 'The “brain” of the computer that executes instructions and processes data.',
+    group: 'Technical Support',
+  },
+  {
+    term: 'RAM (Memory)',
+    meaning: 'Temporary memory that stores the data currently in use for fast access.',
+    group: 'Technical Support',
+  },
+
+  // --- Week 5: Troubleshooting & Diagnostics (ICTSAS305) ---
+  {
+    term: 'Technical investigation',
+    meaning:
+      'Identifying the cause of a problem by collecting information, testing assumptions and analysing evidence.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Symptoms',
+    meaning: 'The visible signs of a problem, such as freezing, dropouts or an application crashing.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Problem scope',
+    meaning: 'The extent of a problem — how many users and which systems are affected.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: '5 Whys',
+    meaning: 'A root cause analysis method that asks “Why?” repeatedly to reach the underlying cause.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Diagnostic tools',
+    meaning: 'Utilities like Task Manager, Event Viewer and Ping used to identify, test and troubleshoot issues.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Incident report',
+    meaning: 'A structured record of an investigation: symptoms, findings, root cause and solution.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Logs and screenshots',
+    meaning: 'Supporting evidence that records system events and captures error messages and settings.',
+    group: 'Troubleshooting & Diagnostics',
+  },
+  {
+    term: 'Plain language',
+    meaning: 'Explaining technical issues simply, focusing on the practical impact for the client rather than jargon.',
+    group: 'Troubleshooting & Diagnostics',
   },
 ];
