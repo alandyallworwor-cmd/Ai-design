@@ -154,8 +154,16 @@ describe('IT Quest app flow', () => {
     const user = userEvent.setup();
     await startGame(user);
     await user.click(screen.getByRole('button', { name: /plan the project/i }));
-    // Pressing "1" selects the first choice (the correct one here).
-    await user.keyboard('1');
+    // Answer order is randomised, so find where the correct choice landed and
+    // press its number-key. The correct answer here is "Clear goals...".
+    const options = screen
+      .getAllByRole('button')
+      .filter((b) => b.className.includes('option'));
+    const correctIndex = options.findIndex((b) =>
+      /clear goals everyone understands/i.test(b.textContent ?? ''),
+    );
+    expect(correctIndex).toBeGreaterThanOrEqual(0);
+    await user.keyboard(String(correctIndex + 1));
     expect(within(screen.getByRole('status')).getByText(/correct/i)).toBeInTheDocument();
   });
 

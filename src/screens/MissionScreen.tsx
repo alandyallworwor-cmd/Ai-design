@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { AppHeader } from '../components/AppHeader';
 import { Button } from '../components/Button';
 import { FeedbackBanner } from '../components/FeedbackBanner';
@@ -9,6 +9,7 @@ import { OrderingList } from '../components/OrderingList';
 import { ProgressBar } from '../components/ProgressBar';
 import { getBadge } from '../data/badges';
 import { playBadge, playComplete, playCorrect, playWrong } from '../lib/sound';
+import { shuffle, shuffleForOrdering } from '../lib/shuffle';
 import type { GameMode, Mission, MissionResult, Question } from '../types';
 
 interface MissionScreenProps {
@@ -65,6 +66,20 @@ export function MissionScreen({
   const badgesBefore = useRef(earnedBadges);
 
   const question: Question = mission.questions[index];
+  // Randomise the order answers are shown in, so the correct choice is not
+  // always in the same position. Memoised on the question so a re-render (e.g.
+  // after answering) never reshuffles the buttons under the player.
+  const displayChoices = useMemo(
+    () => (question.kind === 'select' ? shuffle(question.choices) : []),
+    [question],
+  );
+  const displayItems = useMemo(
+    () =>
+      question.kind === 'order'
+        ? shuffleForOrdering(question.items, question.correctOrder)
+        : [],
+    [question],
+  );
   const isLast = index === mission.questions.length - 1;
   const isTimed = mode === 'timed';
   const isScored = mode !== 'study';
@@ -122,9 +137,9 @@ export function MissionScreen({
       if (finished) return;
       if (!answered && question.kind === 'select') {
         const n = Number.parseInt(event.key, 10);
-        if (n >= 1 && n <= question.choices.length) {
+        if (n >= 1 && n <= displayChoices.length) {
           event.preventDefault();
-          handleSelect(question.choices[n - 1].id);
+          handleSelect(displayChoices[n - 1].id);
         }
       } else if (answered && event.key === 'Enter') {
         event.preventDefault();
@@ -292,7 +307,7 @@ export function MissionScreen({
 
         {question.kind === 'select' && (
           <div className="mission__options">
-            {question.choices.map((choice, i) => {
+            {displayChoices.map((choice, i) => {
               let state: 'idle' | 'correct' | 'wrong' = 'idle';
               if (answered) {
                 if (choice.id === question.correctId) state = 'correct';
@@ -314,7 +329,7 @@ export function MissionScreen({
 
         {question.kind === 'order' && (
           <OrderingList
-            items={question.items}
+            items={displayItems}
             correctOrder={question.correctOrder}
             answered={answered}
             onCheck={handleCheckOrder}
