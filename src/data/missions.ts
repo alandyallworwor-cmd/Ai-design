@@ -1357,7 +1357,7 @@ export const missions: Mission[] = [
     title: 'Exam Revision',
     subtitle: 'Mixed quiz across all three weeks — get ready for the ATs.',
     icon: '🎓',
-    week: 7,
+    week: 8,
     topic: 'Whole-course revision across Weeks 1–3',
     questions: [
       {
@@ -2714,6 +2714,337 @@ export const missions: Mission[] = [
         ],
         explanation:
           'The best channel depends on the situation: urgent issues need live contact, routine ones suit ticketing, big decisions suit face-to-face, and updates suit email.',
+      },
+    ],
+  },
+  // ===================== WEEK 7 =====================
+  // All Week 7 content comes from the Week 7 Work Skills slides for ICTSAS305
+  // (Obtaining Client Feedback): client feedback for continuous improvement,
+  // and analysing and using client feedback. The ICTICT313 part of the week is
+  // assessment-task review only, so there is no new content to hold.
+  {
+    id: 'feedback-why',
+    title: 'Why Feedback Matters',
+    subtitle: 'See how client feedback drives better ICT services.',
+    icon: '💬',
+    week: 7,
+    topic: 'Client feedback for continuous improvement',
+    questions: [
+      {
+        kind: 'select',
+        id: 'feedback-why-what',
+        prompt: 'What is client feedback?',
+        choices: [
+          { id: 'a', text: 'Information from clients about their experiences, used to improve products and services' },
+          { id: 'b', text: 'A type of software licence' },
+          { id: 'c', text: 'A network cable' },
+          { id: 'd', text: 'An error message' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Client feedback is one of the most valuable resources for ICT teams — organisations use it to understand experiences, identify areas for improvement and ensure products keep meeting user needs.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-why-decisions',
+        prompt: 'How does feedback help organisations make decisions?',
+        choices: [
+          { id: 'a', text: 'It lets them make evidence-based decisions rather than assumptions' },
+          { id: 'b', text: 'It replaces the need to test anything' },
+          { id: 'c', text: 'It has no effect on decisions' },
+          { id: 'd', text: 'It only measures profit' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Feedback shows what is working, what needs improvement and which features users value, allowing evidence-based decisions rather than assumptions.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-why-evidence',
+        prompt:
+          '80% of users report they can’t find a reporting tool. What does this feedback give the organisation?',
+        choices: [
+          { id: 'a', text: 'Clear evidence that redesigning the navigation may improve usability' },
+          { id: 'b', text: 'A reason to ignore the users' },
+          { id: 'c', text: 'Proof the tool is perfect' },
+          { id: 'd', text: 'Nothing useful' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Feedback provides evidence — if 80% of users struggle to find a tool, that is clear evidence that redesigning navigation may improve usability.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-why-loyalty',
+        prompt: 'How does acting on feedback affect customer relationships?',
+        choices: [
+          { id: 'a', text: 'It builds trust, loyalty, retention and reputation' },
+          { id: 'b', text: 'It drives customers away' },
+          { id: 'c', text: 'It has no effect on loyalty' },
+          { id: 'd', text: 'It only matters internally' },
+        ],
+        correctId: 'a',
+        explanation:
+          'When customers feel their opinions are valued and acted upon, feedback builds trust, increases loyalty and retention, strengthens relationships and enhances reputation.',
+      },
+    ],
+  },
+  {
+    id: 'feedback-methods',
+    title: 'Ways to Collect Feedback',
+    subtitle: 'Know the different channels for gathering client feedback.',
+    icon: '📋',
+    week: 7,
+    topic: 'Methods for receiving client feedback',
+    questions: [
+      {
+        kind: 'match',
+        id: 'feedback-methods-match',
+        prompt: 'Match each feedback method to what it is.',
+        pairs: [
+          { id: 'fm1', term: 'Feedback forms', meaning: 'Questionnaires and surveys with structured questions' },
+          { id: 'fm2', term: 'Direct communication', meaning: 'Emails, phone, live chat or interviews' },
+          { id: 'fm3', term: 'Behavioural analytics', meaning: 'Examining user actions like clicks and navigation' },
+          { id: 'fm4', term: 'Support tickets', meaning: 'Recurring issues and requests logged in the support system' },
+        ],
+        explanation:
+          'Feedback can come from forms, direct communication, social media, feedback buttons, behavioural analytics and support tickets — often a combination gives the fullest picture.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-methods-analytics',
+        prompt: 'What does behavioural analytics measure?',
+        choices: [
+          { id: 'a', text: 'User actions like click rates, navigation paths and time on pages' },
+          { id: 'b', text: 'Users’ written opinions only' },
+          { id: 'c', text: 'The weather' },
+          { id: 'd', text: 'Staff salaries' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Behavioural analytics examines what users actually do — click rates, navigation paths, time spent, feature usage and drop-off points — rather than asking for opinions directly.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-methods-buttons',
+        prompt: 'Which quick on-page tools are examples of “feedback buttons”?',
+        choices: [
+          { id: 'a', text: '“Was this helpful?” and “Report an issue”' },
+          { id: 'b', text: 'The power button' },
+          { id: 'c', text: 'A phone number' },
+          { id: 'd', text: 'A print button' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Feedback buttons are quick tools like “Rate this page”, “Was this helpful?” and “Report an issue” — they give immediate, context-specific feedback with high participation.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-methods-social',
+        prompt: 'What is a challenge of collecting feedback via social media and forums?',
+        choices: [
+          { id: 'a', text: 'The information is unstructured and hard to control, and it is public' },
+          { id: 'b', text: 'It gives no real-time feedback' },
+          { id: 'c', text: 'It reaches only one person' },
+          { id: 'd', text: 'It is always perfectly organised' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Social media gives real-time, honest feedback from a large audience, but the information is unstructured, difficult to control and publicly visible.',
+      },
+    ],
+  },
+  {
+    id: 'feedback-forms',
+    title: 'Design Good Feedback Forms',
+    subtitle: 'Write clear, useful questions people will actually answer.',
+    icon: '📝',
+    week: 7,
+    topic: 'Designing effective feedback forms',
+    questions: [
+      {
+        kind: 'select',
+        id: 'feedback-forms-simple',
+        prompt: 'Which is a better feedback question?',
+        choices: [
+          { id: 'a', text: '“How satisfied are you with the platform overall?”' },
+          { id: 'b', text: '“Would you agree that the overall functionality, usability, accessibility and effectiveness met your organisational expectations?”' },
+          { id: 'c', text: '“Rate the application’s interoperability.”' },
+          { id: 'd', text: 'A five-paragraph question' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Keep it simple and use clear language. “How satisfied are you overall?” is far better than a long, jargon-filled question.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-forms-principles',
+        prompt: 'Which is good practice when designing a feedback form?',
+        choices: [
+          { id: 'a', text: 'Keep it short (5–10 questions) and offer an anonymity option' },
+          { id: 'b', text: 'Make it as long as possible' },
+          { id: 'c', text: 'Use as much jargon as you can' },
+          { id: 'd', text: 'Ask only irrelevant questions' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Effective forms are simple: define the purpose, keep it short (5–10 questions), mix question types, offer anonymity, include rating scales and open comments, and test before distributing.',
+      },
+      {
+        kind: 'match',
+        id: 'feedback-forms-types',
+        prompt: 'Match each question type to its purpose.',
+        pairs: [
+          { id: 'ft1', term: 'Closed question', meaning: 'Collect measurable data (e.g. Yes/No)' },
+          { id: 'ft2', term: 'Rating scale', meaning: 'Measure satisfaction levels (e.g. 1–5)' },
+          { id: 'ft3', term: 'Multiple choice', meaning: 'Categorise responses' },
+          { id: 'ft4', term: 'Open question', meaning: 'Gather detailed insights' },
+        ],
+        explanation:
+          'Different question types serve different goals: closed for measurable data, rating scales for satisfaction, multiple choice to categorise, and open questions for detailed insights.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-forms-instructions',
+        prompt: 'Why include clear survey instructions (purpose, time, anonymity, deadline)?',
+        choices: [
+          { id: 'a', text: 'They encourage honest, high-quality responses and reduce abandonment' },
+          { id: 'b', text: 'They make the survey longer for no reason' },
+          { id: 'c', text: 'They hide the survey’s purpose' },
+          { id: 'd', text: 'They discourage people from answering' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Clear instructions — stating the purpose, estimated time, confirming anonymity, defining scales, encouraging honesty and giving a deadline — produce accurate, high-quality feedback and reduce abandonment.',
+      },
+    ],
+  },
+  {
+    id: 'feedback-analyse',
+    title: 'Analyse & Act on Feedback',
+    subtitle: 'Turn raw feedback into real improvements.',
+    icon: '📊',
+    week: 7,
+    topic: 'Analysing and using client feedback',
+    questions: [
+      {
+        kind: 'select',
+        id: 'feedback-analyse-quant',
+        prompt: 'What is quantitative data?',
+        choices: [
+          { id: 'a', text: 'Measurable numerical information, like a 1–5 satisfaction rating' },
+          { id: 'b', text: 'Written comments and opinions' },
+          { id: 'c', text: 'A user’s feelings only' },
+          { id: 'd', text: 'A photograph' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Quantitative data is measurable and numerical (e.g. “rate your satisfaction 4/5”) — good for tracking trends and performance metrics.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-analyse-qual',
+        prompt: 'What does qualitative data add that quantitative doesn’t?',
+        choices: [
+          { id: 'a', text: 'The “why” — descriptive explanations of experiences' },
+          { id: 'b', text: 'Exact percentages' },
+          { id: 'c', text: 'Numeric ratings' },
+          { id: 'd', text: 'Nothing extra' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Qualitative data is descriptive (written comments). Combined with quantitative data, it pairs the “what” (numbers) with the “why” (explanations) for a complete picture.',
+      },
+      {
+        kind: 'order',
+        id: 'feedback-analyse-steps',
+        prompt: 'Tap the feedback analysis steps in the correct order.',
+        items: [
+          { id: 'fa1', text: 'Collation: gather and organise feedback from all sources' },
+          { id: 'fa2', text: 'Analysis: find trends and patterns in the data' },
+          { id: 'fa3', text: 'Planning: prioritise issues and set actionable insights' },
+          { id: 'fa4', text: 'Implementation: make changes and monitor the results' },
+        ],
+        correctOrder: ['fa1', 'fa2', 'fa3', 'fa4'],
+        explanation:
+          'Analysing feedback moves from collation (gathering and organising), to analysis (finding trends), to planning (prioritising actions), to implementation (making changes and monitoring).',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-analyse-loop',
+        prompt: 'What does “closing the feedback loop” mean?',
+        choices: [
+          { id: 'a', text: 'Informing clients that their feedback has led to action' },
+          { id: 'b', text: 'Ignoring the feedback' },
+          { id: 'c', text: 'Deleting the feedback' },
+          { id: 'd', text: 'Never replying to clients' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Closing the feedback loop means telling clients their feedback led to action — after implementing a change you monitor results with further feedback and let clients know they were heard.',
+      },
+      {
+        kind: 'select',
+        id: 'feedback-analyse-priority',
+        prompt: 'When prioritising which feedback issues to act on, what should you consider?',
+        choices: [
+          { id: 'a', text: 'Customer impact, business risk, cost, urgency and strategic goals' },
+          { id: 'b', text: 'Only the newest complaint' },
+          { id: 'c', text: 'The alphabetical order of issues' },
+          { id: 'd', text: 'Nothing — treat all issues equally' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Not all issues have equal importance. Prioritise by customer impact, business risk, cost/resources, urgency and strategic goals, turning findings into specific, feasible, measurable actions.',
+      },
+    ],
+  },
+  {
+    id: 'terms7',
+    title: 'Week 7 Terms Challenge',
+    subtitle: 'Match the Week 7 IT terms to their meanings.',
+    icon: '🧩',
+    week: 7,
+    topic: 'Week 7 IT terms and their meanings',
+    questions: [
+      {
+        kind: 'match',
+        id: 'terms7-basics',
+        prompt: 'Match each feedback term to its meaning.',
+        pairs: [
+          { id: 'g1', term: 'Client feedback', meaning: 'Client information used to improve services' },
+          { id: 'g2', term: 'Feedback form', meaning: 'A survey collecting structured feedback' },
+          { id: 'g3', term: 'Behavioural analytics', meaning: 'Measuring what users do, not what they say' },
+          { id: 'g4', term: 'Support tickets', meaning: 'Logged issues that reveal recurring problems' },
+        ],
+        explanation:
+          'Client feedback comes from many sources — forms, behavioural analytics and support tickets among them — and is used to improve services.',
+      },
+      {
+        kind: 'match',
+        id: 'terms7-data',
+        prompt: 'Match each data and question term to its meaning.',
+        pairs: [
+          { id: 'h1', term: 'Quantitative data', meaning: 'Measurable, numerical information' },
+          { id: 'h2', term: 'Qualitative data', meaning: 'Descriptive comments and explanations' },
+          { id: 'h3', term: 'Rating scale question', meaning: 'Measures satisfaction (e.g. 1–5)' },
+          { id: 'h4', term: 'Open question', meaning: 'Gathers detailed insights' },
+        ],
+        explanation:
+          'Quantitative data is the “what” and qualitative the “why”; rating-scale questions measure satisfaction while open questions gather detail.',
+      },
+      {
+        kind: 'match',
+        id: 'terms7-analysis',
+        prompt: 'Match each analysis step to its meaning.',
+        pairs: [
+          { id: 'i1', term: 'Collation', meaning: 'Gathering and organising feedback' },
+          { id: 'i2', term: 'Analysis', meaning: 'Finding trends and patterns' },
+          { id: 'i3', term: 'Prioritisation', meaning: 'Ranking issues by impact and urgency' },
+          { id: 'i4', term: 'Closing the feedback loop', meaning: 'Telling clients their feedback led to action' },
+        ],
+        explanation:
+          'Analysing feedback runs from collation to analysis to prioritisation, and finishes by closing the loop — letting clients know their feedback made a difference.',
       },
     ],
   },

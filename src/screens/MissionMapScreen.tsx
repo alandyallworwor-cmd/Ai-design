@@ -17,7 +17,7 @@ interface MissionMapScreenProps {
   onChangeMode: () => void;
 }
 
-// Section headings for the map. Weeks 1-6 are study weeks; 7 is revision.
+// Section headings for the map. Weeks 1-7 are study weeks; 8 is revision.
 const SECTIONS = [
   { week: 1, label: 'Week 1' },
   { week: 2, label: 'Week 2' },
@@ -25,7 +25,8 @@ const SECTIONS = [
   { week: 4, label: 'Week 4' },
   { week: 5, label: 'Week 5' },
   { week: 6, label: 'Week 6' },
-  { week: 7, label: 'Exam Revision' },
+  { week: 7, label: 'Week 7' },
+  { week: 8, label: 'Exam Revision' },
 ] as const;
 
 // A short, friendly label for the current play mode.

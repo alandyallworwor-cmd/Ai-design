@@ -19,7 +19,8 @@ export interface GlossaryTerm {
     | 'Compliance & Incidents'
     | 'Technical Support'
     | 'Troubleshooting & Diagnostics'
-    | 'Client Support & Communication';
+    | 'Client Support & Communication'
+    | 'Client Feedback';
 }
 
 export const glossary: GlossaryTerm[] = [
@@ -524,5 +525,47 @@ export const glossary: GlossaryTerm[] = [
     term: 'Group support session',
     meaning: 'Supporting or training many users at once, efficient when they need the same information.',
     group: 'Client Support & Communication',
+  },
+
+  // --- Week 7: Client Feedback (ICTSAS305) ---
+  {
+    term: 'Client feedback',
+    meaning: 'Information from clients about their experiences, used to improve products and services.',
+    group: 'Client Feedback',
+  },
+  {
+    term: 'Quantitative data',
+    meaning: 'Measurable numerical information, such as a 1–5 satisfaction rating (the “what”).',
+    group: 'Client Feedback',
+  },
+  {
+    term: 'Qualitative data',
+    meaning: 'Descriptive information: written comments and explanations of experiences (the “why”).',
+    group: 'Client Feedback',
+  },
+  {
+    term: 'Feedback form',
+    meaning: 'A survey or questionnaire that collects structured feedback from clients.',
+    group: 'Client Feedback',
+  },
+  {
+    term: 'Behavioural analytics',
+    meaning: 'Feedback drawn from what users do (clicks, navigation, time on page) rather than what they say.',
+    group: 'Client Feedback',
+  },
+  {
+    term: 'Actionable insight',
+    meaning: 'A specific, feasible, measurable action drawn from analysing feedback.',
+    group: 'Client Feedback',
+  },
+  {
+    term: 'Closing the feedback loop',
+    meaning: 'Informing clients that their feedback has led to a change.',
+    group: 'Client Feedback',
+  },
+  {
+    term: 'Data aggregation',
+    meaning: 'Gathering feedback from multiple sources into one central place for analysis.',
+    group: 'Client Feedback',
   },
 ];
