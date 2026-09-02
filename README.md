@@ -5,7 +5,7 @@ ICTSAS305). You play a new junior IT worker and complete short missions to learn
 about **teamwork, privacy, IP, ethics, time management, Agile, meetings,
 communication and doing IT work the right way**.
 
-All learning content comes from the supplied Week 1 to Week 5 study notes.
+All learning content comes from the supplied Week 1 to Week 6 study notes.
 
 > **Development & deployment are 100% browser-based.** Nothing is installed
 > locally — see [`WORKFLOW.md`](./WORKFLOW.md). Coding and testing happen in
@@ -40,7 +40,7 @@ npm test            # run the tests once
 ## What's included
 
 - **Welcome** screen and **mode select** (Study, Challenge or Timed)
-- **Thirty missions**, grouped into **Week 1** through **Week 5** and a final **Exam Revision** section, all built from the notes:
+- **Thirty-five missions**, grouped into **Week 1** through **Week 6** and a final **Exam Revision** section, all built from the notes:
   - **Week 1**
     1. Plan the Project (teamwork)
     2. Organise the Work (ordering: data-breach response, outage fix)
@@ -75,8 +75,14 @@ npm test            # run the tests once
     27. Diagnose & Document (diagnostic tools, incident reports, logs)
     28. Explain It to the Client (plain language, empathy, next steps)
     29. Week 5 Terms Challenge (match terms to meanings)
+  - **Week 6**
+    30. Win Client Buy-In (what buy-in is and why it matters)
+    31. Buy-In Strategies (objections, ROI, involving clients, expectations)
+    32. Pick the Right Channel (async vs live, choosing factors)
+    33. Match Channel to Situation (situation-to-channel, group sessions)
+    34. Week 6 Terms Challenge (match terms to meanings)
   - **Exam Revision**
-    30. Exam Revision (mixed quiz across the study weeks, for AT/quiz prep)
+    35. Exam Revision (mixed quiz across the study weeks, for AT/quiz prep)
 - **Three ways to play:**
   - **Study Mode** — relaxed, nothing scored or saved
   - **Challenge Mode** — earn XP + stars, progress saved

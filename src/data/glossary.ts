@@ -18,7 +18,8 @@ export interface GlossaryTerm {
     | 'Communication & Culture'
     | 'Compliance & Incidents'
     | 'Technical Support'
-    | 'Troubleshooting & Diagnostics';
+    | 'Troubleshooting & Diagnostics'
+    | 'Client Support & Communication';
 }
 
 export const glossary: GlossaryTerm[] = [
@@ -486,5 +487,42 @@ export const glossary: GlossaryTerm[] = [
     term: 'Plain language',
     meaning: 'Explaining technical issues simply, focusing on the practical impact for the client rather than jargon.',
     group: 'Troubleshooting & Diagnostics',
+  },
+
+  // --- Week 6: Client Support & Communication (ICTSAS305) ---
+  {
+    term: 'Client buy-in',
+    meaning: 'A client’s acceptance, support and approval of a proposed solution, recommendation or course of action.',
+    group: 'Client Support & Communication',
+  },
+  {
+    term: 'Return on Investment (ROI)',
+    meaning: 'The measurable benefits gained from an investment compared to its cost.',
+    group: 'Client Support & Communication',
+  },
+  {
+    term: 'Managing expectations',
+    meaning: 'Being clear about what a solution will and will not achieve, plus timeframes, risks and limitations.',
+    group: 'Client Support & Communication',
+  },
+  {
+    term: 'Communication channel',
+    meaning: 'The method used to communicate (phone, chat, video, email, meeting), chosen to suit the situation.',
+    group: 'Client Support & Communication',
+  },
+  {
+    term: 'Live communication',
+    meaning: 'Real-time contact (phone, video, in person, live chat), best for urgent, complex or sensitive issues.',
+    group: 'Client Support & Communication',
+  },
+  {
+    term: 'Asynchronous communication',
+    meaning: 'Messages sent and received at different times (email, ticketing, discussion boards); creates a written record.',
+    group: 'Client Support & Communication',
+  },
+  {
+    term: 'Group support session',
+    meaning: 'Supporting or training many users at once, efficient when they need the same information.',
+    group: 'Client Support & Communication',
   },
 ];
