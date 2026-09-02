@@ -83,7 +83,7 @@ describe('IT Quest app flow', () => {
 
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/40 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/1 of 35 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 of 40 completed/i)).toBeInTheDocument();
   });
 
   it('does NOT save score in study mode', async () => {
@@ -95,7 +95,7 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('heading', { name: /practice complete/i })).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.getByText(/0 of 35 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/0 of 40 completed/i)).toBeInTheDocument();
   });
 
   it('lets the player order the steps correctly', async () => {
@@ -258,7 +258,7 @@ describe('IT Quest app flow', () => {
     // Confirming clears everything.
     await user.click(within(dialog).getByRole('button', { name: /yes, reset/i }));
     expect(screen.getByLabelText(/0 experience points/i)).toBeInTheDocument();
-    expect(screen.queryByText(/1 of 35 completed/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/1 of 40 completed/i)).not.toBeInTheDocument();
   });
 
   it('shows all week sections plus Exam Revision', async () => {
@@ -270,10 +270,27 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('heading', { name: /week 4/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /week 5/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /week 6/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /week 7/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /exam revision/i })).toBeInTheDocument();
     // A Week 2 mission is reachable and opens correctly.
     await user.click(screen.getByRole('button', { name: /policies & procedures/i }));
     expect(screen.getByText(/what is a policy/i)).toBeInTheDocument();
+  });
+
+  it('teaches a Week 7 answer (client feedback) with feedback', async () => {
+    const user = userEvent.setup();
+    await startGame(user);
+    await user.click(screen.getByRole('button', { name: /why feedback matters/i }));
+    await user.click(
+      screen.getByRole('button', {
+        name: /information from clients about their experiences/i,
+      }),
+    );
+    const feedback = screen.getByRole('status');
+    expect(within(feedback).getByText(/correct/i)).toBeInTheDocument();
+    expect(
+      within(feedback).getByText(/one of the most valuable resources/i),
+    ).toBeInTheDocument();
   });
 
   it('teaches a Week 6 answer (client buy-in) with feedback', async () => {
@@ -357,7 +374,7 @@ describe('IT Quest app flow', () => {
     expect(screen.getByRole('heading', { name: /mission complete/i })).toBeInTheDocument();
     expect(screen.getByLabelText(/3 of 3 stars/i)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /back to missions/i }));
-    expect(screen.getByText(/1 of 35 completed/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 of 40 completed/i)).toBeInTheDocument();
     // Some XP was earned: base 40 (4 correct x 10) plus a speed bonus, so the
     // total must be strictly more than the challenge-mode base of 40.
     const xpLabel = screen.getByLabelText(/experience points$/i).getAttribute('aria-label') ?? '';
