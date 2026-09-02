@@ -1357,7 +1357,7 @@ export const missions: Mission[] = [
     title: 'Exam Revision',
     subtitle: 'Mixed quiz across all three weeks — get ready for the ATs.',
     icon: '🎓',
-    week: 6,
+    week: 7,
     topic: 'Whole-course revision across Weeks 1–3',
     questions: [
       {
@@ -2384,6 +2384,336 @@ export const missions: Mission[] = [
         ],
         explanation:
           'Event Viewer and Ping are diagnostic tools, an incident report records the investigation, and empathy keeps client communication supportive.',
+      },
+    ],
+  },
+  // ===================== WEEK 6 =====================
+  // All Week 6 content comes from the Week 6 Work Skills slides for ICTSAS305
+  // (Providing Technical Support to Clients - Part 2): gaining client buy-in
+  // and choosing the right communication channel. The later ICTICT313 sections
+  // in the deck are marked Week 8/9 reading and are held for those weeks.
+  {
+    id: 'buyin',
+    title: 'Win Client Buy-In',
+    subtitle: 'Get the client on board before you implement a fix.',
+    icon: '🤝',
+    week: 6,
+    topic: 'Gaining client buy-in',
+    questions: [
+      {
+        kind: 'select',
+        id: 'buyin-what',
+        prompt: 'What is client buy-in?',
+        choices: [
+          { id: 'a', text: 'The client’s acceptance, support and approval of a proposed solution' },
+          { id: 'b', text: 'A payment for hardware' },
+          { id: 'c', text: 'A type of software licence' },
+          { id: 'd', text: 'A network protocol' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Client buy-in is the client’s acceptance, support and approval of a proposed solution, recommendation or course of action.',
+      },
+      {
+        kind: 'select',
+        id: 'buyin-why',
+        prompt: 'Why is client buy-in important?',
+        choices: [
+          { id: 'a', text: 'Even technically excellent solutions can fail if clients don’t support them' },
+          { id: 'b', text: 'It makes every project cost more' },
+          { id: 'c', text: 'It replaces the need for a solution' },
+          { id: 'd', text: 'It has no real effect' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Without buy-in, clients may delay implementation, resist changes or become dissatisfied. Even excellent solutions can fail if clients don’t support them.',
+      },
+      {
+        kind: 'select',
+        id: 'buyin-benefit',
+        prompt: 'How does gaining buy-in help a project?',
+        choices: [
+          { id: 'a', text: 'It builds trust, reduces resistance to change and increases the chance of success' },
+          { id: 'b', text: 'It slows the project down for no reason' },
+          { id: 'c', text: 'It removes the client from decisions' },
+          { id: 'd', text: 'It hides costs from the client' },
+        ],
+        correctId: 'a',
+        explanation:
+          'When clients feel informed and involved, buy-in builds trust, reduces resistance to change and increases the likelihood of successful implementation.',
+      },
+      {
+        kind: 'select',
+        id: 'buyin-before',
+        prompt: 'An ICT professional has found a fix. What should they do before implementing it?',
+        choices: [
+          { id: 'a', text: 'Make sure the client understands the solution, its benefits, costs and risks' },
+          { id: 'b', text: 'Implement it silently without telling the client' },
+          { id: 'c', text: 'Skip the client entirely' },
+          { id: 'd', text: 'Only tell the client after it fails' },
+        ],
+        correctId: 'a',
+        explanation:
+          'ICT professionals cannot simply implement a solution without involving the client. Clients need to understand the solution, how it affects them, the benefits, and any costs or risks.',
+      },
+    ],
+  },
+  {
+    id: 'buyin-strategies',
+    title: 'Buy-In Strategies',
+    subtitle: 'Use the right tactics to bring a client on board.',
+    icon: '📈',
+    week: 6,
+    topic: 'Strategies for gaining client buy-in',
+    questions: [
+      {
+        kind: 'match',
+        id: 'buyin-strategies-match',
+        prompt: 'Match each buy-in strategy to what it means.',
+        pairs: [
+          { id: 'bs1', term: 'Anticipate objections', meaning: 'Prepare answers to likely concerns before presenting' },
+          { id: 'bs2', term: 'Involve clients in decisions', meaning: 'Discuss alternatives and encourage participation' },
+          { id: 'bs3', term: 'Demonstrate value and ROI', meaning: 'Show the measurable benefits versus the cost' },
+          { id: 'bs4', term: 'Manage expectations', meaning: 'Be clear about what the solution will and won’t do' },
+        ],
+        explanation:
+          'The strategies for gaining buy-in include anticipating objections, involving clients in decisions, demonstrating ROI, managing expectations, and seeking feedback.',
+      },
+      {
+        kind: 'select',
+        id: 'buyin-strategies-roi',
+        prompt: 'What does ROI (Return on Investment) refer to?',
+        choices: [
+          { id: 'a', text: 'The measurable benefits gained from an investment compared to its cost' },
+          { id: 'b', text: 'The colour of the interface' },
+          { id: 'c', text: 'A type of router' },
+          { id: 'd', text: 'A privacy law' },
+        ],
+        correctId: 'a',
+        explanation:
+          'ROI is the measurable benefit gained from an investment compared to its cost — e.g. reduced downtime, increased productivity, improved security or lower maintenance costs.',
+      },
+      {
+        kind: 'select',
+        id: 'buyin-strategies-objections',
+        prompt:
+          'A client fears a cloud migration will cost too much, cause downtime and risk their data. Which strategy handles this best?',
+        choices: [
+          { id: 'a', text: 'Anticipate the questions and prepare clear answers in advance' },
+          { id: 'b', text: 'Ignore their concerns' },
+          { id: 'c', text: 'Just tell them not to worry' },
+          { id: 'd', text: 'Cancel the project' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Anticipating questions about cost, downtime, security and timeframes, and preparing clear answers, demonstrates professionalism and builds confidence in the recommendation.',
+      },
+      {
+        kind: 'select',
+        id: 'buyin-strategies-involve',
+        prompt: 'Which phrasing best involves the client in the decision?',
+        choices: [
+          { id: 'a', text: '“We’ve identified two possible solutions — let me explain the benefits of each so we can choose together.”' },
+          { id: 'b', text: '“We’re replacing the system next month.”' },
+          { id: 'c', text: '“You don’t need to know the details.”' },
+          { id: 'd', text: '“The decision is already made.”' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Rather than presenting a single option, discussing alternatives and encouraging participation creates ownership and encourages the client to accept the final decision.',
+      },
+      {
+        kind: 'select',
+        id: 'buyin-strategies-feedback',
+        prompt: 'After presenting a recommendation, what should support staff do?',
+        choices: [
+          { id: 'a', text: 'Seek feedback and confirm the client’s understanding and approval' },
+          { id: 'b', text: 'Start work immediately without checking' },
+          { id: 'c', text: 'Assume the client agrees' },
+          { id: 'd', text: 'Avoid asking any questions' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Asking questions like “Does this meet your requirements?” and “Are you comfortable proceeding?” helps identify concerns early and confirms both parties share the same understanding.',
+      },
+    ],
+  },
+  {
+    id: 'channel',
+    title: 'Pick the Right Channel',
+    subtitle: 'Choose how to communicate for each situation.',
+    icon: '📡',
+    week: 6,
+    topic: 'Choosing the right communication channel',
+    questions: [
+      {
+        kind: 'select',
+        id: 'channel-why',
+        prompt: 'Why does choosing the right communication channel matter?',
+        choices: [
+          { id: 'a', text: 'The wrong channel can cause delays, misunderstandings or poor client experiences' },
+          { id: 'b', text: 'All channels are exactly the same' },
+          { id: 'c', text: 'It only matters for email' },
+          { id: 'd', text: 'It never affects the outcome' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Different situations need different channels. Choosing the wrong one can lead to delays, misunderstandings or poor client experiences.',
+      },
+      {
+        kind: 'select',
+        id: 'channel-factors',
+        prompt: 'Which factors help you choose a communication channel?',
+        choices: [
+          { id: 'a', text: 'Urgency, complexity, need for documentation, and client preferences' },
+          { id: 'b', text: 'The technician’s favourite app' },
+          { id: 'c', text: 'The day of the week only' },
+          { id: 'd', text: 'The colour of the screen' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Factors to consider include urgency, complexity, number of people involved, need for documentation, client preferences and sensitivity of information.',
+      },
+      {
+        kind: 'select',
+        id: 'channel-async',
+        prompt: 'What is asynchronous communication?',
+        choices: [
+          { id: 'a', text: 'Communication where messages are sent and received at different times, not in real time' },
+          { id: 'b', text: 'A live phone call' },
+          { id: 'c', text: 'A face-to-face meeting' },
+          { id: 'd', text: 'A video call' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Asynchronous communication happens when participants do not communicate in real time — email, ticketing systems, discussion boards — allowing responses when convenient and creating a written record.',
+      },
+      {
+        kind: 'match',
+        id: 'channel-when',
+        prompt: 'Match each communication type to when it is best.',
+        pairs: [
+          { id: 'cw1', term: 'Live communication', meaning: 'Urgent, complex or sensitive issues needing immediate feedback' },
+          { id: 'cw2', term: 'Asynchronous communication', meaning: 'Low-priority issues that need documentation or a written record' },
+          { id: 'cw3', term: 'Group support session', meaning: 'When many users need the same training or information' },
+        ],
+        explanation:
+          'Use live communication for urgent or complex issues, asynchronous for documentation and routine requests, and group sessions when many users need the same information.',
+      },
+    ],
+  },
+  {
+    id: 'channel-match',
+    title: 'Match Channel to Situation',
+    subtitle: 'Pick the best channel for each real support scenario.',
+    icon: '📨',
+    week: 6,
+    topic: 'Matching channels to situations',
+    questions: [
+      {
+        kind: 'match',
+        id: 'channel-match-situations',
+        prompt: 'Match each situation to the recommended channel.',
+        pairs: [
+          { id: 'cm1', term: 'Critical system outage', meaning: 'Phone call or meeting' },
+          { id: 'cm2', term: 'Password reset request', meaning: 'Ticketing system' },
+          { id: 'cm3', term: 'Software training for many staff', meaning: 'Group session' },
+          { id: 'cm4', term: 'Complex consultation', meaning: 'Face-to-face meeting' },
+        ],
+        explanation:
+          'Match the channel to the situation: urgent outages need a phone call or meeting, routine resets suit a ticketing system, training suits group sessions, and complex consultations suit face-to-face meetings.',
+      },
+      {
+        kind: 'select',
+        id: 'channel-match-ticket',
+        prompt:
+          'A staff member can’t access a shared network folder — it needs investigation and documentation but isn’t business-critical. Best channel?',
+        choices: [
+          { id: 'a', text: 'A ticketing system' },
+          { id: 'b', text: 'An emergency phone call' },
+          { id: 'c', text: 'A company-wide meeting' },
+          { id: 'd', text: 'No response at all' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A ticketing system records the issue, tracks progress, assigns responsibility and keeps a full history — ideal for non-critical issues that need documentation.',
+      },
+      {
+        kind: 'select',
+        id: 'channel-match-phone',
+        prompt: 'A network outage stops staff accessing business-critical systems. Best channel?',
+        choices: [
+          { id: 'a', text: 'A phone call for immediate attention and status updates' },
+          { id: 'b', text: 'An email they may read tomorrow' },
+          { id: 'c', text: 'A discussion board post' },
+          { id: 'd', text: 'A quarterly report' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A phone call enables rapid communication, immediate clarification and faster coordination — right for urgent, business-critical incidents.',
+      },
+      {
+        kind: 'select',
+        id: 'channel-match-group',
+        prompt: 'When are group support sessions most appropriate?',
+        choices: [
+          { id: 'a', text: 'When multiple users need the same information, training or support' },
+          { id: 'b', text: 'When one user has a private, individual issue' },
+          { id: 'c', text: 'Never' },
+          { id: 'd', text: 'Only for password resets' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Group sessions suit situations where many users need the same information or training (e.g. software rollouts, cybersecurity awareness) — efficient and promoting consistent understanding.',
+      },
+    ],
+  },
+  {
+    id: 'terms6',
+    title: 'Week 6 Terms Challenge',
+    subtitle: 'Match the Week 6 IT terms to their meanings.',
+    icon: '🧩',
+    week: 6,
+    topic: 'Week 6 IT terms and their meanings',
+    questions: [
+      {
+        kind: 'match',
+        id: 'terms6-buyin',
+        prompt: 'Match each client buy-in term to its meaning.',
+        pairs: [
+          { id: 'k1', term: 'Client buy-in', meaning: 'Acceptance and approval of a proposed solution' },
+          { id: 'k2', term: 'Return on Investment (ROI)', meaning: 'Measurable benefits compared to the cost' },
+          { id: 'k3', term: 'Anticipating objections', meaning: 'Preparing answers to likely concerns in advance' },
+          { id: 'k4', term: 'Managing expectations', meaning: 'Being clear about what a solution will and won’t do' },
+        ],
+        explanation:
+          'Client buy-in is a client’s approval of a solution; you earn it by demonstrating ROI, anticipating objections and managing expectations.',
+      },
+      {
+        kind: 'match',
+        id: 'terms6-channels',
+        prompt: 'Match each communication channel term to its meaning.',
+        pairs: [
+          { id: 'n1', term: 'Asynchronous communication', meaning: 'Messages sent and received at different times' },
+          { id: 'n2', term: 'Live communication', meaning: 'Real-time conversation (phone, video, in person)' },
+          { id: 'n3', term: 'Ticketing system', meaning: 'Records and tracks non-urgent issues' },
+          { id: 'n4', term: 'Group support session', meaning: 'Training many users at once' },
+        ],
+        explanation:
+          'Live communication is real-time and asynchronous is not; ticketing systems document routine issues and group sessions train many users at once.',
+      },
+      {
+        kind: 'match',
+        id: 'terms6-situations',
+        prompt: 'Match each situation to its recommended channel.',
+        pairs: [
+          { id: 'p1', term: 'Critical outage', meaning: 'Phone call or meeting' },
+          { id: 'p2', term: 'Password reset', meaning: 'Ticketing system' },
+          { id: 'p3', term: 'Complex consultation', meaning: 'Face-to-face meeting' },
+          { id: 'p4', term: 'Status update', meaning: 'Email' },
+        ],
+        explanation:
+          'The best channel depends on the situation: urgent issues need live contact, routine ones suit ticketing, big decisions suit face-to-face, and updates suit email.',
       },
     ],
   },
