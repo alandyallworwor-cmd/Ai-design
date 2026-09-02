@@ -20,7 +20,8 @@ export interface GlossaryTerm {
     | 'Technical Support'
     | 'Troubleshooting & Diagnostics'
     | 'Client Support & Communication'
-    | 'Client Feedback';
+    | 'Client Feedback'
+    | 'Remote Collaboration';
 }
 
 export const glossary: GlossaryTerm[] = [
@@ -567,5 +568,42 @@ export const glossary: GlossaryTerm[] = [
     term: 'Data aggregation',
     meaning: 'Gathering feedback from multiple sources into one central place for analysis.',
     group: 'Client Feedback',
+  },
+
+  // --- Week 8: Remote Collaboration (ICTSAS305) ---
+  {
+    term: 'Remote collaboration',
+    meaning: 'Working together toward a common goal when team members are in different locations, using digital tools.',
+    group: 'Remote Collaboration',
+  },
+  {
+    term: 'Check-in',
+    meaning: 'A planned communication about what is done, in progress, and any obstacles or help needed.',
+    group: 'Remote Collaboration',
+  },
+  {
+    term: 'Business continuity',
+    meaning: 'Keeping the organisation operating when staff cannot attend the workplace (e.g. weather or emergencies).',
+    group: 'Remote Collaboration',
+  },
+  {
+    term: 'Video conferencing',
+    meaning: 'Online face-to-face meetings using tools like Microsoft Teams, Zoom or Google Meet.',
+    group: 'Remote Collaboration',
+  },
+  {
+    term: 'Learning Management System (LMS)',
+    meaning: 'A platform to deliver, manage and track learning — modules, quizzes and completion tracking.',
+    group: 'Remote Collaboration',
+  },
+  {
+    term: 'Remote training',
+    meaning: 'Deliberately designed online training, since the trainer cannot physically assist the learner.',
+    group: 'Remote Collaboration',
+  },
+  {
+    term: 'CLEAR framework',
+    meaning: 'A remote best-practice model: Communicate clearly, Log information, Establish expectations, Adapt, Review and respond.',
+    group: 'Remote Collaboration',
   },
 ];

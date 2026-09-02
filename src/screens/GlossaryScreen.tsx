@@ -23,6 +23,7 @@ const GROUPS: GlossaryTerm['group'][] = [
   'Troubleshooting & Diagnostics',
   'Client Support & Communication',
   'Client Feedback',
+  'Remote Collaboration',
 ];
 
 /** A simple, scrollable list of IT terms and their meanings. */
@@ -33,7 +34,7 @@ export function GlossaryScreen({ xp, onBack }: GlossaryScreenProps) {
       <main className="glossary">
         <h2 className="glossary__heading">Glossary</h2>
         <p className="glossary__intro">
-          Key IT terms from your Week 1 to Week 7 notes.
+          Key IT terms from your Week 1 to Week 8 notes.
         </p>
 
         {GROUPS.map((group) => (
