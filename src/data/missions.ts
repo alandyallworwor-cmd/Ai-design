@@ -1357,7 +1357,7 @@ export const missions: Mission[] = [
     title: 'Exam Revision',
     subtitle: 'Mixed quiz across all three weeks — get ready for the ATs.',
     icon: '🎓',
-    week: 8,
+    week: 9,
     topic: 'Whole-course revision across Weeks 1–3',
     questions: [
       {
@@ -3045,6 +3045,392 @@ export const missions: Mission[] = [
         ],
         explanation:
           'Analysing feedback runs from collation to analysis to prioritisation, and finishes by closing the loop — letting clients know their feedback made a difference.',
+      },
+    ],
+  },
+  // ===================== WEEK 8 =====================
+  // All Week 8 content comes from the Week 8 Work Skills slides for ICTSAS305
+  // (Collaborating with Remote Team Members): remote collaboration and tools,
+  // and effective remote communication (including remote clients, remote
+  // training and the CLEAR framework). The deck's "Cross-functional Teams"
+  // section is marked Week 9 and is held for that week.
+  {
+    id: 'remote-collab',
+    title: 'Work Together Remotely',
+    subtitle: 'Understand remote collaboration and why it helps.',
+    icon: '🌐',
+    week: 8,
+    topic: 'Remote collaboration',
+    questions: [
+      {
+        kind: 'select',
+        id: 'remote-collab-what',
+        prompt: 'What is remote collaboration?',
+        choices: [
+          { id: 'a', text: 'People working together toward a common goal when not physically in the same workplace' },
+          { id: 'b', text: 'Working alone with no contact' },
+          { id: 'c', text: 'A type of firewall' },
+          { id: 'd', text: 'Only working from an office' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Remote collaboration is people working together to achieve a common objective when they are not physically located in the same workplace, using digital technologies to connect.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-collab-benefit',
+        prompt: 'Which is a benefit of remote collaboration?',
+        choices: [
+          { id: 'a', text: 'Access to a wider range of skills from different locations' },
+          { id: 'b', text: 'Everyone must live in the same city' },
+          { id: 'c', text: 'More travel time' },
+          { id: 'd', text: 'Less flexibility' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Benefits include access to wider skills (e.g. a cloud specialist in Sydney, cybersecurity in Melbourne), flexibility, reduced travel, faster access to expertise, better documentation and business continuity.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-collab-continuity',
+        prompt: 'How does remote collaboration support business continuity?',
+        choices: [
+          { id: 'a', text: 'It lets the organisation keep operating when staff can’t attend (weather, emergencies)' },
+          { id: 'b', text: 'It shuts the business down' },
+          { id: 'c', text: 'It only works in good weather' },
+          { id: 'd', text: 'It stops all documentation' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Remote collaboration allows organisations to keep operating when employees cannot attend the workplace — severe weather, transport disruptions, building problems or public health events.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-collab-docs',
+        prompt:
+          'Many remote platforms automatically record conversations, decisions and deadlines. Why is that useful?',
+        choices: [
+          { id: 'a', text: 'It improves documentation, making it easier to see what was agreed' },
+          { id: 'b', text: 'It wastes storage for no reason' },
+          { id: 'c', text: 'It hides decisions' },
+          { id: 'd', text: 'It has no benefit' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Improved documentation is a key benefit — many platforms automatically record conversations, meetings, tasks, decisions and deadlines, making it easier to determine what has been agreed.',
+      },
+    ],
+  },
+  {
+    id: 'remote-tools',
+    title: 'Remote Challenges & Tools',
+    subtitle: 'Spot the challenges and pick the right tool for the task.',
+    icon: '🧰',
+    week: 8,
+    topic: 'Remote collaboration challenges and tools',
+    questions: [
+      {
+        kind: 'select',
+        id: 'remote-tools-challenge',
+        prompt: 'Which is a challenge of remote collaboration?',
+        choices: [
+          { id: 'a', text: 'Written communication can be misunderstood, and workers may feel isolated' },
+          { id: 'b', text: 'Everyone always understands each other perfectly' },
+          { id: 'c', text: 'There are never any technology problems' },
+          { id: 'd', text: 'Time zones never matter' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Challenges include communication barriers, lack of face-to-face interaction, time zones, technology failures, information overload, security risks and isolation.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-tools-principle',
+        prompt: 'What is the most important principle when choosing a remote communication tool?',
+        choices: [
+          { id: 'a', text: 'Choose the tool according to the task, not the same tool for everything' },
+          { id: 'b', text: 'Always use email for everything' },
+          { id: 'c', text: 'Never use video calls' },
+          { id: 'd', text: 'Use the loudest tool' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Choose the communication tool according to the task — an urgent incident may need a video or voice call, while a routine update may only need a message.',
+      },
+      {
+        kind: 'match',
+        id: 'remote-tools-match',
+        prompt: 'Match each tool type to its purpose.',
+        pairs: [
+          { id: 'rt1', term: 'Instant messaging (Teams, Slack)', meaning: 'Quick text conversations' },
+          { id: 'rt2', term: 'Video conferencing (Zoom, Meet)', meaning: 'Face-to-face meetings online' },
+          { id: 'rt3', term: 'Project management (Jira, Trello)', meaning: 'Tracking tasks, owners and deadlines' },
+          { id: 'rt4', term: 'Service desk / ticketing', meaning: 'Logging and tracking support requests' },
+        ],
+        explanation:
+          'Different tools serve different purposes: messaging and video for communication, project management platforms to organise work and track tasks, and ticketing systems to log support requests.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-tools-urgent',
+        prompt: 'An urgent technical incident needs immediate discussion. Which tool fits best?',
+        choices: [
+          { id: 'a', text: 'A video or voice call' },
+          { id: 'b', text: 'A slow email thread' },
+          { id: 'c', text: 'A quarterly report' },
+          { id: 'd', text: 'A printed memo' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Match the tool to the task — urgent incidents suit a video or voice call for immediate discussion, while routine updates only need a message.',
+      },
+    ],
+  },
+  {
+    id: 'remote-comms',
+    title: 'Communicate Remotely',
+    subtitle: 'Keep remote messages clear, specific and documented.',
+    icon: '📡',
+    week: 8,
+    topic: 'Effective remote communication',
+    questions: [
+      {
+        kind: 'select',
+        id: 'remote-comms-qualities',
+        prompt: 'Remote communication should be...',
+        choices: [
+          { id: 'a', text: 'Clear, timely, appropriate, documented and professional' },
+          { id: 'b', text: 'Vague and rushed' },
+          { id: 'c', text: 'Full of sarcasm' },
+          { id: 'd', text: 'Never written down' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Because remote workers have fewer informal interactions, remote communication needs to be clear, timely, appropriate, documented and professional.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-comms-specific',
+        prompt: 'Which is an example of “specific” remote communication?',
+        choices: [
+          { id: 'a', text: '“I’ve identified the configuration issue and expect to complete the change by 2:00 pm.”' },
+          { id: 'b', text: '“The system should be fixed soon.”' },
+          { id: 'c', text: '“It’ll be done at some point.”' },
+          { id: 'd', text: '“Don’t worry about it.”' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Specific communication is clearly defined rather than generalised. “I expect to complete the change by 2:00 pm” is far more specific than “the system should be fixed soon.”',
+      },
+      {
+        kind: 'select',
+        id: 'remote-comms-checkin',
+        prompt: 'What is a check-in?',
+        choices: [
+          { id: 'a', text: 'A planned communication about what’s done, in progress, and any obstacles' },
+          { id: 'b', text: 'A hotel booking' },
+          { id: 'c', text: 'A type of firewall' },
+          { id: 'd', text: 'A password reset' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A check-in is a planned communication to determine what’s been completed, what’s being worked on, what needs to happen next, whether help is needed and whether there are obstacles — and it should provide value.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-comms-docs',
+        prompt: 'Why do remote teams rely heavily on documentation?',
+        choices: [
+          { id: 'a', text: 'Team members can’t just ask someone in the office what happened' },
+          { id: 'b', text: 'They enjoy extra paperwork' },
+          { id: 'c', text: 'To hide information' },
+          { id: 'd', text: 'It replaces all communication' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Remote teams rely on documentation — meeting notes, tickets, task records, procedures, incident reports — because members cannot simply ask a colleague in the office what happened.',
+      },
+    ],
+  },
+  {
+    id: 'remote-clients',
+    title: 'Transparency, Time Zones & Clients',
+    subtitle: 'Stay visible across time zones and support remote clients.',
+    icon: '🕰️',
+    week: 8,
+    topic: 'Transparency, time zones and remote clients',
+    questions: [
+      {
+        kind: 'select',
+        id: 'remote-clients-transparency',
+        prompt: 'What does transparency mean in a remote team?',
+        choices: [
+          { id: 'a', text: 'Making relevant information visible and accessible to authorised team members' },
+          { id: 'b', text: 'Hiding what you’re working on' },
+          { id: 'c', text: 'Sharing passwords publicly' },
+          { id: 'd', text: 'Never updating anyone' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Transparency means making relevant information visible to authorised team members — e.g. for a major network problem, others can see who’s investigating, what’s been found, what actions were taken and whether help is needed.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-clients-timezones',
+        prompt: 'Which is a good practice for working across time zones?',
+        choices: [
+          { id: 'a', text: 'Record time zones when scheduling and use asynchronous communication where possible' },
+          { id: 'b', text: 'Assume everyone works your hours' },
+          { id: 'c', text: 'Give deadlines with no times' },
+          { id: 'd', text: 'Ignore daylight saving' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Good time-zone practices include recording time zones, using calendars that show local times, agreeing availability, using asynchronous communication, giving clear date-and-time deadlines, and arranging handovers.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-clients-extra',
+        prompt: 'What extra consideration applies when working with a remote client (versus a teammate)?',
+        choices: [
+          { id: 'a', text: 'The client may not have the same technical knowledge, so translate jargon into plain language' },
+          { id: 'b', text: 'Clients always know more than the technician' },
+          { id: 'c', text: 'You can use as much jargon as you like' },
+          { id: 'd', text: 'There is no difference at all' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Remote clients need the same principles as remote teammates, plus one more: they may not share the ICT professional’s technical knowledge, so translate technical information into plain language and confirm understanding.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-clients-support',
+        prompt: 'Which action helps when supporting a remote client?',
+        choices: [
+          { id: 'a', text: 'Demonstrate rather than only explain, and confirm understanding' },
+          { id: 'b', text: 'Rush through without checking' },
+          { id: 'c', text: 'Skip written instructions' },
+          { id: 'd', text: 'Use unexplained acronyms' },
+        ],
+        correctId: 'a',
+        explanation:
+          'Working with remote clients includes establishing their needs, using plain language, demonstrating rather than only explaining, providing written instructions, confirming understanding and protecting client information.',
+      },
+    ],
+  },
+  {
+    id: 'remote-training',
+    title: 'Train Clients Remotely',
+    subtitle: 'Run online training that actually sticks.',
+    icon: '🎓',
+    week: 8,
+    topic: 'Remote training and the CLEAR framework',
+    questions: [
+      {
+        kind: 'order',
+        id: 'remote-training-steps',
+        prompt: 'Tap the remote training steps in the correct order.',
+        items: [
+          { id: 'tr1', text: 'Learning objectives: explain what the client should be able to do' },
+          { id: 'tr2', text: 'Demonstration: show the process step by step' },
+          { id: 'tr3', text: 'Guided practice: participants try it with help' },
+          { id: 'tr4', text: 'Independent practice: participants try it without help' },
+          { id: 'tr5', text: 'Assessment: confirm they can do the task' },
+        ],
+        correctOrder: ['tr1', 'tr2', 'tr3', 'tr4', 'tr5'],
+        explanation:
+          'Effective remote training moves from setting learning objectives, to demonstration, to guided practice, to independent practice, to assessment (with preparation before and follow-up after).',
+      },
+      {
+        kind: 'select',
+        id: 'remote-training-lms',
+        prompt: 'What is a Learning Management System (LMS)?',
+        choices: [
+          { id: 'a', text: 'A platform to deliver, manage and track learning, with modules, quizzes and completion tracking' },
+          { id: 'b', text: 'A type of printer' },
+          { id: 'c', text: 'A firewall' },
+          { id: 'd', text: 'A messaging app only' },
+        ],
+        correctId: 'a',
+        explanation:
+          'An LMS is a platform used to deliver, manage and track learning — providing modules, assessments, videos, quizzes, completion tracking and learner progress reports.',
+      },
+      {
+        kind: 'match',
+        id: 'remote-training-clear',
+        prompt: 'Match each letter of the CLEAR remote-collaboration framework.',
+        pairs: [
+          { id: 'cl1', term: 'C – Communicate clearly', meaning: 'Use language appropriate for the audience' },
+          { id: 'cl2', term: 'L – Log important information', meaning: 'Document decisions, tasks and technical work' },
+          { id: 'cl3', term: 'E – Establish expectations', meaning: 'Agree channels, response times and responsibilities' },
+          { id: 'cl4', term: 'A – Adapt', meaning: 'Consider technical knowledge, accessibility, culture and time zones' },
+          { id: 'cl5', term: 'R – Review and respond', meaning: 'Check progress, gather feedback and follow up' },
+        ],
+        explanation:
+          'The CLEAR framework: Communicate clearly, Log important information, Establish expectations, Adapt to people and situations, and Review and respond.',
+      },
+      {
+        kind: 'select',
+        id: 'remote-training-loop',
+        prompt: 'What is a feedback loop in remote training?',
+        choices: [
+          { id: 'a', text: 'Collecting user feedback and using it to improve the training or solution' },
+          { id: 'b', text: 'Repeating the same training forever' },
+          { id: 'c', text: 'Ignoring learners' },
+          { id: 'd', text: 'Deleting the training' },
+        ],
+        correctId: 'a',
+        explanation:
+          'A feedback loop collects information from users and uses it to improve: Train → Use → Gather feedback → Identify problems → Improve → Retrain if necessary.',
+      },
+    ],
+  },
+  {
+    id: 'terms8',
+    title: 'Week 8 Terms Challenge',
+    subtitle: 'Match the Week 8 IT terms to their meanings.',
+    icon: '🧩',
+    week: 8,
+    topic: 'Week 8 IT terms and their meanings',
+    questions: [
+      {
+        kind: 'match',
+        id: 'terms8-basics',
+        prompt: 'Match each remote-work term to its meaning.',
+        pairs: [
+          { id: 'r1', term: 'Remote collaboration', meaning: 'Working together from different locations' },
+          { id: 'r2', term: 'Check-in', meaning: 'A planned progress update' },
+          { id: 'r3', term: 'Transparency', meaning: 'Keeping relevant info visible to the team' },
+          { id: 'r4', term: 'Asynchronous communication', meaning: 'Messaging that doesn’t need an instant reply' },
+        ],
+        explanation:
+          'Remote collaboration works best with regular check-ins, transparency, and asynchronous communication that respects everyone’s hours.',
+      },
+      {
+        kind: 'match',
+        id: 'terms8-tools',
+        prompt: 'Match each tool or training term to its meaning.',
+        pairs: [
+          { id: 's1', term: 'Video conferencing', meaning: 'Online face-to-face meetings' },
+          { id: 's2', term: 'Project management platform', meaning: 'Tracks tasks, owners and deadlines' },
+          { id: 's3', term: 'Learning Management System', meaning: 'Delivers and tracks online learning' },
+          { id: 's4', term: 'Feedback loop', meaning: 'Using feedback to improve training' },
+        ],
+        explanation:
+          'Remote teams communicate with video and messaging, organise work in project platforms, and train clients through an LMS with feedback loops.',
+      },
+      {
+        kind: 'match',
+        id: 'terms8-clear',
+        prompt: 'Match each part of the CLEAR framework to its meaning.',
+        pairs: [
+          { id: 't1', term: 'Communicate clearly', meaning: 'Use audience-appropriate language' },
+          { id: 't2', term: 'Log important information', meaning: 'Document decisions and work' },
+          { id: 't3', term: 'Establish expectations', meaning: 'Agree channels and response times' },
+          { id: 't4', term: 'Review and respond', meaning: 'Check progress and follow up' },
+        ],
+        explanation:
+          'CLEAR stands for Communicate clearly, Log important information, Establish expectations, Adapt, and Review and respond.',
       },
     ],
   },

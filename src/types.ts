@@ -91,9 +91,9 @@ export interface Mission {
   icon: string;
   /**
    * Which section this mission belongs to (used to group the map).
-   * Weeks 1-7 are the study weeks; 8 is the end-of-course Exam Revision.
+   * Weeks 1-8 are the study weeks; 9 is the end-of-course Exam Revision.
    */
-  week: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
+  week: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
   /** Plain-English topic name, used for revision tips on the results screen. */
   topic: string;
   questions: Question[];

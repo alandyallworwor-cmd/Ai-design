@@ -5,7 +5,7 @@ ICTSAS305). You play a new junior IT worker and complete short missions to learn
 about **teamwork, privacy, IP, ethics, time management, Agile, meetings,
 communication and doing IT work the right way**.
 
-All learning content comes from the supplied Week 1 to Week 7 study notes.
+All learning content comes from the supplied Week 1 to Week 8 study notes.
 
 > **Development & deployment are 100% browser-based.** Nothing is installed
 > locally — see [`WORKFLOW.md`](./WORKFLOW.md). Coding and testing happen in
@@ -40,7 +40,7 @@ npm test            # run the tests once
 ## What's included
 
 - **Welcome** screen and **mode select** (Study, Challenge or Timed)
-- **Forty missions**, grouped into **Week 1** through **Week 7** and a final **Exam Revision** section, all built from the notes:
+- **Forty-six missions**, grouped into **Week 1** through **Week 8** and a final **Exam Revision** section, all built from the notes:
   - **Week 1**
     1. Plan the Project (teamwork)
     2. Organise the Work (ordering: data-breach response, outage fix)
@@ -87,8 +87,15 @@ npm test            # run the tests once
     37. Design Good Feedback Forms (clear questions, question types, instructions)
     38. Analyse & Act on Feedback (quant vs qual, analysis steps, closing the loop)
     39. Week 7 Terms Challenge (match terms to meanings)
+  - **Week 8**
+    40. Work Together Remotely (what remote collaboration is and its benefits)
+    41. Remote Challenges & Tools (challenges, choosing the right tool)
+    42. Communicate Remotely (clear, specific, documented remote messages)
+    43. Transparency, Time Zones & Clients (visibility, time zones, remote clients)
+    44. Train Clients Remotely (training steps, LMS, the CLEAR framework)
+    45. Week 8 Terms Challenge (match terms to meanings)
   - **Exam Revision**
-    40. Exam Revision (mixed quiz across the study weeks, for AT/quiz prep)
+    46. Exam Revision (mixed quiz across the study weeks, for AT/quiz prep)
 - **Three ways to play:**
   - **Study Mode** — relaxed, nothing scored or saved
   - **Challenge Mode** — earn XP + stars, progress saved
